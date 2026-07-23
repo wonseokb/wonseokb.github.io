@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Wonseok Bae — personal academic site. One file. Edit text between the tags; short notes sit next to figure placeholders. -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wonseok Bae | Northwestern University</title>
+  <meta name="description" content="Wonseok Bae — postdoctoral scholar in experimental neutrino and astroparticle physics at Northwestern University. Rare-event searches with LEGEND and LZ.">
+  <meta name="author" content="Wonseok Bae">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wonseok Bae — Experimental Neutrino & Astroparticle Physics">
+  <meta property="og:description" content="Rare-event searches for neutrinoless double beta decay and dark matter. Postdoctoral scholar, Northwestern University.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1622'/%3E%3Cpath d='M3 24 Q9 22 13 21 T22 20 L24 9 L26 20 L29 20' fill='none' stroke='%236E9BD8' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================== DESIGN TOKENS — deep navy identity ===================== */
+    :root{
+      --paper:#F6F7FA;
+      --ink:#16202E;
+      --muted:#5C677A;
+      --accent:#1C3D6E;          /* deep navy blue — signature */
+      --accent-soft:rgba(28,61,110,0.09);
+      --link:#2B5FB3;
+      --hairline:#DCE1EA;
+      --card:#EDF0F6;
+      --navbar:#16335F;         /* deep navy nav bar */
+      --navbar-line:#16335F;
+      --navbar-accent:#8FB4E6;  /* active/hover underline on nav */
+      --maxw:840px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --paper:#0E1622;
+        --ink:#E4E9F2;
+        --muted:#8B97AC;
+        --accent:#6E9BD8;        /* lightened navy for dark bg */
+        --accent-soft:rgba(110,155,216,0.15);
+        --link:#86ABEC;
+        --hairline:#24303F;
+        --card:#16202E;
+        --navbar:#0A1220;
+        --navbar-line:#24303F;
+        --navbar-accent:#6E9BD8;
+      }
+    }
+
+    /* ===================== BASE ===================== */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+    body{
+      margin:0; background:var(--paper); color:var(--ink);
+      font-family:'Spectral', Palatino, 'Palatino Linotype', Georgia, serif;
+      font-size:18px; line-height:1.72; font-weight:400;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px}
+    :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+    sub,sup{line-height:0}
+
+    .skip{position:absolute; left:-999px; top:0; background:var(--accent); color:#fff; padding:8px 14px; z-index:100}
+    .skip:focus{left:8px; top:8px}
+
+    /* ===================== NAV ===================== */
+    nav{
+      position:fixed; top:0; left:0; right:0; z-index:50;
+      background:var(--navbar); border-bottom:1px solid var(--navbar-line);
+    }
+    .nav-inner{max-width:var(--maxw); margin:0 auto; padding:0 24px; height:56px;
+      display:flex; align-items:center; justify-content:center; gap:16px}
+    .nav-mark{font-weight:600; color:#fff; white-space:nowrap; background:none; border:0; cursor:pointer;
+      font-family:inherit; font-size:1rem; padding:0; letter-spacing:.01em}
+    .nav-mark:hover{color:var(--navbar-accent)}
+    .nav-links{display:flex; gap:22px; align-items:center; overflow-x:auto; scrollbar-width:none}
+    .nav-links::-webkit-scrollbar{display:none}
+    .nav-links a{
+      font-family:'IBM Plex Mono', monospace; font-size:.864rem; letter-spacing:.06em;
+      text-transform:uppercase; color:rgba(255,255,255,0.72); white-space:nowrap; padding:5px 0;
+      border-bottom:2px solid transparent;
+    }
+    .nav-links a:hover{color:#fff; text-decoration:none}
+    .nav-links a.active{color:#fff; border-bottom-color:var(--navbar-accent)}
+    @media (max-width:520px){ .nav-mark{display:none} .nav-inner{justify-content:center} }
+
+    /* ===================== PAGES (hash-routed) ===================== */
+    main{padding-top:54px}
+    .page{display:none}
+    .page.active{display:block; animation:fade .38s ease}
+    @keyframes fade{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+    @media (prefers-reduced-motion: reduce){ .page.active{animation:none} }
+
+    /* page header (non-home pages) */
+    .page-head{padding:48px 0 8px}
+    .eyebrow{
+      font-family:'IBM Plex Mono', monospace; font-size:.72rem; text-transform:uppercase;
+      letter-spacing:.2em; color:var(--accent); margin:0 0 14px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .eyebrow::before{content:""; width:14px; height:1px; background:var(--accent)}
+    h1.page-title{font-size:clamp(2rem,5vw,2.6rem); font-weight:600; letter-spacing:-.015em; margin:0 0 6px}
+    .page-sub{color:var(--muted); margin:0}
+
+    .block{padding:34px 0; border-top:1px solid var(--hairline)}
+    .block:first-of-type{border-top:0}
+    h2{font-size:1.4rem; font-weight:600; letter-spacing:-.01em; margin:0 0 14px}
+    p{margin:0 0 14px}
+    p:last-child{margin-bottom:0}
+    .lead-in{font-size:1.06rem}
+
+    /* ===================== HOME / HERO ===================== */
+    .hero{padding:58px 0 30px}
+    .hero-grid{display:grid; grid-template-columns:1fr; gap:26px; align-items:start}
+    @media (min-width:640px){ .hero-grid{grid-template-columns:1fr 210px} }
+    .hero h1{font-size:clamp(1.68rem,4.5vw,2.45rem); font-weight:600; line-height:1.04; letter-spacing:-.015em; margin:0 0 6px}
+    .hero h1 .deg{color:var(--accent); font-weight:500}
+    .hero .role{font-size:1.06rem; margin:0 0 4px}
+    .hero .place{color:var(--muted); margin:0 0 18px}
+    .hero .tagline{max-width:52ch; margin:0 0 20px}
+    .links{display:flex; flex-wrap:wrap; gap:8px}
+    .links a{
+      font-family:'IBM Plex Mono', monospace; font-size:.76rem; color:var(--ink);
+      border:1px solid var(--hairline); border-radius:999px; padding:5px 12px;
+      transition:border-color .15s, color .15s;
+    }
+    .links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+    .photo{
+      width:100%; max-width:210px; height:auto; display:block; justify-self:center;
+      border:1px solid var(--hairline); border-radius:6px; background:#fff;
+    }
+
+    /* ===================== EDUCATION ===================== */
+    .edu{display:flex; flex-direction:column; gap:14px}
+    .edu-item{display:grid; grid-template-columns:1fr auto; gap:2px 16px; align-items:baseline}
+    .edu-item .deg-line{font-weight:500}
+    .edu-item .sub{color:var(--muted); font-size:.92rem; grid-column:1/-1; margin:0}
+    .edu-item .yr{font-family:'IBM Plex Mono', monospace; font-size:.82rem; color:var(--muted); white-space:nowrap}
+
+    /* ===================== RESEARCH ===================== */
+    .exp + .exp{margin-top:34px; padding-top:34px; border-top:1px solid var(--hairline)}
+    .exp h3{font-size:1.22rem; font-weight:600; margin:0 0 4px}
+    .exp .kicker{font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.08em;
+      text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+    .contrib{border-left:2px solid var(--accent); background:var(--accent-soft);
+      padding:14px 18px; margin-top:16px; border-radius:0 4px 4px 0}
+    .contrib .tag{font-family:'IBM Plex Mono', monospace; font-size:.68rem; text-transform:uppercase;
+      letter-spacing:.14em; color:var(--accent); display:block; margin-bottom:6px}
+    .contrib p{margin:0}
+    .refnum{font-family:'IBM Plex Mono', monospace; font-size:.8em; color:var(--accent)}
+    .fig{border:1px dashed var(--hairline); background:var(--card); border-radius:4px;
+      min-height:150px; display:flex; align-items:center; justify-content:center;
+      text-align:center; color:var(--muted); padding:20px 16px; margin:2px 0 6px}
+    .fig .fig-inner{font-family:'IBM Plex Mono', monospace; font-size:.72rem; line-height:1.6; max-width:44ch}
+    figure{margin:0 0 8px}
+    figure img{width:100%; height:auto; border:1px solid var(--hairline); border-radius:4px; display:block}
+    figcaption{font-size:.84rem; color:var(--muted); margin-top:6px}
+
+    /* sub-tabs within Research */
+    .subnav{display:flex; gap:0 26px; flex-wrap:wrap; margin:4px 0 26px; border-bottom:1px solid var(--hairline)}
+    .subnav button{position:relative; font-family:'IBM Plex Mono', monospace; font-size:.92rem; letter-spacing:.04em;
+      background:none; border:0; cursor:pointer; color:var(--muted); padding:9px 0; margin:0;
+      border-bottom:2px solid transparent}
+    .subnav button + button::before{content:"|"; position:absolute; left:-15px; top:9px;
+      color:var(--muted); opacity:.4; font-weight:400; pointer-events:none}
+    .subnav button:hover{color:var(--accent)}
+    .subnav button.active{color:var(--ink); border-bottom-color:var(--accent)}
+    .subpage{display:none}
+    .subpage.active{display:block; animation:fade .3s ease}
+    .exp h2{font-size:1.3rem; font-weight:600; margin:28px 0 10px}
+    .exp h2:first-of-type{margin-top:0}
+    .rfig{margin:22px 0}
+    .rfig img{width:100%; height:auto; display:block; border:1px solid var(--hairline); border-radius:6px; background:#fff}
+    .rfig.narrow{max-width:420px; margin-left:auto; margin-right:auto}
+    .rfig figcaption{font-size:.9rem; color:var(--muted); margin-top:8px; line-height:1.55}
+    .rgrid{display:grid; grid-template-columns:1fr; gap:14px; margin:22px 0}
+    @media (min-width:620px){ .rgrid.two{grid-template-columns:1fr 1fr} }
+    .rgrid figure{margin:0}
+    .rgrid img{width:100%; height:auto; display:block; border:1px solid var(--hairline); border-radius:6px; background:#fff}
+    .rgrid figcaption{font-size:.9rem; color:var(--muted); margin-top:8px; line-height:1.55}
+    .rfig.sm{max-width:65%; margin-left:auto; margin-right:auto}
+    .rfig.w95{max-width:95%; margin-left:auto; margin-right:auto}
+    .rfig.w585{max-width:58.5%; margin-left:auto; margin-right:auto}
+    .rfig.w62{max-width:62%; margin-left:auto; margin-right:auto}
+    .rfig.w64{max-width:64%; margin-left:auto; margin-right:auto}
+    .rfig.w90{max-width:90%; margin-left:auto; margin-right:auto}
+    .rfig.w85{max-width:85%; margin-left:auto; margin-right:auto}
+    .rfig.w75{max-width:75%; margin-left:auto; margin-right:auto}
+    .rfig.w70{max-width:70%; margin-left:auto; margin-right:auto}
+    .rfig.w50{max-width:50%; margin-left:auto; margin-right:auto}
+    .rfig.w35{max-width:35%; margin-left:auto; margin-right:auto}
+    .rfig.w30{max-width:30%; margin-left:auto; margin-right:auto}
+    .rgrid.sm{max-width:70%; margin-left:auto; margin-right:auto}
+    .fignum{font-weight:600; color:var(--ink)}
+    @media (max-width:640px){ .rfig.sm,.rgrid.sm,.rfig.w95,.rfig.w90,.rfig.w85,.rfig.w75,.rfig.w70{max-width:100%} .rfig.w64,.rfig.w62,.rfig.w585,.rfig.w50,.rfig.w35,.rfig.w30{max-width:60%} }
+
+    /* ===================== RELATED PAPERS (inside Research) ===================== */
+    .related{margin-top:36px; padding-top:26px; border-top:1px solid var(--hairline)}
+    .related h2{font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:.12em;
+      font-size:.8rem; font-weight:500; color:var(--accent); margin:0 0 8px}
+    .related ol.pubs li{padding-top:12px; padding-bottom:12px}
+
+    /* ===================== PUBLICATIONS ===================== */
+    ol.pubs{list-style:none; counter-reset:pub; margin:0; padding:0}
+    ol.pubs li{counter-increment:pub; position:relative; padding:14px 0 14px 40px; border-bottom:1px solid var(--hairline)}
+    ol.pubs li:last-child{border-bottom:0}
+    ol.pubs li::before{content:counter(pub); position:absolute; left:0; top:15px;
+      font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--muted)}
+    .pub-title{display:block; margin-bottom:3px}
+    .pub-meta{color:var(--muted); font-size:.92rem}
+    .pub .me{color:var(--ink); font-weight:600}
+    .badge{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:.62rem;
+      text-transform:uppercase; letter-spacing:.1em; color:var(--accent);
+      border:1px solid var(--accent); border-radius:3px; padding:1px 6px; margin-left:6px; vertical-align:2px}
+    .pub-links{margin-top:5px; display:flex; flex-wrap:wrap; gap:6px}
+    .pub-links a{font-family:'IBM Plex Mono', monospace; font-size:.72rem; color:var(--muted);
+      border:1px solid var(--hairline); border-radius:3px; padding:2px 8px}
+    .pub-links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+
+    /* ===================== TALKS ===================== */
+    .talk-group{margin-bottom:24px}
+    .talk-group:last-child{margin-bottom:0}
+    .talk-group h3{font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:.1em;
+      font-size:.78rem; color:var(--muted); font-weight:500; margin:0 0 12px}
+    .talk{padding:11px 0; border-bottom:1px solid var(--hairline)}
+    .talk:last-child{border-bottom:0}
+    .talk .t-title{display:block}
+    .talk .t-where{color:var(--muted); font-size:.9rem}
+    .talk .t-yr{font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--accent)}
+
+    /* ===================== SKILLS ===================== */
+    dl.skills{margin:0}
+    dl.skills > div{display:grid; grid-template-columns:1fr; gap:2px; padding:11px 0; border-bottom:1px solid var(--hairline)}
+    @media (min-width:560px){ dl.skills > div{grid-template-columns:200px 1fr; gap:16px} }
+    dl.skills > div:last-child{border-bottom:0}
+    dl.skills dt{font-family:'IBM Plex Mono', monospace; font-size:.74rem; text-transform:uppercase;
+      letter-spacing:.08em; color:var(--accent); padding-top:2px}
+    dl.skills dd{margin:0}
+
+    /* ===================== CV BUTTON ===================== */
+    .cv-btn{display:inline-flex; align-items:center; gap:9px; font-family:'IBM Plex Mono', monospace;
+      font-size:.82rem; letter-spacing:.03em; color:#fff; background:var(--accent);
+      padding:10px 18px; border-radius:4px; border:1px solid var(--accent)}
+    .cv-btn:hover{text-decoration:none; filter:brightness(1.1)}
+
+    /* ===================== FOOTER ===================== */
+    footer{padding:40px 0 56px; border-top:1px solid var(--hairline); color:var(--muted); margin-top:20px}
+    footer .f-links{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0}
+    footer .f-links a{font-family:'IBM Plex Mono', monospace; font-size:.74rem; color:var(--ink);
+      border:1px solid var(--hairline); border-radius:999px; padding:4px 11px}
+    footer .f-links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+    footer .updated{font-family:'IBM Plex Mono', monospace; font-size:.72rem}
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#home">Skip to content</a>
+
+  <nav aria-label="Primary">
+    <div class="nav-inner">
+      <div class="nav-links">
+        <a href="#home"         data-page="home">Home</a>
+        <a href="#research"     data-page="research">Research</a>
+        <a href="#publications" data-page="publications">Publications</a>
+        <a href="#talks"        data-page="talks">Talks</a>
+        <a href="#notes"        data-page="notes">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ==================== PAGE: ABOUT (home) ==================== -->
+    <section class="page" id="page-home">
+      <div class="wrap">
+        <header class="hero">
+          <div class="hero-grid">
+            <div>
+              <h1>Wonseok Bae<span class="deg">, Ph.D.</span></h1>
+              <p class="role">Postdoctoral Scholar in Rare-Event Searches: Dark Matter, Neutrino, and Nuclear Physics</p>
+              <p class="place">Northwestern University — Department of Physics &amp; Astronomy</p>
+              <div class="links">
+                <a href="https://scholar.google.com/citations?hl=en&user=Hyh0YwgAAAAJ">Google Scholar</a>
+                <a href="https://inspirehep.net/authors/1732889">INSPIRE-HEP</a>
+                <a href="https://www.linkedin.com/in/wonseok-bae-52b914272/">LinkedIn</a>
+                <a href="cv.pdf">CV</a>
+              </div>
+            </div>
+            <img class="photo" src="images/Wonseok_Bae_halfbody.png" alt="Wonseok Bae">
+          </div>
+
+        </header>
+
+      </div>
+    </section>
+
+    <!-- ==================== PAGE: RESEARCH ==================== -->
+    <section class="page" id="page-research">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">Research</p>
+        </div>
+
+        <!-- sub-tabs: LEGEND / LZ / Detector R&D -->
+        <div class="subnav" role="tablist">
+          <button type="button" data-sub="legend" class="active">LEGEND</button>
+          <button type="button" data-sub="lz">LZ</button>
+          <button type="button" data-sub="rnd">Detector material characterization</button>
+          <button type="button" data-sub="vision">3D radiation tracker (planned)</button>
+        </div>
+
+        <!-- ---------- SUBPAGE: LEGEND ---------- -->
+        <!-- Figures: copy the named files from your thesis (overleaf) into images/. Rename L1000_signal&bkg.png -> L1000_signal_bkg.png (the "&" breaks web links). Figures numbered by page order. -->
+        <div class="subpage active" id="sub-legend">
+          <div class="exp">
+            <p class="kicker">Neutrinoless double beta decay</p>
+
+            <h2>Neutrinoless double beta decay</h2>
+            <p>One of the deepest puzzles in physics is why the universe is made of matter at all. Matter and antimatter should have emerged in almost equal amounts after the Big Bang and annihilated — yet a tiny excess of matter survived to build everything we see (Figure 1). Leptogenesis offers an explanation: if neutrinos are Majorana particles — their own antiparticles — heavy Majorana neutrinos in the early universe could have decayed to seed a lepton asymmetry that was later converted into today’s matter–antimatter imbalance. That same Majorana nature would reveal itself in a single rare nuclear decay.</p>
+            <div class="rfig sm">
+              <img src="images/LEGEND-leptogenesis.jpg" alt="Timeline of the universe from the Big Bang to today">
+              <figcaption><span class="fignum">Figure 1.</span> The history of the universe. A tiny matter–antimatter asymmetry in the early universe left behind all the matter we see today; leptogenesis, enabled by Majorana neutrinos, is a leading explanation. Credit: NASA / WMAP Science Team.</figcaption>
+            </div>
+            <p>That decay is neutrinoless double beta decay. In some even–even nuclei, two neutrons convert into two protons at once, emitting two electrons. Every such double beta decay seen so far also releases two antineutrinos (2νββ) — a rare process still allowed by the Standard Model. If the neutrino is a Majorana particle, the same transition can happen with no neutrinos at all: neutrinoless double beta decay, 0νββ (Figure 2). It has never been observed.</p>
+            <div class="rfig sm">
+              <img src="images/feynman_diagrams.jpg" alt="Feynman diagrams of 2-neutrino and neutrinoless double beta decay">
+              <figcaption><span class="fignum">Figure 2.</span> 2νββ (left) emits two antineutrinos; 0νββ (right) proceeds via light Majorana-neutrino exchange, with no neutrinos in the final state.</figcaption>
+            </div>
+            <p>The two modes are told apart by the summed energy of the electrons (Figure 3): 2νββ gives a broad continuum, while 0νββ would appear as a single sharp line at the decay’s Q-value (Q<sub>ββ</sub> ≈ 2039 keV for ⁷⁶Ge). Detecting that line would prove lepton number is violated, fix the absolute neutrino-mass scale, and bear on the matter–antimatter question above.</p>
+            <div class="rfig sm">
+              <img src="images/double_beta_spectrum3.png" alt="Summed electron energy spectrum: 2-neutrino continuum and 0-neutrino peak at Q-beta-beta">
+              <figcaption><span class="fignum">Figure 3.</span> Summed electron energy: the 2νββ continuum versus the monoenergetic 0νββ peak at Q<sub>ββ</sub> (linear, left; log, right). Not to scale.</figcaption>
+            </div>
+            <p>The measured half-life maps onto the effective Majorana mass m<sub>ββ</sub>. As Figure 4 shows, today’s searches are pushing toward the band predicted for the inverted mass ordering; LEGEND-1000 aims to cover it and reach into the normal-ordering region.</p>
+            <div class="rfig w62">
+              <img src="images/mbb_vs_mlightest.png" alt="Effective Majorana mass versus lightest neutrino mass with LEGEND sensitivity bands">
+              <figcaption><span class="fignum">Figure 4.</span> Effective Majorana mass vs lightest neutrino mass. Green = inverted ordering, red = normal; gray bands show the LEGEND-200 and LEGEND-1000 reach (NuFIT 6.0; KATRIN and Planck exclusions shown).</figcaption>
+            </div>
+            <p>Many isotopes and detector technologies compete in this search (Figure 5). ⁷⁶Ge stands out: germanium detectors have the best energy resolution (~0.1% at Q<sub>ββ</sub>), the crystal is both source and detector, and no known background makes a peak at Q<sub>ββ</sub>.</p>
+            <div class="rfig w70">
+              <img src="images/double_beta_decay_exps.jpg" alt="Landscape of 0-neutrino-double-beta-decay experiments: background versus exposure">
+              <figcaption><span class="fignum">Figure 5.</span> The 0νββ landscape — background vs exposure. Dashed lines mark discovery-sensitivity half-lives; LEGEND-1000 targets beyond 10²⁸ yr.</figcaption>
+            </div>
+
+            <h2>The LEGEND experiment</h2>
+            <p>LEGEND — the Large Enriched Germanium Experiment for Neutrinoless ββ Decay — searches for 0νββ in ⁷⁶Ge, building on the earlier GERDA and MAJORANA Demonstrator programs. It runs deep under the Gran Sasso massif (LNGS, Italy; Figure 6), where about 3600 m of water-equivalent rock cuts the cosmic-ray flux to a trickle.</p>
+            <div class="rfig w50">
+              <img src="images/LEGEND-200_LEGNED-1000_location.png" alt="LNGS underground laboratory beneath the Gran Sasso mountains">
+              <figcaption><span class="fignum">Figure 6.</span> LNGS, beneath the Gran Sasso mountains: LEGEND-200 in Hall A and the future LEGEND-1000 in Hall C.</figcaption>
+            </div>
+            <p>Germanium detector strings hang inside a liquid-argon cryostat that itself sits in a large water tank (Figure 7). Argon and water act as passive shields and active vetoes: particles scattering in the argon make 127 nm scintillation light — shifted by TPB and green WLS fibers and read out by SiPMs — while the water tank tags cosmic muons by their Cherenkov light. Figure 8 shows a single detector module wrapped in its WLS-fiber curtain, and Figure 9 the real hardware, with the fibers glowing under blue light.</p>
+            <div class="rfig w64">
+              <img src="images/L200_name_tag.png" alt="Schematic of the LEGEND-200 setup">
+              <figcaption><span class="fignum">Figure 7.</span> LEGEND-200: HPGe arrays in a liquid-argon cryostat, wrapped in wavelength-shifting reflectors and enclosed by a water-Cherenkov veto.</figcaption>
+            </div>
+            <div class="rfig sm">
+              <img src="images/LEGEND-200_module.png" alt="LEGEND-200 detector module, external view and cross-section">
+              <figcaption><span class="fignum">Figure 8.</span> A LEGEND-200 detector module: germanium strings inside the WLS light-guide-fiber curtain (external view and cross-section).</figcaption>
+            </div>
+            <div class="rfig sm">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+                <img src="images/LEGEND-200_module_picture.png" alt="LEGEND-200 module under white light">
+                <img src="images/LEGEND-200_module_picture_light.jpg" alt="LEGEND-200 module under blue light showing fiber fluorescence">
+              </div>
+              <figcaption><span class="fignum">Figure 9.</span> The real module under white light (left) and blue light (right), where the WLS fibers fluoresce.</figcaption>
+            </div>
+            <p>LEGEND runs in two stages. LEGEND-200 (~200 kg of enriched ⁷⁶Ge) has taken data since 2023 and targets half-lives near 10²⁷ yr. Its first search, combined with GERDA and MAJORANA, set a limit of T<sub>1/2</sub> &gt; 1.9×10²⁶ yr (90% C.L.), i.e. m<sub>ββ</sub> &lt; 75–200 meV. Background is beaten down by a layered veto — a muon veto, a multiplicity cut, pulse-shape discrimination, and the liquid-argon veto — whose effect on the spectrum is shown in Figures 10 and 11.</p>
+            <div class="rfig">
+              <img src="images/L200_result1.png" alt="LEGEND-200 energy spectrum before and after veto cuts">
+              <figcaption><span class="fignum">Figure 10.</span> LEGEND-200 spectrum (61 kg·yr): white = after muon + multiplicity cuts; red = after adding the LAr and PSD cuts. Inset zooms on Q<sub>ββ</sub>.</figcaption>
+            </div>
+            <div class="rfig w50">
+              <img src="images/L200_result2.png" alt="LEGEND-200 analysis window around Q-beta-beta">
+              <figcaption><span class="fignum">Figure 11.</span> The Q<sub>ββ</sub> analysis window; the dark line is the combined ⁷⁶Ge limit with GERDA and MAJORANA.</figcaption>
+            </div>
+            <p>LEGEND-1000 scales up to ~1000 kg and aims beyond 10²⁸ yr, which demands another order-of-magnitude cut in background (Figure 12). Key upgrades: underground-sourced argon (far less ⁴²Ar), an internal neutron moderator, and new scintillating-WLS (Sci-WLS) light-guide fibers. Figure 13 shows the projected background near Q<sub>ββ</sub>.</p>
+            <div class="rfig sm">
+              <img src="images/L1000_concept_design_big_name_tag.png" alt="Conceptual design of LEGEND-1000">
+              <figcaption><span class="fignum">Figure 12.</span> LEGEND-1000: germanium strings in underground-argon reentrant tubes, inside an argon cryostat with a neutron moderator, all within a water-Cherenkov veto.</figcaption>
+            </div>
+            <div class="rfig w50">
+              <img src="images/L1000_signal_bkg.png" alt="Projected LEGEND-1000 background spectrum near Q-beta-beta">
+              <figcaption><span class="fignum">Figure 13.</span> Projected LEGEND-1000 background near Q<sub>ββ</sub>, with a hypothetical 0νββ peak at T<sub>1/2</sub> = 10²⁸ yr.</figcaption>
+            </div>
+            <div class="related">
+              <h2>Related papers</h2>
+              <ol class="pubs">
+            <li class="pub">
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">First results on the search for lepton-number-violating neutrinoless double beta decay with the LEGEND-200 experiment</span>
+              <span class="pub-meta">LEGEND Collaboration, <em>Phys. Rev. Lett.</em> <strong>136</strong> (2026) 022701.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1103/25tk-nctn">DOI</a><a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">The Large Enriched Germanium Experiment for Neutrinoless ββ Decay: LEGEND-1000 preconceptual design report</span>
+              <span class="pub-meta">LEGEND Collaboration, arXiv:2107.11462 (2021).</span>
+              <div class="pub-links"><a href="https://arxiv.org/abs/2107.11462">arXiv:2107.11462</a></div>
+            </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- SUBPAGE: LZ ---------- -->
+        <div class="subpage" id="sub-lz">
+          <div class="exp">
+            <p class="kicker">Direct dark-matter search · other rare event searches</p>
+
+            <h2>Dark matter and WIMPs</h2>
+            <p>The universe contains far more mass than we can see. Its gravity shapes how galaxies rotate, binds clusters together, and molds the large-scale structure of the cosmos — yet it emits no light and has never been detected directly. This dark matter accounts for about a quarter of the total energy budget of the universe (Figure 1), and identifying it is one of the central goals of modern physics.</p>
+            <div class="rfig w585">
+              <img src="images/LZ-DM.jpg" alt="Pie chart of the energy budget of the universe">
+              <figcaption><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.</figcaption>
+            </div>
+            <p>A leading candidate is the weakly interacting massive particle (WIMP) — a heavy, electrically neutral particle that barely couples to ordinary matter. If WIMPs exist, they should occasionally strike an atomic nucleus (Figure 2) and deposit a tiny amount of energy. Direct-detection experiments try to catch those rare recoils inside a shielded, ultra-quiet detector deep underground.</p>
+            <div class="rfig w35">
+              <img src="images/LZ-WIMP.png" alt="Diagram of a WIMP interacting with Standard-Model particles">
+              <figcaption><span class="fignum">Figure 2.</span> A generic WIMP interaction: dark-matter particles (χ) couple to Standard-Model particles (f). The same coupling lets a halo WIMP scatter off a nucleus.</figcaption>
+            </div>
+
+            <h2>The LZ experiment</h2>
+            <p>LUX-ZEPLIN (LZ) is one of the world’s most sensitive WIMP searches. It runs about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota (Figure 3), where the rock overhead shields it from cosmic rays.</p>
+            <div class="rfig w62">
+              <img src="images/LZ-location.jpg" alt="Sanford Underground Research Facility location, deep underground in South Dakota">
+              <figcaption><span class="fignum">Figure 3.</span> LZ operates about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota.</figcaption>
+            </div>
+            <p>At its heart is a dual-phase xenon time projection chamber (TPC) holding seven tonnes of liquid xenon. When a particle scatters in the liquid it makes a prompt scintillation flash — the S1 signal. The ionization electrons it frees drift upward in an electric field into a thin gas layer, where they make a second, larger pulse — the S2 signal (Figure 4). Together the two fix the interaction’s depth (from the S1–S2 delay) and its horizontal position (from the S2 light pattern), and their ratio separates nuclear recoils, the WIMP-like signal, from electron-recoil events.</p>
+            <div class="rfig sm">
+              <img src="images/LZ-detector_logic.png" alt="Dual-phase xenon TPC working principle: S1 and S2 signals">
+              <figcaption><span class="fignum">Figure 4.</span> Dual-phase xenon TPC principle: a particle makes a prompt flash (S1); the freed electrons drift up and produce a second, larger flash (S2) in the gas. The S1–S2 timing gives the depth. Credit: LZ Collaboration.</figcaption>
+            </div>
+            <p>Two arrays of photomultiplier tubes (PMTs) above and below the xenon collect this light (Figure 5, Figure 6). LZ wraps the TPC in nested vetoes: a xenon “skin” region that tags gamma rays, and an outer detector of gadolinium-loaded liquid scintillator that catches neutrons. Every material is screened for radioactivity down to parts-per-trillion, and only the innermost xenon, shielded by the xenon around it, is used for the search.</p>
+            <div class="rfig sm">
+              <img src="images/LZ-detector_diagram.jpg" alt="Labeled schematic of the LZ detector">
+              <figcaption><span class="fignum">Figure 5.</span> The LZ detector: a 7-tonne liquid-xenon TPC read out by 494 PMTs, wrapped in a xenon-skin veto and a gadolinium-loaded liquid-scintillator outer detector, all inside a water tank. Credit: LZ Collaboration.</figcaption>
+            </div>
+            <div class="rfig sm">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start">
+                <img src="images/LZ-detector.png" alt="The assembled LZ xenon detector">
+                <img src="images/LZ-detector_top.png" alt="The LZ top PMT array viewed from above">
+              </div>
+              <figcaption><span class="fignum">Figure 6.</span> The assembled xenon detector (left) and its top PMT array viewed from above (right). Credit: LZ Collaboration.</figcaption>
+            </div>
+            <p>With this layered design, LZ has set among the world’s strongest limits on WIMP dark matter across a wide mass range (Figure 7). Every non-detection tightens the constraints and sharpens the search for whatever dark matter turns out to be.</p>
+            <div class="rfig w70">
+              <img src="images/LZ-performance.jpg" alt="LZ exclusion limit on the spin-independent WIMP-nucleon cross-section versus WIMP mass">
+              <figcaption><span class="fignum">Figure 7.</span> LZ’s limit on the spin-independent WIMP–nucleon cross-section (WS2022 + WS2024) — among the world’s strongest across a wide range of WIMP masses. Credit: LZ Collaboration.</figcaption>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- SUBPAGE: Detector material characterization ---------- -->
+        <div class="subpage" id="sub-rnd">
+          <div class="exp">
+            <p class="kicker">Scintillator &amp; wavelength-shifting materials</p>
+            <h2>Detector material characterization</h2>
+            <p>Scintillators and light-shifting materials are among the most widely used building blocks of experimental particle and nuclear physics. Plastic scintillators form the trigger counters, hodoscopes, and calorimeter tiles of collider and fixed-target experiments, and the active planes of many neutrino and cosmic-ray detectors. Liquid scintillators instrument large neutrino observatories and fast-neutron spectrometers. Wavelength shifters convert hard-to-collect ultraviolet scintillation light into a detectable band in noble-liquid time projection chambers and calorimeters. Scintillating fibers build high-resolution tracking detectors and beam monitors. The same materials run throughout applied radiation detection as well — medical imaging, nuclear security, and space instrumentation.</p>
+            <p>This research program characterizes such materials — plastic and liquid scintillators, wavelength shifters, and scintillating and wavelength-shifting fibers (Figure 1) — quantifying how each one performs before it is built into a detector.</p>
+            <div class="rfig sm">
+              <img src="images/Detector_material_characterization.png" alt="Detector materials: plastic scintillator, liquid scintillator, wavelength shifter, and scintillating fiber">
+              <figcaption><span class="fignum">Figure 1.</span> Representative detector materials: plastic scintillator, liquid scintillator, wavelength shifter, and scintillating fiber. Credit: Eljen Technology.</figcaption>
+            </div>
+            <p>The measurements span the quantities that govern detector performance: light yield, quenching factor, absorption and emission spectra, self-absorption, pulse-shape-discrimination (PSD) capability, and how these vary with temperature and dopant concentration.</p>
+            <p>The aim is not a single material but a systematic, long-term survey: characterizing a broad library of candidates — hundreds of them over time — and reporting useful, reproducible benchmarks to the research community and to industry.</p>
+            <p>These benchmarks also benefit large rare-event search programs such as LZ, XLZD, and LEGEND, whose veto detectors rely on well-understood light-collection materials. The characterization setup is deliberately simple — a light or radiation source, the material under test, and a DAQ system — compact and easy to build, and an excellent platform for training students across the full arc of an experiment, from hardware to analysis.</p>
+
+            <h2>Case study: scintillating and wavelength-shifting fibers</h2>
+            <p>Plastic scintillating and wavelength-shifting (WLS) fibers have been used since the 1980s — WLS fibers in MINOS, NOvA, GERDA, and LEGEND-200, scintillating fibers in DØ and the LHCb SciFi Tracker. Near ultra-low-background detectors, though, fiber choice is set by radiopurity as much as by optical performance, since impurities in the fiber itself generate background. Scintillating-wavelength-shifting (Sci-WLS) fibers, a recently developed class, are attractive because they add scintillation to wavelength shifting and light guiding — raising the possibility of self-tagging fiber-borne backgrounds in a veto.</p>
+            <p>Two papers benchmark these fibers: their optical behaviour — emission and absorption spectra, attenuation length, light-guiding efficiency — in <a href="https://doi.org/10.1088/1748-0221/21/01/P01027">Bae et al., JINST 21, P01027 (2026)</a>, and their response to ionizing radiation, the signal that makes self-tagging possible, in <a href="https://doi.org/10.1088/1748-0221/21/03/P03053">Bae et al., JINST 21, P03053 (2026)</a>. Together they give the numbers needed to judge whether Sci-WLS fibers can replace conventional WLS fibers in the LEGEND-1000 liquid-argon veto.</p>
+            <div class="related">
+              <h2>Related papers</h2>
+              <ol class="pubs">
+            <li class="pub">
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
+            </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <!-- ---------- SUBPAGE: Research vision ---------- -->
+        <div class="subpage" id="sub-vision">
+          <div class="exp">
+            <p class="kicker">Long-term plan · deployable instrumentation</p>
+            <h2>3D radiation tracker <span class="badge">Planned</span></h2>
+            <p>This is a long-term, planned direction. The goal is a compact, low-cost 3D radiation tracker — a general-purpose instrument that measures the rate, energy, direction, and type of an incoming radiation field, and is portable enough to be carried into the field rather than confined to a laboratory.</p>
+            <p>The concept is a 64-channel array of scintillator canes — an 8×8 bundle read out at both ends by SiPM arrays and a 64-channel DAQ. The light collected at the two ends of each cane reconstructs where energy is deposited in three dimensions, while pulse-shape discrimination identifies the type of radiation. Together these yield the rate, energy, direction, and particle type of the field — gamma rays, fast neutrons, and, depending on configuration, muons or beam particles.</p>
+            <div class="rfig sm">
+              <img src="images/3Dtracker_concept.svg" alt="Concept: an 8 by 8 array of scintillator canes with a particle track">
+              <figcaption><span class="fignum">Figure 1.</span> Concept: an 8×8 array of scintillator canes read out at both ends. The deposited energy and the track are reconstructed in 3D, and the pulse shape identifies the particle type.</figcaption>
+            </div>
+            <p>The aim is a deployable instrument rather than a single-experiment device: compact (on the order of 40×10×10 cm and under a kilogram) and rugged enough to mount on mobile platforms — legged robots, drones, or other remote carriers — for in-situ radiation-environment monitoring.</p>
+            <div class="rfig">
+              <div style="background:#fff; border:1px solid var(--hairline); border-radius:6px; padding:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; align-items:end">
+                <div style="text-align:center"><img src="images/3Dtracker_drone.svg" alt="Drone carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Drone</div></div>
+                <div style="text-align:center"><img src="images/3Dtracker_robotdog.svg" alt="Legged robot carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Legged robot</div></div>
+                <div style="text-align:center"><img src="images/3Dtracker_satellite.svg" alt="Small satellite carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Satellite</div></div>
+              </div>
+              <figcaption><span class="fignum">Figure 2.</span> A compact, rugged build could ride on mobile platforms — drones, legged robots, or small satellites — each carrying the detector module, for in-situ radiation-environment monitoring. (Original illustrations.)</figcaption>
+            </div>
+            <p>The plan draws its strength from the material-characterization work: because a broad library of scintillators and light-shifting materials has already been benchmarked, the optimal material can be chosen for each intended use — tuned for gamma sensitivity, fast-neutron discrimination, or timing — rather than settling for a single compromise. It also builds on the segmented-bar, dual-ended SiPM readout characterized in earlier work (<a href="https://doi.org/10.1016/j.nima.2019.02.063">Sweany et al., NIM A 927, 2019</a>).</p>
+            <div class="related">
+              <h2>Related papers</h2>
+              <ol class="pubs">
+            <li class="pub">
+              <span class="pub-title">Interaction position, time, and energy resolution in organic scintillator bars with dual-ended readout</span>
+              <span class="pub-meta">M. Sweany et al. (incl. <span class="me">W. Bae</span>), <em>Nucl. Instrum. Methods Phys. Res. A</em> <strong>927</strong> (2019) 451–462.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1016/j.nima.2019.02.063">DOI</a></div>
+            </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE: PUBLICATIONS ==================== -->
+    <!-- To add a paper: copy one <li>…</li> block and edit it. Wrap your name in <span class="me">W. Bae</span>. Add <span class="badge">Lead author</span> after the title for lead-author papers. -->
+    <section class="page" id="page-publications">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">Publications</p>
+          <h1 class="page-title">Selected publications</h1>
+          <p class="page-sub">Full list on <a href="https://inspirehep.net/authors/1732889">INSPIRE-HEP</a> and <a href="https://scholar.google.com/citations?hl=en&user=Hyh0YwgAAAAJ">Google Scholar</a>.</p>
+        </div>
+        <div class="block">
+          <ol class="pubs">
+            <li class="pub">
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">First results on the search for lepton-number-violating neutrinoless double beta decay with the LEGEND-200 experiment</span>
+              <span class="pub-meta">LEGEND Collaboration, <em>Phys. Rev. Lett.</em> <strong>136</strong> (2026) 022701.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1103/25tk-nctn">DOI</a><a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">The Large Enriched Germanium Experiment for Neutrinoless ββ Decay: LEGEND-1000 preconceptual design report</span>
+              <span class="pub-meta">LEGEND Collaboration, arXiv:2107.11462 (2021).</span>
+              <div class="pub-links"><a href="https://arxiv.org/abs/2107.11462">arXiv:2107.11462</a></div>
+            </li>
+            <li class="pub">
+              <span class="pub-title">Interaction position, time, and energy resolution in organic scintillator bars with dual-ended readout</span>
+              <span class="pub-meta">M. Sweany et al. (incl. <span class="me">W. Bae</span>), <em>Nucl. Instrum. Methods Phys. Res. A</em> <strong>927</strong> (2019) 451–462.</span>
+              <div class="pub-links"><a href="https://doi.org/10.1016/j.nima.2019.02.063">DOI</a></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE: TALKS ==================== -->
+    <!-- To add a talk: copy a <div class="talk">…</div> block. -->
+    <section class="page" id="page-talks">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">Talks</p>
+          <h1 class="page-title">Selected presentations</h1>
+        </div>
+        <div class="block">
+          <div class="talk-group">
+            <h3>Invited talks</h3>
+            <div class="talk">
+              <span class="t-title">LEGEND experiment and fiber studies</span>
+              <span class="t-where">Eljen Technology (scintillator manufacturer), Texas, USA · <span class="t-yr">2023, 2024, 2025</span></span>
+            </div>
+            <div class="talk">
+              <span class="t-title">Fiber studies for next-generation 0νββ searches in the LEGEND experiment</span>
+              <span class="t-where">HEAP seminar, University of California, Los Angeles, USA · <span class="t-yr">2025</span></span>
+            </div>
+          </div>
+          <div class="talk-group">
+            <h3>Conference talks</h3>
+            <div class="talk">
+              <span class="t-title">Fiber studies to improve the liquid-argon detector for LEGEND-1000</span>
+              <span class="t-where">APS Meeting (USA) &amp; KPS Meeting (South Korea), with Eljen Technology representatives · <span class="t-yr">2025</span></span>
+            </div>
+            <div class="talk">
+              <span class="t-title">Fiber studies for the LEGEND experiment</span>
+              <span class="t-where">LEGEND collaboration meetings · <span class="t-yr">2023, 2024, 2025, 2026</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PAGE: NOTES ==================== -->
+    <!-- To add an entry: copy one <div class="talk">…</div> block below and edit it (title, date, one line, and a link to the post or video). -->
+    <section class="page" id="page-notes">
+      <div class="wrap">
+        <div class="page-head">
+          <p class="eyebrow">Notes</p>
+          <h1 class="page-title">Notes</h1>
+          <p class="page-sub">Occasional writing and short videos on physics.</p>
+        </div>
+        <div class="block">
+          <!-- ENTRY TEMPLATE (copy, uncomment, and edit):
+          <div class="talk">
+            <span class="t-title"><a href="LINK">Title of the note or video</a></span>
+            <span class="t-where">One line on what it's about · <span class="t-yr">2026</span></span>
+          </div>
+          -->
+          <p style="color:var(--muted)">Nothing here yet — coming soon.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER (shows on every page) ==================== -->
+    <footer>
+      <div class="wrap">
+        <p class="eyebrow">Contact</p>
+        <p style="color:var(--ink); margin:0 0 2px"><a href="mailto:wonseok.bae@northwestern.edu">wonseok.bae@northwestern.edu</a></p>
+        <p style="margin:0">Department of Physics &amp; Astronomy, Northwestern University</p>
+        <p class="updated">Last updated: 2026-07-22</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    (function(){
+      var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+      var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+      function show(id){
+        if(!document.getElementById('page-'+id)) id = 'home';
+        pages.forEach(function(p){ p.classList.toggle('active', p.id === 'page-'+id); });
+        links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-page') === id); });
+        window.scrollTo(0, 0);
+      }
+      function current(){ return (location.hash || '#home').replace('#',''); }
+      window.addEventListener('hashchange', function(){ show(current()); });
+      show(current());
+    })();
+  </script>
+
+  <script>
+    (function(){
+      var btns = Array.prototype.slice.call(document.querySelectorAll('.subnav button'));
+      var subs = Array.prototype.slice.call(document.querySelectorAll('.subpage'));
+      btns.forEach(function(b){
+        b.addEventListener('click', function(){
+          var id = b.getAttribute('data-sub');
+          btns.forEach(function(x){ x.classList.toggle('active', x === b); });
+          subs.forEach(function(s){ s.classList.toggle('active', s.id === 'sub-' + id); });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
