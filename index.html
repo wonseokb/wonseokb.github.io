@@ -169,6 +169,7 @@
     /* sub-tabs within Research */
     .subnav{display:flex; gap:0 26px; flex-wrap:wrap; margin:4px 0 26px; border-bottom:1px solid var(--hairline)}
     .subnav button{position:relative; font-family:'IBM Plex Mono', monospace; font-size:.92rem; letter-spacing:.04em;
+      font-weight:700;
       background:none; border:0; cursor:pointer; color:var(--muted); padding:9px 0; margin:0;
       border-bottom:2px solid transparent}
     .subnav button + button::before{content:"|"; position:absolute; left:-15px; top:9px;
@@ -529,7 +530,7 @@
             <p>This is a long-term, planned direction. The goal is a compact, low-cost 3D radiation tracker — a general-purpose instrument that measures the rate, energy, direction, and type of an incoming radiation field, and is portable enough to be carried into the field rather than confined to a laboratory.</p>
             <p>The concept is a 64-channel array of scintillator canes — an 8×8 bundle read out at both ends by SiPM arrays and a 64-channel DAQ. The light collected at the two ends of each cane reconstructs where energy is deposited in three dimensions, while pulse-shape discrimination identifies the type of radiation. Together these yield the rate, energy, direction, and particle type of the field — gamma rays, fast neutrons, and, depending on configuration, muons or beam particles.</p>
             <div class="rfig sm">
-              <img src="images/3Dtracker_concept.svg" alt="Concept: an 8 by 8 array of scintillator canes with a particle track">
+              <img src="images/3Dtracker_concept.png" alt="Concept: an 8 by 8 array of scintillator canes with a particle track">
               <figcaption><span class="fignum">Figure 1.</span> Concept: an 8×8 array of scintillator canes read out at both ends. The deposited energy and the track are reconstructed in 3D, and the pulse shape identifies the particle type.<span class="credit">Original illustration by the author.</span></figcaption>
             </div>
             <p>The aim is a deployable instrument rather than a single-experiment device: compact (on the order of 40×10×10 cm and under a kilogram) and rugged enough to mount on mobile platforms — legged robots, drones, or other remote carriers — for in-situ radiation-environment monitoring.</p>
