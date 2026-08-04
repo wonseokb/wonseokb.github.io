@@ -8,15 +8,9 @@
   <meta name="description" content="Wonseok Bae — postdoctoral scholar in experimental neutrino and astroparticle physics at Northwestern University. Rare-event searches with LEGEND and LZ.">
   <meta name="author" content="Wonseok Bae">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Wonseok Bae">
-  <meta property="og:url" content="https://research-wbae.com/">
-  <meta property="og:title" content="Wonseok Bae — Rare-Event Searches: Dark Matter, Neutrino, and Nuclear Physics">
-  <meta property="og:image" content="https://research-wbae.com/images/LEGEND-leptogenesis.jpg">
-  <meta property="og:image:alt" content="Timeline of the universe from the Big Bang to today">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wonseok Bae — Rare-Event Searches: Dark Matter, Neutrino, and Nuclear Physics">
-  <meta name="twitter:image" content="https://research-wbae.com/images/LEGEND-leptogenesis.jpg">
-  <link rel="canonical" href="https://research-wbae.com/">
+  <meta property="og:title" content="Wonseok Bae — Experimental Neutrino & Astroparticle Physics">
+  <meta property="og:description" content="Rare-event searches for neutrinoless double beta decay and dark matter. Postdoctoral scholar, Northwestern University.">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230E1622'/%3E%3Cpath d='M3 24 Q9 22 13 21 T22 20 L24 9 L26 20 L29 20' fill='none' stroke='%236E9BD8' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,11 +191,21 @@
     figcaption .credit a{color:inherit; text-decoration:underline; text-underline-offset:2px}
     .rfig.sm{max-width:65%; margin-left:auto; margin-right:auto}
     .rfig.w95{max-width:95%; margin-left:auto; margin-right:auto}
+    .rfig.w825{max-width:82.5%; margin-left:auto; margin-right:auto}
+    .rfig.w78{max-width:78%; margin-left:auto; margin-right:auto}
+    .rfig.w77{max-width:77%; margin-left:auto; margin-right:auto}
+    .rfig.w715{max-width:71.5%; margin-left:auto; margin-right:auto}
     .rfig.w585{max-width:58.5%; margin-left:auto; margin-right:auto}
+    .rfig.w56{max-width:56%; margin-left:auto; margin-right:auto}
     .rfig.w62{max-width:62%; margin-left:auto; margin-right:auto}
+    .rfig.w60{max-width:60%; margin-left:auto; margin-right:auto}
+    .rfig.w625{max-width:62.5%; margin-left:auto; margin-right:auto}
     .rfig.w64{max-width:64%; margin-left:auto; margin-right:auto}
+    .rfig.w65{max-width:65%; margin-left:auto; margin-right:auto}
     .rfig.w90{max-width:90%; margin-left:auto; margin-right:auto}
     .rfig.w85{max-width:85%; margin-left:auto; margin-right:auto}
+    .rfig.w87{max-width:87%; margin-left:auto; margin-right:auto}
+    .rfig.w88{max-width:88%; margin-left:auto; margin-right:auto}
     .rfig.w75{max-width:75%; margin-left:auto; margin-right:auto}
     .rfig.w70{max-width:70%; margin-left:auto; margin-right:auto}
     .rfig.w50{max-width:50%; margin-left:auto; margin-right:auto}
@@ -209,7 +213,7 @@
     .rfig.w30{max-width:30%; margin-left:auto; margin-right:auto}
     .rgrid.sm{max-width:70%; margin-left:auto; margin-right:auto}
     .fignum{font-weight:600; color:var(--ink)}
-    @media (max-width:640px){ .rfig.sm,.rgrid.sm,.rfig.w95,.rfig.w90,.rfig.w85,.rfig.w75,.rfig.w70{max-width:100%} .rfig.w64,.rfig.w62,.rfig.w585,.rfig.w50,.rfig.w35,.rfig.w30{max-width:60%} }
+    @media (max-width:640px){ .rfig.sm,.rgrid.sm,.rfig.w95,.rfig.w90,.rfig.w88,.rfig.w87,.rfig.w85,.rfig.w825,.rfig.w78,.rfig.w77,.rfig.w75,.rfig.w715,.rfig.w70{max-width:100%} .rfig.w64,.rfig.w625,.rfig.w62,.rfig.w60,.rfig.w585,.rfig.w56,.rfig.w50,.rfig.w35,.rfig.w30{max-width:60%} }
 
     /* ===================== RELATED PAPERS (inside Research) ===================== */
     .related{margin-top:36px; padding-top:26px; border-top:1px solid var(--hairline)}
@@ -323,7 +327,6 @@
           <button type="button" data-sub="legend" class="active">LEGEND</button>
           <button type="button" data-sub="lz">LZ</button>
           <button type="button" data-sub="rnd">Detector material characterization</button>
-          <button type="button" data-sub="vision">3D radiation tracker (planned)</button>
         </div>
 
         <!-- ---------- SUBPAGE: LEGEND ---------- -->
@@ -333,76 +336,60 @@
             <p class="kicker">Neutrinoless double beta decay</p>
 
             <h2>Neutrinoless double beta decay</h2>
-            <p>One of the deepest puzzles in physics is why the universe is made of matter at all. Matter and antimatter should have emerged in almost equal amounts after the Big Bang and annihilated — yet a tiny excess of matter survived to build everything we see (Figure 1). Leptogenesis offers an explanation: if neutrinos are Majorana particles — their own antiparticles — heavy Majorana neutrinos in the early universe could have decayed to seed a lepton asymmetry that was later converted into today’s matter–antimatter imbalance. That same Majorana nature would reveal itself in a single rare nuclear decay.</p>
+            <p>One of the deepest puzzles in physics is why the universe is dominated by matter, with almost no antimatter. Matter and antimatter should have been created in nearly equal amounts in the early universe and then annihilated almost completely — yet a tiny excess of matter, about one part in a billion, survived to form everything we see today (Figure 1). Leptogenesis offers an explanation: if neutrinos are Majorana particles — their own antiparticles — heavy Majorana neutrinos in the early universe could have decayed to generate a lepton asymmetry, which Standard-Model processes later converted into the matter–antimatter imbalance we observe. That same Majorana nature would reveal itself in a single rare nuclear decay.</p>
             <div class="rfig sm">
               <img src="images/LEGEND-leptogenesis.jpg" alt="Timeline of the universe from the Big Bang to today">
-              <figcaption><span class="fignum">Figure 1.</span> The history of the universe. A tiny matter–antimatter asymmetry in the early universe left behind all the matter we see today; leptogenesis, enabled by Majorana neutrinos, is a leading explanation.<span class="credit">Image: NASA / WMAP Science Team. Not subject to copyright (NASA media usage guidelines); credit required.</span></figcaption>
+              <figcaption><span class="fignum">Figure 1.</span> The history of the universe. A tiny matter–antimatter asymmetry in the early universe left behind the matter that makes up everything we see today; leptogenesis, enabled by Majorana neutrinos, is a leading explanation for how that asymmetry arose.<span class="credit">Image: NASA / WMAP Science Team. Not subject to copyright (NASA media usage guidelines); credit required.</span></figcaption>
             </div>
             <p>That decay is neutrinoless double beta decay. In some even–even nuclei, two neutrons convert into two protons at once, emitting two electrons. Every such double beta decay seen so far also releases two antineutrinos (2νββ) — a rare process still allowed by the Standard Model. If the neutrino is a Majorana particle, the same transition can happen with no neutrinos at all: neutrinoless double beta decay, 0νββ (Figure 2). It has never been observed.</p>
-            <div class="rfig sm">
+            <div class="rfig w75">
               <img src="images/feynman_diagrams.jpg" alt="Feynman diagrams of 2-neutrino and neutrinoless double beta decay">
-              <figcaption><span class="fignum">Figure 2.</span> 2νββ (left) emits two antineutrinos; 0νββ (right) proceeds via light Majorana-neutrino exchange, with no neutrinos in the final state.<span class="credit">Figure by the author, from W. Bae, <em>Advancing the liquid-argon active veto for the LEGEND experiment</em>, PhD dissertation, UT Austin (2026).</span></figcaption>
+              <figcaption><span class="fignum">Figure 2.</span> 2νββ (left) emits two antineutrinos; 0νββ (right) proceeds via light Majorana-neutrino exchange, with no neutrinos in the final state.</figcaption>
             </div>
-            <p>The two modes are told apart by the summed energy of the electrons (Figure 3): 2νββ gives a broad continuum, while 0νββ would appear as a single sharp line at the decay’s Q-value (Q<sub>ββ</sub> ≈ 2039 keV for ⁷⁶Ge). Detecting that line would prove lepton number is violated, fix the absolute neutrino-mass scale, and bear on the matter–antimatter question above.</p>
-            <div class="rfig sm">
+            <p>The two modes are told apart by the summed energy of the electrons (Figure 3): 2νββ gives a broad continuum, while 0νββ would appear as a single sharp line at the decay’s Q-value (Q<sub>ββ</sub> ≈ 2039 keV for <sup>76</sup>Ge). Detecting that line would prove lepton number is violated and bear on the matter–antimatter question above.</p>
+            <div class="rfig w78">
               <img src="images/double_beta_spectrum3.png" alt="Summed electron energy spectrum: 2-neutrino continuum and 0-neutrino peak at Q-beta-beta">
-              <figcaption><span class="fignum">Figure 3.</span> Summed electron energy: the 2νββ continuum versus the monoenergetic 0νββ peak at Q<sub>ββ</sub> (linear, left; log, right). Not to scale.<span class="credit">Figure by the author, from W. Bae, <em>Advancing the liquid-argon active veto for the LEGEND experiment</em>, PhD dissertation, UT Austin (2026).</span></figcaption>
+              <figcaption><span class="fignum">Figure 3.</span> Summed electron energy: the 2νββ continuum versus the monoenergetic 0νββ peak at Q<sub>ββ</sub> (linear, left; log, right). Not to scale.</figcaption>
             </div>
             <p>The measured half-life maps onto the effective Majorana mass m<sub>ββ</sub>. As Figure 4 shows, today’s searches are pushing toward the band predicted for the inverted mass ordering; LEGEND-1000 aims to cover it and reach into the normal-ordering region.</p>
             <div class="rfig w62">
               <img src="images/mbb_vs_mlightest.png" alt="Effective Majorana mass versus lightest neutrino mass with LEGEND sensitivity bands">
-              <figcaption><span class="fignum">Figure 4.</span> Effective Majorana mass vs lightest neutrino mass. Green = inverted ordering, red = normal; gray bands show the LEGEND-200 and LEGEND-1000 reach (NuFIT 6.0; KATRIN and Planck exclusions shown).<span class="credit">Figure by the author, from W. Bae, <em>Advancing the liquid-argon active veto for the LEGEND experiment</em>, PhD dissertation, UT Austin (2026).</span></figcaption>
+              <figcaption><span class="fignum">Figure 4.</span> Effective Majorana mass vs lightest neutrino mass. Green = inverted ordering, red = normal; gray bands show the LEGEND-200 and LEGEND-1000 reach (NuFIT 6.0; KATRIN and Planck exclusions shown).</figcaption>
             </div>
-            <p>Many isotopes and detector technologies compete in this search (Figure 5). ⁷⁶Ge stands out: germanium detectors have the best energy resolution (~0.1% at Q<sub>ββ</sub>), the crystal is both source and detector, and no known background makes a peak at Q<sub>ββ</sub>.</p>
-            <div class="rfig w70">
+            <p>Many isotopes and detector technologies have been applied to this search — in past experiments, in those running now, and in others planned for the future (Figure 5). <sup>76</sup>Ge stands out: germanium detectors have the best energy resolution (~0.1% at Q<sub>ββ</sub>), the crystal is both source and detector, and no known background makes a peak near Q<sub>ββ</sub>.</p>
+            <div class="rfig w87">
               <img src="images/double_beta_decay_exps.jpg" alt="Landscape of 0-neutrino-double-beta-decay experiments: background versus exposure">
-              <figcaption><span class="fignum">Figure 5.</span> The 0νββ landscape — background vs exposure. Dashed lines mark discovery-sensitivity half-lives; LEGEND-1000 targets beyond 10²⁸ yr.<span class="credit">From M. Agostini, G. Benato, J. A. Detwiler, J. Menéndez and F. Vissani, <a href="https://arxiv.org/abs/2202.01787">arXiv:2202.01787</a> — Rev. Mod. Phys. <strong>95</strong>, 025002 (2023). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <figcaption><span class="fignum">Figure 5.</span> The 0νββ landscape — background vs exposure. Dashed lines mark discovery-sensitivity half-lives; LEGEND-1000 targets beyond 10<sup>28</sup> yr.<span class="credit">From M. Agostini, G. Benato, J. A. Detwiler, J. Menéndez and F. Vissani, <a href="https://arxiv.org/abs/2202.01787">arXiv:2202.01787</a> — Rev. Mod. Phys. <strong>95</strong>, 025002 (2023). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
 
             <h2>The LEGEND experiment</h2>
-            <p>LEGEND — the Large Enriched Germanium Experiment for Neutrinoless ββ Decay — searches for 0νββ in ⁷⁶Ge, building on the earlier GERDA and MAJORANA Demonstrator programs. It runs deep under the Gran Sasso massif (LNGS, Italy; Figure 6), where about 3600 m of water-equivalent rock cuts the cosmic-ray flux to a trickle.</p>
-            <div class="rfig w50">
-              <img src="images/LEGEND-200_LEGNED-1000_location.png" alt="LNGS underground laboratory beneath the Gran Sasso mountains">
-              <figcaption><span class="fignum">Figure 6.</span> LNGS, beneath the Gran Sasso mountains: LEGEND-200 in Hall A and the future LEGEND-1000 in Hall C.<span class="credit">Illustration: LNGS / INFN (gallery ref. MISC-014). LEGEND-200 and LEGEND-1000 labels added by the author.</span></figcaption>
-              <!-- CREDIT TODO: permission not yet requested from LNGS/INFN - do not add "used with permission" until granted -->
+            <p>LEGEND — the Large Enriched Germanium Experiment for Neutrinoless ββ Decay — searches for 0νββ in <sup>76</sup>Ge, building on the earlier GERDA and MAJORANA Demonstrator programs. It runs deep under the Gran Sasso mountains in central Italy (Figure 6), where about 3600 m of water-equivalent rock overhead shields it from cosmic rays.</p>
+            <div class="rfig w625">
+              <img src="images/LEGEND-location.png" alt="Geological cross-section and hall layout of the LNGS underground laboratory beneath the Gran Sasso mountains">
+              <figcaption><span class="fignum">Figure 6.</span> The LNGS underground laboratory beneath the Gran Sasso mountains: a geological cross-section (top) and the layout of the three experimental halls (bottom). LEGEND-200 is housed in Hall A; the future LEGEND-1000 will be sited in Hall C.<span class="credit">Figure adapted from R. Guidotti &amp; A. Castellani, <a href="https://doi.org/10.5772/intechopen.76853">&ldquo;Tunnel Vaults under Seismic Excitation&rdquo;</a>, IntechOpen (2018), Fig. 3. Licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. LEGEND-200 and LEGEND-1000 labels added by the author.</span></figcaption>
             </div>
-            <p>Germanium detector strings hang inside a liquid-argon cryostat that itself sits in a large water tank (Figure 7). Argon and water act as passive shields and active vetoes: particles scattering in the argon make 127 nm scintillation light — shifted by TPB and green WLS fibers and read out by SiPMs — while the water tank tags cosmic muons by their Cherenkov light. Figure 8 shows a single detector module wrapped in its WLS-fiber curtain, and Figure 9 the real hardware, with the fibers glowing under blue light.</p>
-            <div class="rfig w64">
-              <img src="images/L200_name_tag.png" alt="Schematic of the LEGEND-200 setup">
-              <figcaption><span class="fignum">Figure 7.</span> LEGEND-200: HPGe arrays in a liquid-argon cryostat, wrapped in wavelength-shifting reflectors and enclosed by a water-Cherenkov veto.<span class="credit">Source: LEGEND Collaboration. Labels added by the author.</span></figcaption>
-              <!-- CREDIT TODO: confirm original source (paper / pCDR / Confluence) and permission status -->
+            <p>Germanium detector strings hang inside a liquid-argon cryostat that itself sits in a large water tank (Figure 7). Liquid argon acts as both a passive shield and an active veto: particles scattering in it produce 127 nm scintillation light — shifted by TPB and green WLS fibers and read out by SiPMs. Figure 7 also zooms into a single detector string, showing the WLS fiber shrouds and an HPGe detector on its support plate.</p>
+            <div class="rfig w825">
+              <img src="images/LEGEND-200.png" alt="LEGEND-200 setup rendering and a zoomed view of an HPGe detector string with WLS fiber shrouds">
+              <figcaption><span class="fignum">Figure 7.</span> Left: the LEGEND-200 setup, with the germanium strings and wavelength-shifting reflector (WLSR) inside the liquid-argon cryostat, surrounded by the water-tank PMT veto. Right: a detector string showing the WLS fiber shrouds and a single HPGe detector on its PEN support plate.<span class="credit">From N. Burlac (on behalf of the LEGEND Collaboration), <a href="https://doi.org/10.1016/j.nima.2025.170779">Nucl. Instrum. Methods A</a> <strong>1080</strong>, 170779 (2025). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
-            <div class="rfig sm">
-              <img src="images/LEGEND-200_module.png" alt="LEGEND-200 detector module, external view and cross-section">
-              <figcaption><span class="fignum">Figure 8.</span> A LEGEND-200 detector module: germanium strings inside the WLS light-guide-fiber curtain (external view and cross-section).<span class="credit">Source: LEGEND Collaboration.</span></figcaption>
-              <!-- CREDIT TODO: confirm original source and permission status -->
-            </div>
-            <div class="rfig sm">
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
-                <img src="images/LEGEND-200_module_picture.png" alt="LEGEND-200 module under white light">
-                <img src="images/LEGEND-200_module_picture_light.jpg" alt="LEGEND-200 module under blue light showing fiber fluorescence">
-              </div>
-              <figcaption><span class="fignum">Figure 9.</span> The real module under white light (left) and blue light (right), where the WLS fibers fluoresce.<span class="credit">Photos: LEGEND Collaboration.</span></figcaption>
-              <!-- CREDIT TODO: LEGEND Confluence photos - name the individual photographer and get sign-off (V. Guiseppe owns the public-images space) -->
-            </div>
-            <p>LEGEND runs in two stages. LEGEND-200 (~200 kg of enriched ⁷⁶Ge) has taken data since 2023 and targets half-lives near 10²⁷ yr. Its first search, combined with GERDA and MAJORANA, set a limit of T<sub>1/2</sub> &gt; 1.9×10²⁶ yr (90% C.L.), i.e. m<sub>ββ</sub> &lt; 75–200 meV. Background is beaten down by a layered veto — a muon veto, a multiplicity cut, pulse-shape discrimination, and the liquid-argon veto — whose effect on the spectrum is shown in Figures 10 and 11.</p>
+            <p>LEGEND runs in two stages. LEGEND-200 (~200 kg of enriched <sup>76</sup>Ge) has taken data since 2023 and targets half-lives near 10<sup>27</sup> yr. Its first search, combined with GERDA and MAJORANA, set a limit of T<sub>1/2</sub> &gt; 1.9×10<sup>26</sup> yr (90% C.L.), i.e. m<sub>ββ</sub> &lt; 75–200 meV. Background is beaten down by a layered veto — a muon veto, a multiplicity cut, pulse-shape discrimination, and the liquid-argon veto — whose effect on the spectrum is shown in Figures 8 and 9.</p>
             <div class="rfig">
               <img src="images/L200_result1.png" alt="LEGEND-200 energy spectrum before and after veto cuts">
-              <figcaption><span class="fignum">Figure 10.</span> LEGEND-200 spectrum (61 kg·yr): white = after muon + multiplicity cuts; red = after adding the LAr and PSD cuts. Inset zooms on Q<sub>ββ</sub>.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a> — Phys. Rev. Lett. <strong>136</strong>, 022701 (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <figcaption><span class="fignum">Figure 8.</span> LEGEND-200 spectrum (61 kg·yr): white = after muon + multiplicity cuts; red = after adding the LAr and PSD cuts. Inset zooms on Q<sub>ββ</sub>.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a> — Phys. Rev. Lett. <strong>136</strong>, 022701 (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
-            <div class="rfig w50">
+            <div class="rfig w60">
               <img src="images/L200_result2.png" alt="LEGEND-200 analysis window around Q-beta-beta">
-              <figcaption><span class="fignum">Figure 11.</span> The Q<sub>ββ</sub> analysis window; the dark line is the combined ⁷⁶Ge limit with GERDA and MAJORANA.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a> — Phys. Rev. Lett. <strong>136</strong>, 022701 (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <figcaption><span class="fignum">Figure 9.</span> The Q<sub>ββ</sub> analysis window; the dark line is the combined <sup>76</sup>Ge limit with GERDA and MAJORANA.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a> — Phys. Rev. Lett. <strong>136</strong>, 022701 (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
-            <p>LEGEND-1000 scales up to ~1000 kg and aims beyond 10²⁸ yr, which demands another order-of-magnitude cut in background (Figure 12). Key upgrades: underground-sourced argon (far less ⁴²Ar), an internal neutron moderator, and new scintillating-WLS (Sci-WLS) light-guide fibers. Figure 13 shows the projected background near Q<sub>ββ</sub>.</p>
-            <div class="rfig sm">
+            <p>LEGEND-1000 scales up to ~1000 kg and aims beyond 10<sup>28</sup> yr, which demands another order-of-magnitude cut in background (Figure 10). Key upgrades: underground-sourced argon (far less <sup>42</sup>Ar), an internal neutron moderator, and new light-guide fibers. Figure 11 shows the projected background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation.</p>
+            <div class="rfig w715">
               <img src="images/L1000_concept_design_big_name_tag.png" alt="Conceptual design of LEGEND-1000">
-              <figcaption><span class="fignum">Figure 12.</span> LEGEND-1000: germanium strings in underground-argon reentrant tubes, inside an argon cryostat with a neutron moderator, all within a water-Cherenkov veto.<span class="credit">Source: LEGEND Collaboration.</span></figcaption>
-              <!-- CREDIT TODO: likely the LEGEND-1000 pCDR (arXiv:2107.11462) - check that arXiv entry for a CC badge; if none, request permission -->
+              <figcaption><span class="fignum">Figure 10.</span> LEGEND-1000: germanium strings in underground-argon reentrant tubes, inside an argon cryostat with a neutron moderator, all within a water-Cherenkov veto.<span class="credit">CAD rendering by P. Krause / LEGEND Collaboration, from the collaboration's internal wiki (<a href="https://legend-exp.atlassian.net/wiki/home">legend-exp.atlassian.net/wiki</a>), where the original is used in LEGEND-1000 design-overview documentation shared within the collaboration. Labels added by the author.</span></figcaption>
             </div>
-            <div class="rfig w75">
+            <div class="rfig w88">
               <img src="images/L1000_signal_bkg.png" alt="Projected LEGEND-1000 background spectrum near Q-beta-beta">
-              <figcaption><span class="fignum">Figure 13.</span> Projected LEGEND-1000 background near Q<sub>ββ</sub>, with a hypothetical 0νββ peak at T<sub>1/2</sub> = 10²⁸ yr.<span class="credit">From LEGEND Collaboration, <em>LEGEND-1000 Preconceptual Design Report</em>, <a href="https://doi.org/10.48550/arXiv.2107.11462">arXiv:2107.11462</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <figcaption><span class="fignum">Figure 11.</span> Projected LEGEND-1000 background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation, showing a hypothetical 0νββ peak at T<sub>1/2</sub> = 10<sup>28</sup> yr.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2107.11462">arXiv:2107.11462</a> — LEGEND-1000 Preconceptual Design Report (2021). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
             <div class="related">
               <h2>Related papers</h2>
@@ -444,25 +431,23 @@
               <figcaption><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.<span class="credit">From M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a> — SciPost Phys. Rev. <strong>1</strong> (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
             <p>A leading candidate is the weakly interacting massive particle (WIMP) — a heavy, electrically neutral particle that barely couples to ordinary matter. If WIMPs exist, they should occasionally strike an atomic nucleus (Figure 2) and deposit a tiny amount of energy. Direct-detection experiments try to catch those rare recoils inside a shielded, ultra-quiet detector deep underground.</p>
-            <div class="rfig w35">
-              <img src="images/LZ-WIMP.png" alt="Diagram of a WIMP interacting with Standard-Model particles">
-              <figcaption><span class="fignum">Figure 2.</span> A generic WIMP interaction: dark-matter particles (χ) couple to Standard-Model particles (f). The same coupling lets a halo WIMP scatter off a nucleus.</figcaption>
-              <!-- CREDIT TODO: SOURCE UNKNOWN - identify, or redraw (a simple 4-leg diagram is trivial to remake and then it is yours) -->
+            <div class="rfig w56">
+              <img src="images/WIMP-nucleus-scattering.svg" alt="Feynman diagram of a WIMP scattering elastically off an atomic nucleus">
+              <figcaption><span class="fignum">Figure 2.</span> A WIMP (χ) scatters elastically off an atomic nucleus (N) by exchanging a mediator, transferring a small recoil energy — the signal that direct-detection experiments try to catch.</figcaption>
             </div>
 
             <h2>The LZ experiment</h2>
             <p>LUX-ZEPLIN (LZ) is one of the world’s most sensitive WIMP searches. It runs about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota (Figure 3), where the rock overhead shields it from cosmic rays.</p>
             <div class="rfig w62">
               <img src="images/LZ-location.jpg" alt="Sanford Underground Research Facility location, deep underground in South Dakota">
-              <figcaption><span class="fignum">Figure 3.</span> LZ operates about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota.<span class="credit">Illustration: Sanford Underground Research Facility. “LZ experiment” label added by the author.</span></figcaption>
-              <!-- CREDIT TODO: attribution UNCONFIRMED (could be SURF, LBNL or Fermilab/Symmetry) - reverse-image-search, then fix. SDSTA is a state agency, so there is no federal public-domain exemption here -->
+              <figcaption><span class="fignum">Figure 3.</span> LZ operates about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota.<span class="credit">Illustration: Greg Stewart / SLAC National Accelerator Laboratory.</span></figcaption>
             </div>
-            <p>At its heart is a dual-phase xenon time projection chamber (TPC) holding seven tonnes of liquid xenon. When a particle scatters in the liquid it makes a prompt scintillation flash — the S1 signal. The ionization electrons it frees drift upward in an electric field into a thin gas layer, where they make a second, larger pulse — the S2 signal (Figure 4). Together the two fix the interaction’s depth (from the S1–S2 delay) and its horizontal position (from the S2 light pattern), and their ratio separates nuclear recoils, the WIMP-like signal, from electron-recoil events.</p>
+            <p>At its heart is a dual-phase xenon time projection chamber (TPC) holding seven tonnes of liquid xenon. When a particle scatters in the liquid it makes a prompt scintillation flash — the S1 signal. The ionization electrons it frees drift upward in an electric field into a thin gas layer, where they make a second, larger pulse — the S2 signal (Figure 4). Together, the S1–S2 delay gives the interaction’s depth, while the S1 and S2 light patterns give its horizontal position and energy; combining the S1 and S2 signals is what picks out the WIMP-like signal.</p>
             <div class="rfig sm">
               <img src="images/LZ-detector_logic.png" alt="Dual-phase xenon TPC working principle: S1 and S2 signals">
-              <figcaption><span class="fignum">Figure 4.</span> Dual-phase xenon TPC principle: a particle makes a prompt flash (S1); the freed electrons drift up and produce a second, larger flash (S2) in the gas. The S1–S2 timing gives the depth.<span class="credit">Adapted from LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Relabelled by the author.</span></figcaption>
+              <figcaption><span class="fignum">Figure 4.</span> Dual-phase xenon TPC principle: a particle makes a prompt flash (S1); the freed electrons drift up and produce a second, larger flash (S2) in the gas.<span class="credit">Adapted from LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Relabelled by the author.</span></figcaption>
             </div>
-            <p>Two arrays of photomultiplier tubes (PMTs) above and below the xenon collect this light (Figure 5, Figure 6). LZ wraps the TPC in nested vetoes: a xenon “skin” region that tags gamma rays, and an outer detector of gadolinium-loaded liquid scintillator that catches neutrons. Every material is screened for radioactivity down to parts-per-trillion, and only the innermost xenon, shielded by the xenon around it, is used for the search.</p>
+            <p>Two arrays of photomultiplier tubes (PMTs) above and below the xenon collect this light (Figure 5, Figure 6). LZ wraps the TPC in nested vetoes: a xenon “skin” region that tags gamma rays, and an outer detector of gadolinium-loaded liquid scintillator that catches neutrons, and PMTs in the surrounding water tank that flag cosmic muons by their Cherenkov light.</p>
             <div class="rfig sm">
               <img src="images/LZ-detector_diagram.jpg" alt="Labeled schematic of the LZ detector">
               <figcaption><span class="fignum">Figure 5.</span> The LZ detector. A 7-tonne liquid-xenon TPC (1) sits at the centre of a water tank (2), viewed by top (3) and bottom (4) PMT arrays and held in a double-walled titanium cryostat (5). Gadolinium-loaded liquid scintillator (6) surrounds it, read out by its own PMTs (7) in the water; xenon-skin PMTs sit in the dome (8), and cabling leaves through the top (9) and bottom (10) conduits.<span class="credit">From LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
@@ -472,10 +457,9 @@
                 <img src="images/LZ-detector.png" alt="The assembled LZ xenon detector">
                 <img src="images/LZ-detector_top.png" alt="The LZ top PMT array viewed from above">
               </div>
-              <figcaption><span class="fignum">Figure 6.</span> The assembled xenon detector (left) and its top PMT array viewed from above (right).<span class="credit">Photos: LZ Collaboration.</span></figcaption>
-              <!-- CREDIT TODO: LZ credits photos per institution (SLAC, Brown, BNL, Berkeley Lab...) - find the per-image credit on lz.lbl.gov/photos and use it -->
+              <figcaption><span class="fignum">Figure 6.</span> The assembled xenon detector (left) and its top PMT array viewed from above (right).<span class="credit">Photos by Matthew Kapust, Sanford Underground Research Facility, used with permission. From D.S. Akerib et al., <a href="https://doi.org/10.1016/j.nima.2019.163047">Nucl. Instrum. Methods A</a> <strong>953</strong>, 163047 (2020), Figs. 2–3.</span></figcaption>
             </div>
-            <p>With this layered design, LZ has set among the world’s strongest limits on WIMP dark matter across a wide mass range (Figure 7). Every non-detection tightens the constraints and sharpens the search for whatever dark matter turns out to be.</p>
+            <p>With this layered design, LZ has set among the world’s strongest limits on WIMP dark matter across a wide mass range (Figure 7).</p>
             <div class="rfig w70">
               <img src="images/LZ-performance.jpg" alt="LZ exclusion limit on the spin-independent WIMP-nucleon cross-section versus WIMP mass">
               <figcaption><span class="fignum">Figure 7.</span> LZ’s limit on the spin-independent WIMP–nucleon cross-section (WS2022 + WS2024) — among the world’s strongest across a wide range of WIMP masses.<span class="credit">From LZ Collaboration, <a href="https://arxiv.org/abs/2410.17036">arXiv:2410.17036</a> — Phys. Rev. Lett. <strong>135</strong>, 011802 (2025). Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.</span></figcaption>
@@ -488,23 +472,23 @@
           <div class="exp">
             <p class="kicker">Scintillator &amp; wavelength-shifting materials</p>
             <h2>Detector material characterization</h2>
-            <p>Scintillators and light-shifting materials are among the most widely used building blocks of experimental particle and nuclear physics. Plastic scintillators form the trigger counters, hodoscopes, and calorimeter tiles of collider and fixed-target experiments, and the active planes of many neutrino and cosmic-ray detectors. Liquid scintillators instrument large neutrino observatories and fast-neutron spectrometers. Wavelength shifters convert hard-to-collect ultraviolet scintillation light into a detectable band in noble-liquid time projection chambers and calorimeters. Scintillating fibers build high-resolution tracking detectors and beam monitors. The same materials run throughout applied radiation detection as well — medical imaging, nuclear security, and space instrumentation.</p>
-            <p>This research program characterizes such materials — plastic and liquid scintillators, wavelength shifters, and scintillating and wavelength-shifting fibers (Figure 1) — quantifying how each one performs before it is built into a detector.</p>
+            <p>Scintillators and light-shifting materials are widely used in experimental particle and nuclear physics. Plastic scintillators form the trigger counters, hodoscopes, and calorimeter tiles of collider and fixed-target experiments, and the active planes of many neutrino and cosmic-ray detectors. Liquid scintillators instrument large neutrino observatories and fast-neutron spectrometers. Wavelength shifters convert hard-to-collect ultraviolet scintillation light into a detectable band in noble-liquid time projection chambers and calorimeters. Scintillating fibers build high-resolution tracking detectors and beam monitors. The same materials run throughout applied radiation detection as well — medical imaging, nuclear security, and space instrumentation.</p>
+            <p>This research program characterizes such materials — plastic and liquid scintillators, wavelength shifters, and scintillating and wavelength-shifting fibers (Figure 1).</p>
             <div class="rfig">
-              <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; align-items:start">
-                <img src="images/Material-Scintillators.jpg" alt="Inorganic scintillation crystals fluorescing under ultraviolet light">
-                <img src="images/Material-WLS.jpg" alt="Two vials showing Stokes and anti-Stokes emission under green laser excitation">
-                <img src="images/Material-Sci_fiber.jpg" alt="Scintillating glass optical fibres glowing under ultraviolet illumination">
+              <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center">
+                <img src="images/Material-Scintillators.jpg" alt="A scintillation crystal surrounded by packaged scintillation products" style="height:265px; width:auto; max-width:100%">
+                <img src="images/Material-WLS.jpg" alt="Two vials showing Stokes and anti-Stokes emission under green laser excitation" style="height:265px; width:auto; max-width:100%">
+                <img src="images/Material-Sci_fiber.jpg" alt="Scintillating glass optical fibres glowing under ultraviolet illumination" style="height:265px; width:auto; max-width:100%">
               </div>
-              <figcaption><span class="fignum">Figure 1.</span> Representative optical materials in radiation detection: inorganic scintillation crystals under UV excitation (left), wavelength shifting in solution — Stokes emission in red and anti-Stokes emission in blue (centre), and scintillating glass optical fibres (right), where UV-induced fluorescence stands in for scintillation.<span class="credit">Left: <em>Various scintillation crystals</em> by Ren&eacute; Volf&iacute;k / Institute of Physics of the Czech Academy of Sciences, via <a href="https://commons.wikimedia.org/wiki/File:FZU_scintillators_1.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Centre: <em>Stokes and anti-Stokes emission</em> by Victor Gray, via <a href="https://commons.wikimedia.org/wiki/File:Stokes_and_Anti-Stokes_emission.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Right: U.S. Department of Energy, via <a href="https://commons.wikimedia.org/wiki/File:U.S._Department_of_Energy_-_Science_-_395_009_003_(9563510165).jpg">Wikimedia Commons</a>, public domain. Cropped to a common aspect ratio.</span></figcaption>
+              <figcaption><span class="fignum">Figure 1.</span> Representative optical materials in radiation detection: a scintillation crystal surrounded by packaged scintillation products (left), wavelength shifting in solution — Stokes emission in red and anti-Stokes emission in blue (centre), and scintillating glass optical fibres (right), where UV-induced fluorescence stands in for scintillation.<span class="credit">Left: <em>Scintillation crystal with packaged scintillation products</em> by Saint-Gobain Crystals, via <a href="https://commons.wikimedia.org/wiki/File:SGCat24454-scint-gris.noirEtBlanc.jpg">Wikimedia Commons</a>, public domain. Centre: <em>Stokes and anti-Stokes emission</em> by Victor Gray, via <a href="https://commons.wikimedia.org/wiki/File:Stokes_and_Anti-Stokes_emission.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Right: U.S. Department of Energy, via <a href="https://commons.wikimedia.org/wiki/File:U.S._Department_of_Energy_-_Science_-_395_009_003_(9563510165).jpg">Wikimedia Commons</a>, public domain. Cropped to a common aspect ratio.</span></figcaption>
             </div>
-            <p>The measurements span the quantities that govern detector performance: light yield, quenching factor, absorption and emission spectra, self-absorption, pulse-shape-discrimination (PSD) capability, and how these vary with temperature and dopant concentration.</p>
+            <p>The measurements span light yield, quenching factor, absorption and emission spectra, light attenuation length, pulse-shape-discrimination (PSD) capability, and how these vary with temperature and dopant concentration.</p>
             <p>The aim is not a single material but a systematic, long-term survey: characterizing a broad library of candidates — hundreds of them over time — and reporting useful, reproducible benchmarks to the research community and to industry.</p>
-            <p>These benchmarks also benefit large rare-event search programs such as LZ, XLZD, and LEGEND, whose veto detectors rely on well-understood light-collection materials. The characterization setup is deliberately simple — a light or radiation source, the material under test, and a DAQ system — compact and easy to build, and an excellent platform for training students across the full arc of an experiment, from hardware to analysis.</p>
+            <p>These benchmarks also benefit large rare-event search programs, whose veto detectors rely on well-understood light-collection materials. The characterization setup is compact — a light or radiation source, the material under test, and a DAQ system — and an excellent platform for training students across the full arc of an experiment, from hardware to analysis.</p>
 
             <h2>Case study: scintillating and wavelength-shifting fibers</h2>
-            <p>Plastic scintillating and wavelength-shifting (WLS) fibers have been used since the 1980s — WLS fibers in MINOS, NOvA, GERDA, and LEGEND-200, scintillating fibers in DØ and the LHCb SciFi Tracker. Near ultra-low-background detectors, though, fiber choice is set by radiopurity as much as by optical performance, since impurities in the fiber itself generate background. Scintillating-wavelength-shifting (Sci-WLS) fibers, a recently developed class, are attractive because they add scintillation to wavelength shifting and light guiding — raising the possibility of self-tagging fiber-borne backgrounds in a veto.</p>
-            <p>Two papers benchmark these fibers: their optical behaviour — emission and absorption spectra, attenuation length, light-guiding efficiency — in <a href="https://doi.org/10.1088/1748-0221/21/01/P01027">Bae et al., JINST 21, P01027 (2026)</a>, and their response to ionizing radiation, the signal that makes self-tagging possible, in <a href="https://doi.org/10.1088/1748-0221/21/03/P03053">Bae et al., JINST 21, P03053 (2026)</a>. Together they give the numbers needed to judge whether Sci-WLS fibers can replace conventional WLS fibers in the LEGEND-1000 liquid-argon veto.</p>
+            <p>Plastic scintillating and wavelength-shifting (WLS) fibers have been used since the 1980s — WLS fibers in MINOS, NOvA, GERDA, and LEGEND-200, scintillating fibers in DØ and the LHCb SciFi Tracker. Near ultra-low-background detectors, though, fiber choice is set by radiopurity as much as by optical performance, since radio-impurities in the fiber itself generate background radiation. Scintillating-wavelength-shifting (Sci-WLS) fibers, a recently developed class, are attractive because they add scintillation to wavelength shifting and light guiding — raising the possibility of self-tagging fiber-borne backgrounds in a veto, which is valuable for rare-event searches such as LEGEND-1000.</p>
+            <p>Two papers benchmark these fibers: their optical behaviour — emission and absorption spectra, attenuation length — in <a href="https://doi.org/10.1088/1748-0221/21/01/P01027">Bae et al., JINST 21, P01027 (2026)</a>, and their response to ionizing radiation, the signal that makes self-tagging possible, in <a href="https://doi.org/10.1088/1748-0221/21/03/P03053">Bae et al., JINST 21, P03053 (2026)</a>.</p>
             <div class="related">
               <h2>Related papers</h2>
               <ol class="pubs">
@@ -517,39 +501,6 @@
               <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
-            </li>
-              </ol>
-            </div>
-          </div>
-        </div>
-        <!-- ---------- SUBPAGE: Research vision ---------- -->
-        <div class="subpage" id="sub-vision">
-          <div class="exp">
-            <p class="kicker">Long-term plan · deployable instrumentation</p>
-            <h2>3D radiation tracker <span class="badge">Planned</span></h2>
-            <p>This is a long-term, planned direction. The goal is a compact, low-cost 3D radiation tracker — a general-purpose instrument that measures the rate, energy, direction, and type of an incoming radiation field, and is portable enough to be carried into the field rather than confined to a laboratory.</p>
-            <p>The concept is a 64-channel array of scintillator canes — an 8×8 bundle read out at both ends by SiPM arrays and a 64-channel DAQ. The light collected at the two ends of each cane reconstructs where energy is deposited in three dimensions, while pulse-shape discrimination identifies the type of radiation. Together these yield the rate, energy, direction, and particle type of the field — gamma rays, fast neutrons, and, depending on configuration, muons or beam particles.</p>
-            <div class="rfig sm">
-              <img src="images/3Dtracker_concept.png" alt="Concept: an 8 by 8 array of scintillator canes with a particle track">
-              <figcaption><span class="fignum">Figure 1.</span> Concept: an 8×8 array of scintillator canes read out at both ends. The deposited energy and the track are reconstructed in 3D, and the pulse shape identifies the particle type.<span class="credit">Original illustration by the author.</span></figcaption>
-            </div>
-            <p>The aim is a deployable instrument rather than a single-experiment device: compact (on the order of 40×10×10 cm and under a kilogram) and rugged enough to mount on mobile platforms — legged robots, drones, or other remote carriers — for in-situ radiation-environment monitoring.</p>
-            <div class="rfig">
-              <div style="background:#fff; border:1px solid var(--hairline); border-radius:6px; padding:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; align-items:end">
-                <div style="text-align:center"><img src="images/3Dtracker_drone.svg" alt="Drone carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Drone</div></div>
-                <div style="text-align:center"><img src="images/3Dtracker_robotdog.svg" alt="Legged robot carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Legged robot</div></div>
-                <div style="text-align:center"><img src="images/3Dtracker_satellite.svg" alt="Small satellite carrying a radiation-detector module" style="border:0; background:transparent; border-radius:0"><div style="font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:#5C677A; margin-top:4px">Satellite</div></div>
-              </div>
-              <figcaption><span class="fignum">Figure 2.</span> A compact, rugged build could ride on mobile platforms — drones, legged robots, or small satellites — each carrying the detector module, for in-situ radiation-environment monitoring.<span class="credit">Original illustrations by the author.</span></figcaption>
-            </div>
-            <p>The plan draws its strength from the material-characterization work: because a broad library of scintillators and light-shifting materials has already been benchmarked, the optimal material can be chosen for each intended use — tuned for gamma sensitivity, fast-neutron discrimination, or timing — rather than settling for a single compromise. It also builds on the segmented-bar, dual-ended SiPM readout characterized in earlier work (<a href="https://doi.org/10.1016/j.nima.2019.02.063">Sweany et al., NIM A 927, 2019</a>).</p>
-            <div class="related">
-              <h2>Related papers</h2>
-              <ol class="pubs">
-            <li class="pub">
-              <span class="pub-title">Interaction position, time, and energy resolution in organic scintillator bars with dual-ended readout</span>
-              <span class="pub-meta">M. Sweany et al. (incl. <span class="me">W. Bae</span>), <em>Nucl. Instrum. Methods Phys. Res. A</em> <strong>927</strong> (2019) 451–462.</span>
-              <div class="pub-links"><a href="https://doi.org/10.1016/j.nima.2019.02.063">DOI</a></div>
             </li>
               </ol>
             </div>
@@ -661,7 +612,7 @@
         <p class="eyebrow">Contact</p>
         <p style="color:var(--ink); margin:0 0 2px"><a href="mailto:wonseok.bae@northwestern.edu">wonseok.bae@northwestern.edu</a></p>
         <p style="margin:0">Department of Physics &amp; Astronomy, Northwestern University</p>
-        <p class="updated">Last updated: 2026-07-22</p>
+        <p class="updated">Last updated: 2026-08-03</p>
       </div>
     </footer>
 
