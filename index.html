@@ -283,6 +283,14 @@
       border:1px solid var(--hairline); border-radius:999px; padding:4px 11px}
     footer .f-links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
     footer .updated{font-family:'IBM Plex Mono', monospace; font-size:.72rem}
+
+    /* Basic science illustrations: retain full video frame at every screen size. */
+    .note-post .science-scene{margin:30px 0 38px}
+    .science-scene > a{display:block;background:#F6F7FA;border:1px solid var(--hairline);border-radius:8px;overflow:hidden}
+    .science-scene img{display:block;width:100%;height:auto;max-width:100%}
+    .science-scene figcaption{margin:10px 0 0;font-size:.86rem;line-height:1.55;color:var(--muted)}
+    .science-scene figcaption strong{font-weight:500;color:var(--ink)}
+    @media(max-width:540px){.note-post .science-scene{margin:22px 0 28px}}
   </style>
 </head>
 
@@ -614,20 +622,66 @@
           </div>
           -->
 
-          <article class="note-post">
+          <article class="note-post" id="why-basic-science">
             <h2 class="n-title">Why We Invest in Basic Science?</h2>
             <p class="n-meta">Essay · September 2026</p>
 
             <p>Basic science is funded, almost entirely, by government money — which is to say, by taxpayers. In the United States, the federal government spends tens of billions of dollars on basic research every year; the most recent figures put it above $44 billion, which works out to roughly $130 per person, per year.</p>
+            <figure class="science-scene" id="science-scene-1">
+              <a href="images/basic-science/01-public-investment.png" target="_blank" rel="noopener" aria-label="Open illustration: A shared investment">
+                <img src="images/basic-science/01-public-investment.png" width="1672" height="941" loading="lazy" decoding="async" alt="Public contributions support the search for new knowledge.">
+              </a>
+              <figcaption><strong>A shared investment.</strong> Public contributions support the search for new knowledge.</figcaption>
+            </figure>
+
 
             <p>That money could go elsewhere. It could fund more scholarships for kids who can't afford college, build one more care facility for people with disabilities, or cover someone's hospital bill. The world is full of places where a dollar could relieve suffering today. So why do we spend it, instead, on questions that look, at first glance, completely useless — how stars die, how subatomic particles decay, the faint afterglow of the universe's first instants?</p>
+            <figure class="science-scene" id="science-scene-2">
+              <a href="images/basic-science/02-the-dilemma.png" target="_blank" rel="noopener" aria-label="Open illustration: The choice before us">
+                <img src="images/basic-science/02-the-dilemma.png" width="1672" height="941" loading="lazy" decoding="async" alt="Immediate needs and open-ended discovery both ask for our care.">
+              </a>
+              <figcaption><strong>The choice before us.</strong> Immediate needs and open-ended discovery both ask for our care.</figcaption>
+            </figure>
+
 
             <p>I think there are two reasons.</p>
 
             <h3>We don't yet know what's buried on which continent</h3>
             <p>Investing in basic science resembles the age of exploration. No one knows what lies beyond the horizon until a ship sets sail. Some voyages reach islands rich with spice; others reach nothing but barren ice. At the time, that ice looks worthless. Centuries later, though, a vast oil field might be found beneath it. And even a voyage that discovers nothing still leaves behind better compasses, better shipbuilding, better maps — assets that belong to everyone who comes after.</p>
+            <figure class="science-scene" id="science-scene-3">
+              <a href="images/basic-science/03-uncharted-waters.png" target="_blank" rel="noopener" aria-label="Open illustration: Beyond the horizon">
+                <img src="images/basic-science/03-uncharted-waters.png" width="1672" height="941" loading="lazy" decoding="async" alt="The value of a discovery may become clear long after the voyage.">
+              </a>
+              <figcaption><strong>Beyond the horizon.</strong> The value of a discovery may become clear long after the voyage.</figcaption>
+            </figure>
 
-            <p>The history of basic science has followed this same pattern, again and again. Quantum mechanics began as pure curiosity about what happens inside an atom; no one expected it to be profitable. That curiosity gave us the transistor, the transistor gave us the entire semiconductor industry, and that industry gave us every electronic device we now carry in our pockets. The World Wide Web began the same way — a modest tool that physicists scattered across CERN built just to share experimental data with each other. That humble tool is now the nervous system of modern civilization. Space exploration tells the same story: Cold War-era plans to put a man on the Moon and explore space, which at the time looked like little more than national vanity, left behind weather and communication satellites, water-purification technology, memory foam, and the image sensors now inside every smartphone camera.</p>
+
+            <p>The history of basic science has followed this same pattern, again and again. Quantum mechanics began as pure curiosity about what happens inside an atom; no one expected it to be profitable. That curiosity gave us the transistor, the transistor gave us the entire semiconductor industry, and that industry gave us every electronic device we now carry in our pockets.</p>
+            <figure class="science-scene" id="science-scene-4">
+              <a href="images/basic-science/04-quantum-to-devices.png" target="_blank" rel="noopener" aria-label="Open illustration: From curiosity to technology">
+                <img src="images/basic-science/04-quantum-to-devices.png" width="1672" height="941" loading="lazy" decoding="async" alt="Quantum physics → transistor → semiconductor chip → everyday electronics.">
+              </a>
+              <figcaption><strong>From curiosity to technology.</strong> Quantum physics → transistor → semiconductor chip → everyday electronics.</figcaption>
+            </figure>
+
+
+            <p>The World Wide Web began the same way — a modest tool that physicists scattered across CERN built just to share experimental data with each other. That humble tool is now the nervous system of modern civilization.</p>
+            <figure class="science-scene" id="science-scene-5">
+              <a href="images/basic-science/05-a-web-of-knowledge.png" target="_blank" rel="noopener" aria-label="Open illustration: Knowledge becomes a network">
+                <img src="images/basic-science/05-a-web-of-knowledge.png" width="1672" height="941" loading="lazy" decoding="async" alt="Scientific collaboration grows into a way to connect the world.">
+              </a>
+              <figcaption><strong>Knowledge becomes a network.</strong> Scientific collaboration grows into a way to connect the world.</figcaption>
+            </figure>
+
+
+            <p>Space exploration tells the same story: Cold War-era plans to put a man on the Moon and explore space, which at the time looked like little more than national vanity, left behind weather and communication satellites, water-purification technology, memory foam, and the image sensors now inside every smartphone camera.</p>
+            <figure class="science-scene" id="science-scene-6">
+              <a href="images/basic-science/06-space-spinoffs.png" target="_blank" rel="noopener" aria-label="Open illustration: Exploration reaches everyday life">
+                <img src="images/basic-science/06-space-spinoffs.png" width="1672" height="941" loading="lazy" decoding="async" alt="Space research connects to satellites, filtration, cushioning and imaging.">
+              </a>
+              <figcaption><strong>Exploration reaches everyday life.</strong> Space research connects to satellites, filtration, cushioning and imaging.</figcaption>
+            </figure>
+
 
             <p>In every one of these cases, the people who started the research had no idea what waited at the end of it. That is the nature of basic science: we are sailing into uncharted waters. Some voyages will find nothing but ice. But we can't know what's underneath that ice until we sail out and look.</p>
 
@@ -637,6 +691,13 @@
             <p>The universe is about 13.8 billion years old, and human civilization has existed for only a few thousand of those years. Against the scale of the universe, Earth is smaller than a speck of dust, and a human life is briefer still — here for a moment, then gone. And yet that speck of dust has worked out the age and size of the universe it belongs to, and has come to understand, with real precision, just how small it is. As far as we know, we are the only thing in the universe that has ever done this.</p>
 
             <p>To feel how strange that is, try flipping the scale around. Imagine a creature the size of a paramecium — a single cell — diving into the interior of the Earth, a body billions of times larger than itself, and working out how the mantle convects and the core spins, precisely enough to predict its motion. Now imagine those tiny creatures recording what they learn, passing it to the next generation of paramecia, and the generation after that, until eventually they understand, completely, the workings of a world unimaginably larger than themselves. That is, in essence, what humanity is doing by trying to understand the universe. Absurd, on the scale of things — and yet it's actually happening.</p>
+            <figure class="science-scene" id="science-scene-7">
+              <a href="images/basic-science/07-understanding-the-universe.png" target="_blank" rel="noopener" aria-label="Open illustration: Small beings, vast questions">
+                <img src="images/basic-science/07-understanding-the-universe.png" width="1672" height="941" loading="lazy" decoding="async" alt="An imaginative comparison of scales; the Earth and its layers are not drawn to scale.">
+              </a>
+              <figcaption><strong>Small beings, vast questions.</strong> An imaginative comparison of scales; the Earth and its layers are not drawn to scale.</figcaption>
+            </figure>
+
 
             <h3>What we inherited, and what we'll pass on</h3>
             <p>A single human life is a spark against the 13.8-billion-year span of cosmic history. In that brief life, we make foolish choices, argue with each other, and take wrong turns. But humanity has one capability few other creatures do: we can write down what we've learned from our mistakes, and hand it to the next generation.</p>
@@ -644,6 +705,13 @@
             <p>Everything we take for granted — every institution, every piece of civilization — was inherited, not invented from scratch. We stand on centuries, millennia, of people who made mistakes, learned from them, wrote it down, and passed it on. And now it's our turn to extend that understanding a little further, and hand it on in turn.</p>
 
             <p>Investing in basic science is how we take part in that relay — not for the immediate payoff, but so that we remain the kind of species that keeps trying to understand a universe it knows it's too small to matter to, and keeps passing that understanding down, generation after generation. If we carry the baton a little further today, someone will pick it up after us and keep running. That is why we keep sending ships out — toward the stars, and into the heart of the atom.</p>
+            <figure class="science-scene" id="science-scene-8">
+              <a href="images/basic-science/08-the-relay-of-discovery.png" target="_blank" rel="noopener" aria-label="Open illustration: Carry it a little further">
+                <img src="images/basic-science/08-the-relay-of-discovery.png" width="1672" height="941" loading="lazy" decoding="async" alt="Each generation receives knowledge and passes it forward.">
+              </a>
+              <figcaption><strong>Carry it a little further.</strong> Each generation receives knowledge and passes it forward.</figcaption>
+            </figure>
+
           </article>
         </div>
       </div>
