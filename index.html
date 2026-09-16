@@ -289,21 +289,44 @@
     .science-scene > a{display:block;background:#F6F7FA;border:1px solid var(--hairline);border-radius:8px;overflow:hidden}
     .science-scene img{display:block;width:100%;height:auto;max-width:100%}
     @media(max-width:540px){.note-post .science-scene{margin:22px 0 28px}}
+
+    /* Language controls are local to this single HTML file. */
+    .language-switcher{position:absolute;right:16px;top:6px;display:flex;gap:6px;align-items:center}
+    .language-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:66px;min-height:44px;padding:5px 9px;border:1px solid rgba(255,255,255,.3);border-radius:7px;background:transparent;color:#fff;cursor:pointer;font:500 12px/1.2 system-ui,sans-serif}
+    .language-button .flag{font-size:23px;line-height:1}
+    .language-button:hover{background:rgba(255,255,255,.12)}
+    .language-button[aria-pressed="true"]{background:rgba(255,255,255,.17);border-color:#8FB4E6;box-shadow:inset 0 -2px #8FB4E6}
+    .language-button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    nav .nav-inner{max-width:min(var(--maxw),calc(100% - 340px))}
+    html[lang="ko"] body{font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',system-ui,sans-serif;word-break:keep-all;overflow-wrap:break-word}
+    html[lang="ko"] .nav-links a,html[lang="ko"] .eyebrow{letter-spacing:.03em}
+    @media(max-width:860px){
+      nav .nav-inner{max-width:100%;height:104px;padding:54px 16px 0;justify-content:center}
+      nav .nav-links{gap:20px;max-width:100%}
+      main{padding-top:104px}
+      .language-switcher{right:12px}
+    }
+    @media(max-width:380px){nav .nav-links{gap:14px}.nav-links a{font-size:.77rem}}
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#home">Skip to content</a>
+  <a class="skip" href="#home" data-ko="본문으로 이동">Skip to content</a>
 
-  <nav aria-label="Primary">
+  <nav aria-label="Primary" data-ko-aria-label="주 메뉴">
     <div class="nav-inner">
       <div class="nav-links">
-        <a href="#home"         data-page="home">Home</a>
-        <a href="#research"     data-page="research">Research</a>
-        <a href="#publications" data-page="publications">Publications</a>
-        <a href="#talks"        data-page="talks">Talks</a>
-        <a href="#notes"        data-page="notes">Notes</a>
+        <a href="#home"         data-page="home" data-ko="홈">Home</a>
+        <a href="#research"     data-page="research" data-ko="연구">Research</a>
+        <a href="#publications" data-page="publications" data-ko="논문">Publications</a>
+        <a href="#talks"        data-page="talks" data-ko="발표">Talks</a>
+        <a href="#notes"        data-page="notes" data-ko="글과 영상">Notes</a>
       </div>
+    </div>
+
+    <div class="language-switcher" id="language-switcher" role="group" aria-label="Language / 언어">
+      <button type="button" class="language-button" data-language="en" lang="en" aria-label="Show this website in English" aria-pressed="true" title="English"><span class="flag" aria-hidden="true">🇺🇸</span><span>EN</span></button>
+      <button type="button" class="language-button" data-language="ko" lang="ko" aria-label="웹사이트를 한국어로 보기" aria-pressed="false" title="한국어"><span class="flag" aria-hidden="true">🇰🇷</span><span>한국어</span></button>
     </div>
   </nav>
 
@@ -316,7 +339,7 @@
           <div class="hero-grid">
             <div>
               <h1>Wonseok Bae<span class="deg">, Ph.D.</span></h1>
-              <p class="role">Postdoctoral Scholar in Rare-Event Searches: Dark Matter, Neutrino, and Nuclear Physics</p>
+              <p class="role" data-ko="Dark Matter, Neutrino, Nuclear Physics의 Rare-Event 탐색 분야 박사후연구원">Postdoctoral Scholar in Rare-Event Searches: Dark Matter, Neutrino, and Nuclear Physics</p>
               <p class="place">Northwestern University — Department of Physics &amp; Astronomy</p>
               <div class="links">
                 <a href="https://scholar.google.com/citations?hl=en&user=Hyh0YwgAAAAJ">Google Scholar</a>
@@ -325,7 +348,7 @@
                 <a href="cv.pdf">CV</a>
               </div>
             </div>
-            <img class="photo" src="images/Wonseok_Bae_halfbody.png" alt="Wonseok Bae">
+            <img class="photo" src="images/Wonseok_Bae_halfbody.png" alt="Wonseok Bae" data-ko-alt="Wonseok Bae">
           </div>
 
         </header>
@@ -337,88 +360,88 @@
     <section class="page" id="page-research">
       <div class="wrap">
         <div class="page-head">
-          <p class="eyebrow">Research</p>
+          <p class="eyebrow" data-ko="연구">Research</p>
         </div>
 
         <!-- sub-tabs: LEGEND / LZ / Detector R&D -->
         <div class="subnav" role="tablist">
           <button type="button" data-sub="legend" class="active">LEGEND</button>
           <button type="button" data-sub="lz">LZ</button>
-          <button type="button" data-sub="rnd">Detector material characterization</button>
+          <button type="button" data-sub="rnd" data-ko="Detector 소재 특성 평가">Detector material characterization</button>
         </div>
 
         <!-- ---------- SUBPAGE: LEGEND ---------- -->
         <!-- Figures: copy the named files from your thesis (overleaf) into images/. Rename L1000_signal&bkg.png -> L1000_signal_bkg.png (the "&" breaks web links). Figures numbered by page order. -->
         <div class="subpage active" id="sub-legend">
           <div class="exp">
-            <p class="kicker">Neutrinoless double beta decay</p>
+            <p class="kicker" data-ko="Neutrinoless double beta decay">Neutrinoless double beta decay</p>
 
             <h2>Neutrinoless double beta decay</h2>
-            <p>One of the deepest puzzles in physics is why the universe is dominated by matter, with almost no antimatter. Matter and antimatter should have been created in nearly equal amounts in the early universe and then annihilated almost completely — yet a tiny excess of matter, about one part in a billion, survived to form everything we see today (Figure 1). Leptogenesis offers an explanation: if neutrinos are Majorana particles — their own antiparticles — heavy Majorana neutrinos in the early universe could have decayed to generate a lepton asymmetry, which Standard-Model processes later converted into the matter–antimatter imbalance we observe. That same Majorana nature would reveal itself in a single rare nuclear decay.</p>
+            <p data-ko="우주에는 왜 antimatter가 거의 없고 matter가 대부분을 차지할까요? 이는 물리학의 가장 근본적인 질문 중 하나입니다. 초기 우주에서는 matter와 antimatter가 거의 같은 양으로 만들어진 뒤 대부분 annihilation을 통해 사라졌어야 합니다. 하지만 약 10억 분의 1에 해당하는 작은 matter의 초과분이 남아 오늘날 우리가 보는 모든 것을 이루었습니다(그림 1). Leptogenesis는 이에 대한 설명을 제시합니다. Neutrino가 자신의 antiparticle이기도 한 Majorana particle이라면, 초기 우주의 무거운 Majorana neutrino가 붕괴하면서 lepton asymmetry를 만들었을 수 있습니다. 이후 Standard Model의 과정들이 이를 오늘날 관측되는 matter–antimatter 불균형으로 바꾸었을 수 있습니다. 이러한 Majorana 성질은 매우 드문 nuclear decay에서도 드러날 수 있습니다.">One of the deepest puzzles in physics is why the universe is dominated by matter, with almost no antimatter. Matter and antimatter should have been created in nearly equal amounts in the early universe and then annihilated almost completely — yet a tiny excess of matter, about one part in a billion, survived to form everything we see today (Figure 1). Leptogenesis offers an explanation: if neutrinos are Majorana particles — their own antiparticles — heavy Majorana neutrinos in the early universe could have decayed to generate a lepton asymmetry, which Standard-Model processes later converted into the matter–antimatter imbalance we observe. That same Majorana nature would reveal itself in a single rare nuclear decay.</p>
             <div class="rfig sm">
-              <img src="images/LEGEND-leptogenesis.jpg" alt="Timeline of the universe from the Big Bang to today">
-              <figcaption><span class="fignum">Figure 1.</span> The history of the universe. A tiny matter–antimatter asymmetry in the early universe left behind the matter that makes up everything we see today; leptogenesis, enabled by Majorana neutrinos, is a leading explanation for how that asymmetry arose.<span class="credit">Image: NASA / WMAP Science Team. Not subject to copyright (NASA media usage guidelines); credit required.</span></figcaption>
+              <img src="images/LEGEND-leptogenesis.jpg" alt="Timeline of the universe from the Big Bang to today" data-ko-alt="Big Bang부터 현재까지의 우주 연대표입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 1.&lt;/span&gt; 우주의 역사입니다. 초기 우주의 작은 matter–antimatter asymmetry로 인해 오늘날 우리가 보는 모든 것을 이루는 matter가 남았습니다. Majorana neutrino를 통한 leptogenesis는 이 불균형의 기원을 설명하는 유력한 가설입니다.&lt;span class=&quot;credit&quot;&gt;이미지: NASA / WMAP Science Team. NASA 이미지 이용 지침에 따라 저작권 제한은 없으며, 출처를 표시해야 합니다.&lt;/span&gt;"><span class="fignum">Figure 1.</span> The history of the universe. A tiny matter–antimatter asymmetry in the early universe left behind the matter that makes up everything we see today; leptogenesis, enabled by Majorana neutrinos, is a leading explanation for how that asymmetry arose.<span class="credit">Image: NASA / WMAP Science Team. Not subject to copyright (NASA media usage guidelines); credit required.</span></figcaption>
             </div>
-            <p>That decay is neutrinoless double beta decay. In some even–even nuclei, two neutrons convert into two protons at once, emitting two electrons. Every such double beta decay seen so far also releases two antineutrinos (2νββ) — a rare process still allowed by the Standard Model. If the neutrino is a Majorana particle, the same transition can happen with no neutrinos at all: neutrinoless double beta decay, 0νββ (Figure 2). It has never been observed.</p>
+            <p data-ko="그 과정이 neutrinoless double beta decay입니다. 일부 even–even nucleus에서는 두 neutron이 동시에 두 proton으로 바뀌면서 두 electron을 방출합니다. 지금까지 관측된 모든 double beta decay에서는 두 antineutrino도 함께 방출됩니다(2νββ). 이는 드물지만 Standard Model에서 허용되는 과정입니다. Neutrino가 Majorana particle이라면, 같은 전이가 neutrino 방출 없이도 일어날 수 있습니다. 이것이 neutrinoless double beta decay, 즉 0νββ입니다(그림 2). 아직 관측된 적은 없습니다.">That decay is neutrinoless double beta decay. In some even–even nuclei, two neutrons convert into two protons at once, emitting two electrons. Every such double beta decay seen so far also releases two antineutrinos (2νββ) — a rare process still allowed by the Standard Model. If the neutrino is a Majorana particle, the same transition can happen with no neutrinos at all: neutrinoless double beta decay, 0νββ (Figure 2). It has never been observed.</p>
             <div class="rfig w75">
-              <img src="images/feynman_diagrams.jpg" alt="Feynman diagrams of 2-neutrino and neutrinoless double beta decay">
-              <figcaption><span class="fignum">Figure 2.</span> 2νββ (left) emits two antineutrinos; 0νββ (right) proceeds via light Majorana-neutrino exchange, with no neutrinos in the final state.</figcaption>
+              <img src="images/feynman_diagrams.jpg" alt="Feynman diagrams of 2-neutrino and neutrinoless double beta decay" data-ko-alt="2νββ와 neutrinoless double beta decay의 Feynman diagram입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 2.&lt;/span&gt; 2νββ(왼쪽)는 두 antineutrino를 방출합니다. 0νββ(오른쪽)는 light Majorana-neutrino exchange를 통해 진행되며, final state에 neutrino가 없습니다."><span class="fignum">Figure 2.</span> 2νββ (left) emits two antineutrinos; 0νββ (right) proceeds via light Majorana-neutrino exchange, with no neutrinos in the final state.</figcaption>
             </div>
-            <p>The two modes are told apart by the summed energy of the electrons (Figure 3): 2νββ gives a broad continuum, while 0νββ would appear as a single sharp line at the decay’s Q-value (Q<sub>ββ</sub> ≈ 2039 keV for <sup>76</sup>Ge). Detecting that line would prove lepton number is violated and bear on the matter–antimatter question above.</p>
+            <p data-ko="두 과정은 electron의 에너지 합으로 구분합니다(그림 3). 2νββ는 넓은 continuum을 보이지만, 0νββ는 붕괴의 Q-value에서 하나의 날카로운 peak로 나타납니다(&lt;sup&gt;76&lt;/sup&gt;Ge의 경우 Q&lt;sub&gt;ββ&lt;/sub&gt; ≈ 2039 keV). 이 peak를 검출하면 lepton number가 보존되지 않음을 입증하고, 앞서 설명한 matter–antimatter 문제를 이해하는 데 기여할 수 있습니다.">The two modes are told apart by the summed energy of the electrons (Figure 3): 2νββ gives a broad continuum, while 0νββ would appear as a single sharp line at the decay’s Q-value (Q<sub>ββ</sub> ≈ 2039 keV for <sup>76</sup>Ge). Detecting that line would prove lepton number is violated and bear on the matter–antimatter question above.</p>
             <div class="rfig w78">
-              <img src="images/double_beta_spectrum3.png" alt="Summed electron energy spectrum: 2-neutrino continuum and 0-neutrino peak at Q-beta-beta">
-              <figcaption><span class="fignum">Figure 3.</span> Summed electron energy: the 2νββ continuum versus the monoenergetic 0νββ peak at Q<sub>ββ</sub> (linear, left; log, right). Not to scale.</figcaption>
+              <img src="images/double_beta_spectrum3.png" alt="Summed electron energy spectrum: 2-neutrino continuum and 0-neutrino peak at Q-beta-beta" data-ko-alt="Electron 에너지 합의 spectrum에서 2νββ continuum과 Qββ의 0νββ peak를 비교합니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 3.&lt;/span&gt; Electron의 에너지 합입니다. 2νββ continuum과 Q&lt;sub&gt;ββ&lt;/sub&gt;에서의 monoenergetic 0νββ peak를 비교합니다(왼쪽: linear, 오른쪽: log). 실제 비율로 그린 그림은 아닙니다."><span class="fignum">Figure 3.</span> Summed electron energy: the 2νββ continuum versus the monoenergetic 0νββ peak at Q<sub>ββ</sub> (linear, left; log, right). Not to scale.</figcaption>
             </div>
-            <p>The measured half-life maps onto the effective Majorana mass m<sub>ββ</sub>. As Figure 4 shows, today’s searches are pushing toward the band predicted for the inverted mass ordering; LEGEND-1000 aims to cover it and reach into the normal-ordering region.</p>
+            <p data-ko="측정된 half-life는 effective Majorana mass m&lt;sub&gt;ββ&lt;/sub&gt;와 연결됩니다. 그림 4에서 보시듯, 현재의 탐색은 inverted mass ordering에서 예상되는 영역에 다가가고 있습니다. LEGEND-1000은 이 영역을 포괄하고 normal ordering 영역까지 탐색하는 것을 목표로 합니다.">The measured half-life maps onto the effective Majorana mass m<sub>ββ</sub>. As Figure 4 shows, today’s searches are pushing toward the band predicted for the inverted mass ordering; LEGEND-1000 aims to cover it and reach into the normal-ordering region.</p>
             <div class="rfig w62">
-              <img src="images/mbb_vs_mlightest.png" alt="Effective Majorana mass versus lightest neutrino mass with LEGEND sensitivity bands">
-              <figcaption><span class="fignum">Figure 4.</span> Effective Majorana mass vs lightest neutrino mass. Green = inverted ordering, red = normal; gray bands show the LEGEND-200 and LEGEND-1000 reach (NuFIT 6.0; KATRIN and Planck exclusions shown).</figcaption>
+              <img src="images/mbb_vs_mlightest.png" alt="Effective Majorana mass versus lightest neutrino mass with LEGEND sensitivity bands" data-ko-alt="가장 가벼운 neutrino 질량에 따른 effective Majorana mass와 LEGEND sensitivity입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 4.&lt;/span&gt; 가장 가벼운 neutrino의 질량에 따른 effective Majorana mass입니다. 초록색은 inverted ordering, 빨간색은 normal ordering이며, 회색 영역은 LEGEND-200과 LEGEND-1000의 탐색 범위입니다. NuFIT 6.0과 KATRIN 및 Planck의 exclusion도 표시되어 있습니다."><span class="fignum">Figure 4.</span> Effective Majorana mass vs lightest neutrino mass. Green = inverted ordering, red = normal; gray bands show the LEGEND-200 and LEGEND-1000 reach (NuFIT 6.0; KATRIN and Planck exclusions shown).</figcaption>
             </div>
-            <p>Many isotopes and detector technologies have been applied to this search — in past experiments, in those running now, and in others planned for the future (Figure 5). <sup>76</sup>Ge stands out: germanium detectors have the best energy resolution (~0.1% at Q<sub>ββ</sub>), the crystal is both source and detector, and no known background makes a peak near Q<sub>ββ</sub>.</p>
+            <p data-ko="과거와 현재의 실험, 그리고 앞으로 계획된 실험에서는 다양한 isotope과 detector 기술을 사용하고 있습니다(그림 5). 그중 &lt;sup&gt;76&lt;/sup&gt;Ge는 뚜렷한 장점이 있습니다. Germanium detector는 매우 뛰어난 energy resolution을 제공하며(Q&lt;sub&gt;ββ&lt;/sub&gt;에서 약 0.1%), 결정 자체가 source와 detector의 역할을 동시에 합니다. 또한 Q&lt;sub&gt;ββ&lt;/sub&gt; 근처에 peak를 만드는 알려진 background가 없습니다.">Many isotopes and detector technologies have been applied to this search — in past experiments, in those running now, and in others planned for the future (Figure 5). <sup>76</sup>Ge stands out: germanium detectors have the best energy resolution (~0.1% at Q<sub>ββ</sub>), the crystal is both source and detector, and no known background makes a peak near Q<sub>ββ</sub>.</p>
             <div class="rfig w87">
-              <img src="images/double_beta_decay_exps.jpg" alt="Landscape of 0-neutrino-double-beta-decay experiments: background versus exposure">
-              <figcaption><span class="fignum">Figure 5.</span> The 0νββ landscape — background vs exposure. Dashed lines mark discovery-sensitivity half-lives; LEGEND-1000 targets beyond 10<sup>28</sup> yr.<span class="credit">From M. Agostini, G. Benato, J. A. Detwiler, J. Menéndez and F. Vissani, <a href="https://arxiv.org/abs/2202.01787">arXiv:2202.01787</a> — Rev. Mod. Phys. <strong>95</strong>, 025002 (2023). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/double_beta_decay_exps.jpg" alt="Landscape of 0-neutrino-double-beta-decay experiments: background versus exposure" data-ko-alt="0νββ 실험의 background와 exposure를 비교합니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 5.&lt;/span&gt; 0νββ 실험의 background와 exposure를 비교합니다. 점선은 discovery sensitivity에 해당하는 half-life를 나타내며, LEGEND-1000은 10&lt;sup&gt;28&lt;/sup&gt; yr 이상을 목표로 합니다.&lt;span class=&quot;credit&quot;&gt;출처: M. Agostini, G. Benato, J. A. Detwiler, J. Menéndez and F. Vissani, &lt;a href=&quot;https://arxiv.org/abs/2202.01787&quot;&gt;arXiv:2202.01787&lt;/a&gt; — Rev. Mod. Phys. &lt;strong&gt;95&lt;/strong&gt;, 025002 (2023). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 5.</span> The 0νββ landscape — background vs exposure. Dashed lines mark discovery-sensitivity half-lives; LEGEND-1000 targets beyond 10<sup>28</sup> yr.<span class="credit">From M. Agostini, G. Benato, J. A. Detwiler, J. Menéndez and F. Vissani, <a href="https://arxiv.org/abs/2202.01787">arXiv:2202.01787</a> — Rev. Mod. Phys. <strong>95</strong>, 025002 (2023). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
 
-            <h2>The LEGEND experiment</h2>
-            <p>LEGEND — the Large Enriched Germanium Experiment for Neutrinoless ββ Decay — searches for 0νββ in <sup>76</sup>Ge, building on the earlier GERDA and MAJORANA Demonstrator programs. It runs deep under the Gran Sasso mountains in central Italy (Figure 6), where about 3600 m of water-equivalent rock overhead shields it from cosmic rays.</p>
+            <h2 data-ko="LEGEND 실험">The LEGEND experiment</h2>
+            <p data-ko="LEGEND는 Large Enriched Germanium Experiment for Neutrinoless ββ Decay의 약자입니다. GERDA와 MAJORANA Demonstrator의 성과를 바탕으로 &lt;sup&gt;76&lt;/sup&gt;Ge의 0νββ를 탐색합니다. 실험은 이탈리아 중부 Gran Sasso 산맥의 깊은 지하에서 수행합니다(그림 6). 상부 암반은 약 3600 m water-equivalent에 해당하며, cosmic ray를 차폐합니다.">LEGEND — the Large Enriched Germanium Experiment for Neutrinoless ββ Decay — searches for 0νββ in <sup>76</sup>Ge, building on the earlier GERDA and MAJORANA Demonstrator programs. It runs deep under the Gran Sasso mountains in central Italy (Figure 6), where about 3600 m of water-equivalent rock overhead shields it from cosmic rays.</p>
             <div class="rfig w625">
-              <img src="images/LEGEND-location.png" alt="Geological cross-section and hall layout of the LNGS underground laboratory beneath the Gran Sasso mountains">
-              <figcaption><span class="fignum">Figure 6.</span> The LNGS underground laboratory beneath the Gran Sasso mountains: a geological cross-section (top) and the layout of the three experimental halls (bottom). LEGEND-200 is housed in Hall A; the future LEGEND-1000 will be sited in Hall C.<span class="credit">Figure adapted from R. Guidotti &amp; A. Castellani, <a href="https://doi.org/10.5772/intechopen.76853">&ldquo;Tunnel Vaults under Seismic Excitation&rdquo;</a>, IntechOpen (2018), Fig. 3. Licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. LEGEND-200 and LEGEND-1000 labels added by the author.</span></figcaption>
+              <img src="images/LEGEND-location.png" alt="Geological cross-section and hall layout of the LNGS underground laboratory beneath the Gran Sasso mountains" data-ko-alt="Gran Sasso 산맥 아래 LNGS 연구소의 지질 단면과 실험실 배치입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 6.&lt;/span&gt; Gran Sasso 산맥 아래 LNGS 지하 연구소의 지질 단면도(위)와 세 실험실의 배치도(아래)입니다. LEGEND-200은 Hall A에 있으며, 향후 LEGEND-1000은 Hall C에 설치될 예정입니다.&lt;span class=&quot;credit&quot;&gt;그림 출처 및 수정: R. Guidotti &amp;amp; A. Castellani, &lt;a href=&quot;https://doi.org/10.5772/intechopen.76853&quot;&gt;&amp;ldquo;Tunnel Vaults under Seismic Excitation&amp;rdquo;&lt;/a&gt;, IntechOpen (2018), Fig. 3. 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/3.0/&quot;&gt;CC BY 3.0&lt;/a&gt;. 작성자가 LEGEND-200 및 LEGEND-1000 label을 추가했습니다.&lt;/span&gt;"><span class="fignum">Figure 6.</span> The LNGS underground laboratory beneath the Gran Sasso mountains: a geological cross-section (top) and the layout of the three experimental halls (bottom). LEGEND-200 is housed in Hall A; the future LEGEND-1000 will be sited in Hall C.<span class="credit">Figure adapted from R. Guidotti &amp; A. Castellani, <a href="https://doi.org/10.5772/intechopen.76853">&ldquo;Tunnel Vaults under Seismic Excitation&rdquo;</a>, IntechOpen (2018), Fig. 3. Licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. LEGEND-200 and LEGEND-1000 labels added by the author.</span></figcaption>
             </div>
-            <p>Germanium detector strings hang inside a liquid-argon cryostat that itself sits in a large water tank (Figure 7). Liquid argon acts as both a passive shield and an active veto: particles scattering in it produce 127 nm scintillation light — shifted by TPB and green WLS fibers and read out by SiPMs. Figure 7 also zooms into a single detector string, showing the WLS fiber shrouds and an HPGe detector on its support plate.</p>
+            <p data-ko="Germanium detector string은 liquid-argon cryostat 안에 매달려 있으며, cryostat는 대형 water tank 안에 놓여 있습니다(그림 7). Liquid argon은 passive shield와 active veto의 역할을 함께 합니다. 입자가 그 안에서 scattering하면 127 nm scintillation light가 발생합니다. 이 빛은 TPB와 초록색 WLS fiber를 통해 파장이 변환된 후 SiPM으로 검출됩니다. 그림 7에는 WLS fiber shroud와 지지판 위의 HPGe detector를 포함한 개별 detector string의 확대도도 나와 있습니다.">Germanium detector strings hang inside a liquid-argon cryostat that itself sits in a large water tank (Figure 7). Liquid argon acts as both a passive shield and an active veto: particles scattering in it produce 127 nm scintillation light — shifted by TPB and green WLS fibers and read out by SiPMs. Figure 7 also zooms into a single detector string, showing the WLS fiber shrouds and an HPGe detector on its support plate.</p>
             <div class="rfig w825">
-              <img src="images/LEGEND-200.png" alt="LEGEND-200 setup rendering and a zoomed view of an HPGe detector string with WLS fiber shrouds">
-              <figcaption><span class="fignum">Figure 7.</span> Left: the LEGEND-200 setup, with the germanium strings and wavelength-shifting reflector (WLSR) inside the liquid-argon cryostat, surrounded by the water-tank PMT veto. Right: a detector string showing the WLS fiber shrouds and a single HPGe detector on its PEN support plate.<span class="credit">From N. Burlac (on behalf of the LEGEND Collaboration), <a href="https://doi.org/10.1016/j.nima.2025.170779">Nucl. Instrum. Methods A</a> <strong>1080</strong>, 170779 (2025). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/LEGEND-200.png" alt="LEGEND-200 setup rendering and a zoomed view of an HPGe detector string with WLS fiber shrouds" data-ko-alt="LEGEND-200 장치와 WLS fiber shroud를 갖춘 HPGe detector string의 확대도입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 7.&lt;/span&gt; 왼쪽은 LEGEND-200 장치입니다. Liquid-argon cryostat 안에 germanium string과 wavelength-shifting reflector(WLSR)가 있으며, 바깥에는 water-tank PMT veto가 있습니다. 오른쪽은 WLS fiber shroud와 PEN 지지판 위의 HPGe detector를 보여주는 detector string입니다.&lt;span class=&quot;credit&quot;&gt;출처: N. Burlac (on behalf of the LEGEND Collaboration), &lt;a href=&quot;https://doi.org/10.1016/j.nima.2025.170779&quot;&gt;Nucl. Instrum. Methods A&lt;/a&gt; &lt;strong&gt;1080&lt;/strong&gt;, 170779 (2025). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 7.</span> Left: the LEGEND-200 setup, with the germanium strings and wavelength-shifting reflector (WLSR) inside the liquid-argon cryostat, surrounded by the water-tank PMT veto. Right: a detector string showing the WLS fiber shrouds and a single HPGe detector on its PEN support plate.<span class="credit">From N. Burlac (on behalf of the LEGEND Collaboration), <a href="https://doi.org/10.1016/j.nima.2025.170779">Nucl. Instrum. Methods A</a> <strong>1080</strong>, 170779 (2025). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
-            <p>LEGEND runs in two stages. LEGEND-200 (~200 kg of enriched <sup>76</sup>Ge) has taken data since 2023 and targets half-lives near 10<sup>27</sup> yr. Its first search, combined with GERDA and MAJORANA, set a limit of T<sub>1/2</sub> &gt; 1.9×10<sup>26</sup> yr (90% C.L.), i.e. m<sub>ββ</sub> &lt; 75–200 meV. Background is beaten down by a layered veto — a muon veto, a multiplicity cut, pulse-shape discrimination, and the liquid-argon veto — whose effect on the spectrum is shown in Figures 8 and 9.</p>
+            <p data-ko="LEGEND는 두 단계로 진행됩니다. 약 200 kg의 enriched &lt;sup&gt;76&lt;/sup&gt;Ge를 사용하는 LEGEND-200은 2023년부터 데이터를 수집해 왔으며, 10&lt;sup&gt;27&lt;/sup&gt; yr 수준의 half-life를 목표로 합니다. 첫 탐색 결과를 GERDA 및 MAJORANA와 결합하여 T&lt;sub&gt;1/2&lt;/sub&gt; &amp;gt; 1.9×10&lt;sup&gt;26&lt;/sup&gt; yr(90% C.L.), 즉 m&lt;sub&gt;ββ&lt;/sub&gt; &amp;lt; 75–200 meV의 한계를 얻었습니다. Muon veto, multiplicity cut, pulse-shape discrimination, liquid-argon veto를 단계적으로 적용해 background를 줄입니다. 그 효과는 그림 8과 9의 spectrum에서 확인하실 수 있습니다.">LEGEND runs in two stages. LEGEND-200 (~200 kg of enriched <sup>76</sup>Ge) has taken data since 2023 and targets half-lives near 10<sup>27</sup> yr. Its first search, combined with GERDA and MAJORANA, set a limit of T<sub>1/2</sub> &gt; 1.9×10<sup>26</sup> yr (90% C.L.), i.e. m<sub>ββ</sub> &lt; 75–200 meV. Background is beaten down by a layered veto — a muon veto, a multiplicity cut, pulse-shape discrimination, and the liquid-argon veto — whose effect on the spectrum is shown in Figures 8 and 9.</p>
             <div class="rfig">
-              <img src="images/L200_result1.png" alt="LEGEND-200 energy spectrum before and after veto cuts">
-              <figcaption><span class="fignum">Figure 8.</span> LEGEND-200 spectrum (61 kg·yr): white = after muon + multiplicity cuts; red = after adding the LAr and PSD cuts. Inset zooms on Q<sub>ββ</sub>.<span class="credit">Reproduced from Fig. 1 of H. Acharya <em>et al.</em> (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” <a href="https://doi.org/10.1103/25tk-nctn">Phys. Rev. Lett.</a> <strong>136</strong>, 022701 (2026), DOI: 10.1103/25tk-nctn; <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/L200_result1.png" alt="LEGEND-200 energy spectrum before and after veto cuts" data-ko-alt="Veto cut 적용 전후의 LEGEND-200 energy spectrum입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 8.&lt;/span&gt; LEGEND-200 spectrum(61 kg·yr)입니다. 흰색은 muon 및 multiplicity cut을 적용한 결과이며, 빨간색은 LAr 및 PSD cut을 추가한 결과입니다. 삽입 그림은 Q&lt;sub&gt;ββ&lt;/sub&gt; 부근을 확대하여 보여드립니다.&lt;span class=&quot;credit&quot;&gt;그림 출처: Fig. 1, H. Acharya &lt;em&gt;et al.&lt;/em&gt; (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” &lt;a href=&quot;https://doi.org/10.1103/25tk-nctn&quot;&gt;Phys. Rev. Lett.&lt;/a&gt; &lt;strong&gt;136&lt;/strong&gt;, 022701 (2026), DOI: 10.1103/25tk-nctn; &lt;a href=&quot;https://arxiv.org/abs/2505.10440&quot;&gt;arXiv:2505.10440&lt;/a&gt;. 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 8.</span> LEGEND-200 spectrum (61 kg·yr): white = after muon + multiplicity cuts; red = after adding the LAr and PSD cuts. Inset zooms on Q<sub>ββ</sub>.<span class="credit">Reproduced from Fig. 1 of H. Acharya <em>et al.</em> (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” <a href="https://doi.org/10.1103/25tk-nctn">Phys. Rev. Lett.</a> <strong>136</strong>, 022701 (2026), DOI: 10.1103/25tk-nctn; <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
             <div class="rfig w60">
-              <img src="images/L200_result2.png" alt="LEGEND-200 analysis window around Q-beta-beta">
-              <figcaption><span class="fignum">Figure 9.</span> The Q<sub>ββ</sub> analysis window; the dark line is the combined <sup>76</sup>Ge limit with GERDA and MAJORANA.<span class="credit">Adapted from Fig. 2 (top panel) of H. Acharya <em>et al.</em> (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” <a href="https://doi.org/10.1103/25tk-nctn">Phys. Rev. Lett.</a> <strong>136</strong>, 022701 (2026), DOI: 10.1103/25tk-nctn; <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: cropped to top panel.</span></figcaption>
+              <img src="images/L200_result2.png" alt="LEGEND-200 analysis window around Q-beta-beta" data-ko-alt="Qββ 부근의 LEGEND-200 분석 구간입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 9.&lt;/span&gt; Q&lt;sub&gt;ββ&lt;/sub&gt; 분석 구간입니다. 진한 선은 GERDA 및 MAJORANA와 결합한 &lt;sup&gt;76&lt;/sup&gt;Ge 한계를 나타냅니다.&lt;span class=&quot;credit&quot;&gt;그림 출처 및 수정: Fig. 2(상단), H. Acharya &lt;em&gt;et al.&lt;/em&gt; (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” &lt;a href=&quot;https://doi.org/10.1103/25tk-nctn&quot;&gt;Phys. Rev. Lett.&lt;/a&gt; &lt;strong&gt;136&lt;/strong&gt;, 022701 (2026), DOI: 10.1103/25tk-nctn; &lt;a href=&quot;https://arxiv.org/abs/2505.10440&quot;&gt;arXiv:2505.10440&lt;/a&gt;. 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;. 상단 그림만 잘라 사용했습니다.&lt;/span&gt;"><span class="fignum">Figure 9.</span> The Q<sub>ββ</sub> analysis window; the dark line is the combined <sup>76</sup>Ge limit with GERDA and MAJORANA.<span class="credit">Adapted from Fig. 2 (top panel) of H. Acharya <em>et al.</em> (LEGEND Collaboration), “First Results on the Search for Lepton Number Violating Neutrinoless Double-β Decay with the LEGEND-200 Experiment,” <a href="https://doi.org/10.1103/25tk-nctn">Phys. Rev. Lett.</a> <strong>136</strong>, 022701 (2026), DOI: 10.1103/25tk-nctn; <a href="https://arxiv.org/abs/2505.10440">arXiv:2505.10440</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Changes: cropped to top panel.</span></figcaption>
             </div>
-            <p>LEGEND-1000 scales up to ~1000 kg and aims beyond 10<sup>28</sup> yr, which demands another order-of-magnitude cut in background (Figure 10). Key upgrades: underground-sourced argon (far less <sup>42</sup>Ar), an internal neutron moderator, and new light-guide fibers. Figure 11 shows the projected background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation.</p>
+            <p data-ko="LEGEND-1000은 규모를 약 1000 kg으로 확장하고 10&lt;sup&gt;28&lt;/sup&gt; yr를 넘는 half-life를 목표로 합니다. 이를 위해서는 background를 추가로 약 10배 줄여야 합니다(그림 10). 주요 개선 사항은 &lt;sup&gt;42&lt;/sup&gt;Ar 함량이 훨씬 적은 underground-sourced argon, 내부 neutron moderator, 새로운 light-guide fiber입니다. 그림 11은 Monte Carlo simulation으로 예측한 Q&lt;sub&gt;ββ&lt;/sub&gt; 근처의 background와 signal을 보여드립니다.">LEGEND-1000 scales up to ~1000 kg and aims beyond 10<sup>28</sup> yr, which demands another order-of-magnitude cut in background (Figure 10). Key upgrades: underground-sourced argon (far less <sup>42</sup>Ar), an internal neutron moderator, and new light-guide fibers. Figure 11 shows the projected background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation.</p>
             <div class="rfig w715">
-              <img src="images/L1000_concept_design_big_name_tag.png" alt="Conceptual design of LEGEND-1000">
-              <figcaption><span class="fignum">Figure 10.</span> LEGEND-1000: germanium strings in underground-argon reentrant tubes, inside an argon cryostat with a neutron moderator, all within a water-Cherenkov veto.<span class="credit">CAD rendering by P. Krause / LEGEND Collaboration, from the collaboration's internal wiki (<a href="https://legend-exp.atlassian.net/wiki/home">legend-exp.atlassian.net/wiki</a>), where the original is used in LEGEND-1000 design-overview documentation shared within the collaboration. Labels added by the author.</span></figcaption>
+              <img src="images/L1000_concept_design_big_name_tag.png" alt="Conceptual design of LEGEND-1000" data-ko-alt="LEGEND-1000의 개념 설계입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 10.&lt;/span&gt; LEGEND-1000의 구조입니다. Germanium string은 underground-argon reentrant tube 안에 있으며, neutron moderator를 갖춘 argon cryostat에 배치됩니다. 전체 장치는 water-Cherenkov veto로 둘러싸여 있습니다.&lt;span class=&quot;credit&quot;&gt;CAD rendering: P. Krause / LEGEND Collaboration. 공동연구단 내부 wiki(&lt;a href=&quot;https://legend-exp.atlassian.net/wiki/home&quot;&gt;legend-exp.atlassian.net/wiki&lt;/a&gt;)에 게시된 LEGEND-1000 설계 개요 자료의 그림입니다. 작성자가 label을 추가했습니다.&lt;/span&gt;"><span class="fignum">Figure 10.</span> LEGEND-1000: germanium strings in underground-argon reentrant tubes, inside an argon cryostat with a neutron moderator, all within a water-Cherenkov veto.<span class="credit">CAD rendering by P. Krause / LEGEND Collaboration, from the collaboration's internal wiki (<a href="https://legend-exp.atlassian.net/wiki/home">legend-exp.atlassian.net/wiki</a>), where the original is used in LEGEND-1000 design-overview documentation shared within the collaboration. Labels added by the author.</span></figcaption>
             </div>
             <div class="rfig w88">
-              <img src="images/L1000_signal_bkg.png" alt="Projected LEGEND-1000 background spectrum near Q-beta-beta">
-              <figcaption><span class="fignum">Figure 11.</span> Projected LEGEND-1000 background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation, showing a hypothetical 0νββ peak at T<sub>1/2</sub> = 10<sup>28</sup> yr.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2107.11462">arXiv:2107.11462</a> — LEGEND-1000 Preconceptual Design Report (2021). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/L1000_signal_bkg.png" alt="Projected LEGEND-1000 background spectrum near Q-beta-beta" data-ko-alt="Qββ 부근에서 예측한 LEGEND-1000 background spectrum입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 11.&lt;/span&gt; Monte Carlo simulation으로 예측한 Q&lt;sub&gt;ββ&lt;/sub&gt; 부근의 LEGEND-1000 background와 signal입니다. T&lt;sub&gt;1/2&lt;/sub&gt; = 10&lt;sup&gt;28&lt;/sup&gt; yr인 가상의 0νββ peak를 함께 보여드립니다.&lt;span class=&quot;credit&quot;&gt;출처: LEGEND Collaboration, &lt;a href=&quot;https://arxiv.org/abs/2107.11462&quot;&gt;arXiv:2107.11462&lt;/a&gt; — LEGEND-1000 Preconceptual Design Report (2021). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 11.</span> Projected LEGEND-1000 background and signal near Q<sub>ββ</sub> from a Monte Carlo simulation, showing a hypothetical 0νββ peak at T<sub>1/2</sub> = 10<sup>28</sup> yr.<span class="credit">From LEGEND Collaboration, <a href="https://arxiv.org/abs/2107.11462">arXiv:2107.11462</a> — LEGEND-1000 Preconceptual Design Report (2021). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
             <div class="related">
-              <h2>Related papers</h2>
+              <h2 data-ko="관련 논문">Related papers</h2>
               <ol class="pubs">
             <li class="pub">
-              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
             </li>
             <li class="pub">
-              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
             </li>
@@ -440,47 +463,47 @@
         <!-- ---------- SUBPAGE: LZ ---------- -->
         <div class="subpage" id="sub-lz">
           <div class="exp">
-            <p class="kicker">Direct dark-matter search · other rare event searches</p>
+            <p class="kicker" data-ko="Direct dark-matter search · 그 밖의 rare-event 탐색">Direct dark-matter search · other rare event searches</p>
 
-            <h2>Dark matter and WIMPs</h2>
-            <p>The universe contains far more mass than we can see. Its gravity shapes how galaxies rotate, binds clusters together, and molds the large-scale structure of the cosmos — yet it emits no light and has never been detected directly. This dark matter accounts for about a quarter of the total energy budget of the universe (Figure 1), and identifying it is one of the central goals of modern physics.</p>
+            <h2 data-ko="Dark matter와 WIMP">Dark matter and WIMPs</h2>
+            <p data-ko="우주에는 눈에 보이는 것보다 훨씬 많은 질량이 존재합니다. 그 중력은 은하의 회전과 은하단의 결합, 우주의 large-scale structure에 영향을 줍니다. 하지만 이 물질은 빛을 내지 않으며, 아직 직접 검출된 적도 없습니다. 이러한 dark matter는 우주 전체 에너지의 약 4분의 1을 차지합니다(그림 1). 그 정체를 밝히는 일은 현대 물리학의 핵심 목표 중 하나입니다.">The universe contains far more mass than we can see. Its gravity shapes how galaxies rotate, binds clusters together, and molds the large-scale structure of the cosmos — yet it emits no light and has never been detected directly. This dark matter accounts for about a quarter of the total energy budget of the universe (Figure 1), and identifying it is one of the central goals of modern physics.</p>
             <div class="rfig w585">
-              <img src="images/LZ-DM.jpg" alt="Pie chart of the energy budget of the universe">
-              <figcaption><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.<span class="credit">From M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a> — SciPost Phys. Rev. <strong>1</strong> (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/LZ-DM.jpg" alt="Pie chart of the energy budget of the universe" data-ko-alt="우주의 에너지 구성을 보여주는 원형 그래프입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 1.&lt;/span&gt; 우주의 에너지 구성입니다. Dark energy(Λ, 68%), dark matter(χ, 27%), 보통의 baryonic matter(B, 5%)가 대부분을 차지하며, neutrino와 photon이 작은 나머지 부분을 이룹니다.&lt;span class=&quot;credit&quot;&gt;출처: M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt; — SciPost Phys. Rev. &lt;strong&gt;1&lt;/strong&gt; (2026). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.<span class="credit">From M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a> — SciPost Phys. Rev. <strong>1</strong> (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
-            <p>A leading candidate is the weakly interacting massive particle (WIMP) — a heavy, electrically neutral particle that barely couples to ordinary matter. If WIMPs exist, they should occasionally strike an atomic nucleus (Figure 2) and deposit a tiny amount of energy. Direct-detection experiments try to catch those rare recoils inside a shielded, ultra-quiet detector deep underground.</p>
+            <p data-ko="유력한 후보 중 하나는 weakly interacting massive particle(WIMP)입니다. 질량이 크고 전기적으로 중성이며, 보통의 물질과는 매우 약하게 상호작용하는 입자입니다. WIMP가 존재한다면, 드물게 atomic nucleus에 충돌하여 작은 에너지를 전달할 수 있습니다(그림 2). Direct-detection 실험은 깊은 지하의 차폐된 저잡음 detector 안에서 이러한 드문 recoil을 검출하고자 합니다.">A leading candidate is the weakly interacting massive particle (WIMP) — a heavy, electrically neutral particle that barely couples to ordinary matter. If WIMPs exist, they should occasionally strike an atomic nucleus (Figure 2) and deposit a tiny amount of energy. Direct-detection experiments try to catch those rare recoils inside a shielded, ultra-quiet detector deep underground.</p>
             <div class="rfig w56">
-              <img src="images/WIMP-nucleus-scattering.svg" alt="Feynman diagram of a WIMP scattering elastically off an atomic nucleus">
-              <figcaption><span class="fignum">Figure 2.</span> A WIMP (χ) scatters elastically off an atomic nucleus (N) by exchanging a mediator, transferring a small recoil energy — the signal that direct-detection experiments try to catch.</figcaption>
+              <img src="images/WIMP-nucleus-scattering.svg" alt="Feynman diagram of a WIMP scattering elastically off an atomic nucleus" data-ko-alt="WIMP와 atomic nucleus의 elastic scattering을 보여주는 Feynman diagram입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 2.&lt;/span&gt; WIMP(χ)가 mediator를 교환하며 atomic nucleus(N)와 elastic scattering을 일으켜 작은 recoil energy를 전달합니다. Direct-detection 실험은 이 signal을 검출하고자 합니다."><span class="fignum">Figure 2.</span> A WIMP (χ) scatters elastically off an atomic nucleus (N) by exchanging a mediator, transferring a small recoil energy — the signal that direct-detection experiments try to catch.</figcaption>
             </div>
 
-            <h2>The LZ experiment</h2>
-            <p>LUX-ZEPLIN (LZ) is one of the world’s most sensitive WIMP searches. It runs about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota (Figure 3), where the rock overhead shields it from cosmic rays.</p>
+            <h2 data-ko="LZ 실험">The LZ experiment</h2>
+            <p data-ko="LUX-ZEPLIN(LZ)은 세계에서 가장 민감한 WIMP 탐색 실험 중 하나입니다. South Dakota의 Sanford Underground Research Facility(SURF)에서 약 1.5 km 지하에 설치되어 있으며(그림 3), 상부 암반이 cosmic ray를 차폐합니다.">LUX-ZEPLIN (LZ) is one of the world’s most sensitive WIMP searches. It runs about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota (Figure 3), where the rock overhead shields it from cosmic rays.</p>
             <div class="rfig w62">
-              <img src="images/LZ-location.jpg" alt="Sanford Underground Research Facility location, deep underground in South Dakota">
-              <figcaption><span class="fignum">Figure 3.</span> LZ operates about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota.<span class="credit">Illustration: Greg Stewart / SLAC National Accelerator Laboratory.</span></figcaption>
+              <img src="images/LZ-location.jpg" alt="Sanford Underground Research Facility location, deep underground in South Dakota" data-ko-alt="South Dakota 지하에 있는 Sanford Underground Research Facility의 위치입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 3.&lt;/span&gt; LZ는 South Dakota의 Sanford Underground Research Facility(SURF)에서 약 1.5 km 지하에 설치되어 있습니다.&lt;span class=&quot;credit&quot;&gt;그림: Greg Stewart / SLAC National Accelerator Laboratory.&lt;/span&gt;"><span class="fignum">Figure 3.</span> LZ operates about 1.5 km underground at the Sanford Underground Research Facility (SURF) in South Dakota.<span class="credit">Illustration: Greg Stewart / SLAC National Accelerator Laboratory.</span></figcaption>
             </div>
-            <p>At its heart is a dual-phase xenon time projection chamber (TPC) holding seven tonnes of liquid xenon. When a particle scatters in the liquid it makes a prompt scintillation flash — the S1 signal. The ionization electrons it frees drift upward in an electric field into a thin gas layer, where they make a second, larger pulse — the S2 signal (Figure 4). Together, the S1–S2 delay gives the interaction’s depth, while the S1 and S2 light patterns give its horizontal position and energy; combining the S1 and S2 signals is what picks out the WIMP-like signal.</p>
+            <p data-ko="핵심 장치는 7톤의 liquid xenon을 담은 dual-phase xenon time projection chamber(TPC)입니다. 입자가 액체 안에서 scattering하면 즉각적인 scintillation flash, 즉 S1 signal이 발생합니다. Ionization으로 방출된 electron은 전기장을 따라 위쪽의 얇은 기체층으로 이동하여 더 큰 두 번째 pulse인 S2 signal을 만듭니다(그림 4). S1과 S2의 시간 차이로 상호작용의 깊이를 알 수 있으며, 두 signal의 빛 분포로 수평 위치와 에너지를 구합니다. S1과 S2를 함께 분석하여 WIMP와 유사한 signal을 구분합니다.">At its heart is a dual-phase xenon time projection chamber (TPC) holding seven tonnes of liquid xenon. When a particle scatters in the liquid it makes a prompt scintillation flash — the S1 signal. The ionization electrons it frees drift upward in an electric field into a thin gas layer, where they make a second, larger pulse — the S2 signal (Figure 4). Together, the S1–S2 delay gives the interaction’s depth, while the S1 and S2 light patterns give its horizontal position and energy; combining the S1 and S2 signals is what picks out the WIMP-like signal.</p>
             <div class="rfig sm">
-              <img src="images/LZ-detector_logic.png" alt="Dual-phase xenon TPC working principle: S1 and S2 signals">
-              <figcaption><span class="fignum">Figure 4.</span> Dual-phase xenon TPC principle: a particle makes a prompt flash (S1); the freed electrons drift up and produce a second, larger flash (S2) in the gas.<span class="credit">Adapted from LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Relabelled by the author.</span></figcaption>
+              <img src="images/LZ-detector_logic.png" alt="Dual-phase xenon TPC working principle: S1 and S2 signals" data-ko-alt="S1과 S2 signal을 이용하는 dual-phase xenon TPC의 동작 원리입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 4.&lt;/span&gt; Dual-phase xenon TPC의 동작 원리입니다. 입자가 즉각적인 flash(S1)를 만들고, 방출된 electron이 위로 이동한 뒤 기체층에서 두 번째로 더 큰 flash(S2)를 만듭니다.&lt;span class=&quot;credit&quot;&gt;출처 및 수정: LZ Collaboration, &lt;em&gt;The Data Acquisition System of the LZ Dark Matter Detector: FADR&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2405.14732&quot;&gt;arXiv:2405.14732&lt;/a&gt; — Nucl. Instrum. Meth. A &lt;strong&gt;1068&lt;/strong&gt;, 169712 (2024). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;. 작성자가 label을 수정했습니다.&lt;/span&gt;"><span class="fignum">Figure 4.</span> Dual-phase xenon TPC principle: a particle makes a prompt flash (S1); the freed electrons drift up and produce a second, larger flash (S2) in the gas.<span class="credit">Adapted from LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Relabelled by the author.</span></figcaption>
             </div>
-            <p>Two arrays of photomultiplier tubes (PMTs) above and below the xenon collect this light (Figure 5, Figure 6). LZ wraps the TPC in nested vetoes: a xenon “skin” region that tags gamma rays, and an outer detector of gadolinium-loaded liquid scintillator that catches neutrons, and PMTs in the surrounding water tank that flag cosmic muons by their Cherenkov light.</p>
+            <p data-ko="Xenon 위아래에 배치된 두 photomultiplier tube(PMT) array가 이 빛을 수집합니다(그림 5, 6). LZ는 TPC를 여러 veto로 둘러쌉니다. Xenon skin은 gamma ray를 식별하고, gadolinium-loaded liquid scintillator로 이루어진 outer detector는 neutron을 검출합니다. 주변 water tank의 PMT는 Cherenkov light를 통해 cosmic muon을 식별합니다.">Two arrays of photomultiplier tubes (PMTs) above and below the xenon collect this light (Figure 5, Figure 6). LZ wraps the TPC in nested vetoes: a xenon “skin” region that tags gamma rays, and an outer detector of gadolinium-loaded liquid scintillator that catches neutrons, and PMTs in the surrounding water tank that flag cosmic muons by their Cherenkov light.</p>
             <div class="rfig sm">
-              <img src="images/LZ-detector_diagram.jpg" alt="Labeled schematic of the LZ detector">
-              <figcaption><span class="fignum">Figure 5.</span> The LZ detector. A 7-tonne liquid-xenon TPC (1) sits at the centre of a water tank (2), viewed by top (3) and bottom (4) PMT arrays and held in a double-walled titanium cryostat (5). Gadolinium-loaded liquid scintillator (6) surrounds it, read out by its own PMTs (7) in the water; xenon-skin PMTs sit in the dome (8), and cabling leaves through the top (9) and bottom (10) conduits.<span class="credit">From LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/LZ-detector_diagram.jpg" alt="Labeled schematic of the LZ detector" data-ko-alt="구성 요소를 표시한 LZ detector의 구조도입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 5.&lt;/span&gt; LZ detector입니다. 7톤 liquid-xenon TPC(1)는 water tank(2) 중앙에 있으며, 위(3)와 아래(4)의 PMT array가 이를 관측합니다. TPC는 이중벽 titanium cryostat(5)에 들어 있습니다. Gadolinium-loaded liquid scintillator(6)가 주변을 둘러싸며, 물속의 별도 PMT(7)로 검출합니다. Xenon-skin PMT는 dome(8)에 있고, cable은 위(9)와 아래(10)의 conduit를 통해 나갑니다.&lt;span class=&quot;credit&quot;&gt;출처: LZ Collaboration, &lt;em&gt;The Data Acquisition System of the LZ Dark Matter Detector: FADR&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2405.14732&quot;&gt;arXiv:2405.14732&lt;/a&gt; — Nucl. Instrum. Meth. A &lt;strong&gt;1068&lt;/strong&gt;, 169712 (2024). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 5.</span> The LZ detector. A 7-tonne liquid-xenon TPC (1) sits at the centre of a water tank (2), viewed by top (3) and bottom (4) PMT arrays and held in a double-walled titanium cryostat (5). Gadolinium-loaded liquid scintillator (6) surrounds it, read out by its own PMTs (7) in the water; xenon-skin PMTs sit in the dome (8), and cabling leaves through the top (9) and bottom (10) conduits.<span class="credit">From LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
             <div class="rfig sm">
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start">
-                <img src="images/LZ-detector.png" alt="The assembled LZ xenon detector">
-                <img src="images/LZ-detector_top.png" alt="The LZ top PMT array viewed from above">
+                <img src="images/LZ-detector.png" alt="The assembled LZ xenon detector" data-ko-alt="조립된 LZ xenon detector입니다.">
+                <img src="images/LZ-detector_top.png" alt="The LZ top PMT array viewed from above" data-ko-alt="위에서 본 LZ 상단 PMT array입니다.">
               </div>
-              <figcaption><span class="fignum">Figure 6.</span> The assembled xenon detector (left) and its top PMT array viewed from above (right).<span class="credit">Photos by Matthew Kapust, Sanford Underground Research Facility, used with permission. From D.S. Akerib et al., <a href="https://doi.org/10.1016/j.nima.2019.163047">Nucl. Instrum. Methods A</a> <strong>953</strong>, 163047 (2020), Figs. 2–3.</span></figcaption>
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 6.&lt;/span&gt; 조립된 xenon detector(왼쪽)와 위에서 본 상단 PMT array(오른쪽)입니다.&lt;span class=&quot;credit&quot;&gt;사진: Matthew Kapust, Sanford Underground Research Facility. 허가를 받아 사용했습니다. 출처: D.S. Akerib et al., &lt;a href=&quot;https://doi.org/10.1016/j.nima.2019.163047&quot;&gt;Nucl. Instrum. Methods A&lt;/a&gt; &lt;strong&gt;953&lt;/strong&gt;, 163047 (2020), Figs. 2–3.&lt;/span&gt;"><span class="fignum">Figure 6.</span> The assembled xenon detector (left) and its top PMT array viewed from above (right).<span class="credit">Photos by Matthew Kapust, Sanford Underground Research Facility, used with permission. From D.S. Akerib et al., <a href="https://doi.org/10.1016/j.nima.2019.163047">Nucl. Instrum. Methods A</a> <strong>953</strong>, 163047 (2020), Figs. 2–3.</span></figcaption>
             </div>
-            <p>With this layered design, LZ has set among the world’s strongest limits on WIMP dark matter across a wide mass range (Figure 7).</p>
+            <p data-ko="이러한 다층 설계를 통해 LZ는 넓은 질량 범위에서 WIMP dark matter에 대한 세계 최고 수준의 제한을 제시하고 있습니다(그림 7).">With this layered design, LZ has set among the world’s strongest limits on WIMP dark matter across a wide mass range (Figure 7).</p>
             <div class="rfig w70">
-              <img src="images/LZ-performance.jpg" alt="LZ exclusion limit on the spin-independent WIMP-nucleon cross-section versus WIMP mass">
-              <figcaption><span class="fignum">Figure 7.</span> LZ’s limit on the spin-independent WIMP–nucleon cross-section (WS2022 + WS2024) — among the world’s strongest across a wide range of WIMP masses.<span class="credit">Reproduced from Fig. 5 of J. Aalbers <em>et al.</em> (LZ Collaboration), “Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment,” <a href="https://doi.org/10.1103/4dyc-z8zf">Phys. Rev. Lett.</a> <strong>135</strong>, 011802 (2025), DOI: 10.1103/4dyc-z8zf; <a href="https://arxiv.org/abs/2410.17036">arXiv:2410.17036</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/LZ-performance.jpg" alt="LZ exclusion limit on the spin-independent WIMP-nucleon cross-section versus WIMP mass" data-ko-alt="WIMP 질량에 따른 spin-independent WIMP–nucleon cross-section의 LZ exclusion limit입니다.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 7.&lt;/span&gt; Spin-independent WIMP–nucleon cross-section에 대한 LZ의 한계(WS2022 + WS2024)입니다. 넓은 WIMP 질량 범위에서 세계 최고 수준의 제한을 제시합니다.&lt;span class=&quot;credit&quot;&gt;그림 출처: Fig. 5, J. Aalbers &lt;em&gt;et al.&lt;/em&gt; (LZ Collaboration), “Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment,” &lt;a href=&quot;https://doi.org/10.1103/4dyc-z8zf&quot;&gt;Phys. Rev. Lett.&lt;/a&gt; &lt;strong&gt;135&lt;/strong&gt;, 011802 (2025), DOI: 10.1103/4dyc-z8zf; &lt;a href=&quot;https://arxiv.org/abs/2410.17036&quot;&gt;arXiv:2410.17036&lt;/a&gt;. 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 7.</span> LZ’s limit on the spin-independent WIMP–nucleon cross-section (WS2022 + WS2024) — among the world’s strongest across a wide range of WIMP masses.<span class="credit">Reproduced from Fig. 5 of J. Aalbers <em>et al.</em> (LZ Collaboration), “Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment,” <a href="https://doi.org/10.1103/4dyc-z8zf">Phys. Rev. Lett.</a> <strong>135</strong>, 011802 (2025), DOI: 10.1103/4dyc-z8zf; <a href="https://arxiv.org/abs/2410.17036">arXiv:2410.17036</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
             </div>
           </div>
         </div>
@@ -488,35 +511,35 @@
         <!-- ---------- SUBPAGE: Detector material characterization ---------- -->
         <div class="subpage" id="sub-rnd">
           <div class="exp">
-            <p class="kicker">Scintillator &amp; wavelength-shifting materials</p>
-            <h2>Detector material characterization</h2>
-            <p>Scintillators and light-shifting materials are widely used in experimental particle and nuclear physics. Plastic scintillators form the trigger counters, hodoscopes, and calorimeter tiles of collider and fixed-target experiments, and the active planes of many neutrino and cosmic-ray detectors. Liquid scintillators instrument large neutrino observatories and fast-neutron spectrometers. Wavelength shifters convert hard-to-collect ultraviolet scintillation light into a detectable band in noble-liquid time projection chambers and calorimeters. Scintillating fibers build high-resolution tracking detectors and beam monitors. The same materials run throughout applied radiation detection as well — medical imaging, nuclear security, and space instrumentation.</p>
-            <p>This research program characterizes such materials — plastic and liquid scintillators, wavelength shifters, and scintillating and wavelength-shifting fibers (Figure 1).</p>
+            <p class="kicker" data-ko="Scintillator 및 wavelength-shifting 소재">Scintillator &amp; wavelength-shifting materials</p>
+            <h2 data-ko="Detector 소재 특성 평가">Detector material characterization</h2>
+            <p data-ko="Scintillator와 light-shifting 소재는 실험 particle physics 및 nuclear physics에서 널리 사용됩니다. Plastic scintillator는 collider 및 fixed-target 실험의 trigger counter, hodoscope, calorimeter tile과 여러 neutrino 및 cosmic-ray detector의 검출층을 구성합니다. Liquid scintillator는 대형 neutrino 관측 시설과 fast-neutron spectrometer에 사용됩니다. Wavelength shifter는 noble-liquid time projection chamber와 calorimeter에서 수집하기 어려운 ultraviolet scintillation light를 검출 가능한 파장대로 바꿉니다. Scintillating fiber는 고해상도 tracking detector와 beam monitor에 사용됩니다. 이러한 소재는 medical imaging, nuclear security, space instrumentation 등 응용 방사선 검출 분야에서도 널리 활용됩니다.">Scintillators and light-shifting materials are widely used in experimental particle and nuclear physics. Plastic scintillators form the trigger counters, hodoscopes, and calorimeter tiles of collider and fixed-target experiments, and the active planes of many neutrino and cosmic-ray detectors. Liquid scintillators instrument large neutrino observatories and fast-neutron spectrometers. Wavelength shifters convert hard-to-collect ultraviolet scintillation light into a detectable band in noble-liquid time projection chambers and calorimeters. Scintillating fibers build high-resolution tracking detectors and beam monitors. The same materials run throughout applied radiation detection as well — medical imaging, nuclear security, and space instrumentation.</p>
+            <p data-ko="이 연구에서는 plastic 및 liquid scintillator, wavelength shifter, scintillating fiber와 wavelength-shifting fiber의 특성을 평가합니다(그림 1).">This research program characterizes such materials — plastic and liquid scintillators, wavelength shifters, and scintillating and wavelength-shifting fibers (Figure 1).</p>
             <div class="rfig">
               <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center">
-                <img src="images/Material-Scintillators.jpg" alt="A scintillation crystal surrounded by packaged scintillation products" style="height:265px; width:auto; max-width:100%">
-                <img src="images/Material-WLS.jpg" alt="Two vials showing Stokes and anti-Stokes emission under green laser excitation" style="height:265px; width:auto; max-width:100%">
-                <img src="images/Material-Sci_fiber.jpg" alt="Scintillating glass optical fibres glowing under ultraviolet illumination" style="height:265px; width:auto; max-width:100%">
+                <img src="images/Material-Scintillators.jpg" alt="A scintillation crystal surrounded by packaged scintillation products" style="height:265px; width:auto; max-width:100%" data-ko-alt="Scintillation crystal과 포장된 scintillation 제품입니다.">
+                <img src="images/Material-WLS.jpg" alt="Two vials showing Stokes and anti-Stokes emission under green laser excitation" style="height:265px; width:auto; max-width:100%" data-ko-alt="녹색 laser 조사로 Stokes 및 anti-Stokes emission을 보이는 두 시료입니다.">
+                <img src="images/Material-Sci_fiber.jpg" alt="Scintillating glass optical fibres glowing under ultraviolet illumination" style="height:265px; width:auto; max-width:100%" data-ko-alt="Ultraviolet 조사로 빛나는 scintillating glass optical fiber입니다.">
               </div>
-              <figcaption><span class="fignum">Figure 1.</span> Representative optical materials in radiation detection: a scintillation crystal surrounded by packaged scintillation products (left), wavelength shifting in solution — Stokes emission in red and anti-Stokes emission in blue (centre), and scintillating glass optical fibres (right), where UV-induced fluorescence stands in for scintillation.<span class="credit">Left: <em>Scintillation crystal with packaged scintillation products</em> by Saint-Gobain Crystals, via <a href="https://commons.wikimedia.org/wiki/File:SGCat24454-scint-gris.noirEtBlanc.jpg">Wikimedia Commons</a>, public domain. Centre: <em>Stokes and anti-Stokes emission</em> by Victor Gray, via <a href="https://commons.wikimedia.org/wiki/File:Stokes_and_Anti-Stokes_emission.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Right: U.S. Department of Energy, via <a href="https://commons.wikimedia.org/wiki/File:U.S._Department_of_Energy_-_Science_-_395_009_003_(9563510165).jpg">Wikimedia Commons</a>, public domain. Cropped to a common aspect ratio.</span></figcaption>
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 1.&lt;/span&gt; 방사선 검출에 쓰이는 대표적인 광학 소재입니다. 왼쪽은 scintillation crystal과 포장된 scintillation 제품, 가운데는 녹색 laser 조사에 따른 wavelength shifting으로 빨간색 Stokes emission과 파란색 anti-Stokes emission을 보여드립니다. 오른쪽은 scintillating glass optical fiber이며, ultraviolet-induced fluorescence로 scintillation을 대신 표현했습니다.&lt;span class=&quot;credit&quot;&gt;왼쪽: &lt;em&gt;Scintillation crystal with packaged scintillation products&lt;/em&gt; — Saint-Gobain Crystals, 출처: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:SGCat24454-scint-gris.noirEtBlanc.jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;, Public domain입니다. 가운데: &lt;em&gt;Stokes and anti-Stokes emission&lt;/em&gt; — Victor Gray, 출처: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Stokes_and_Anti-Stokes_emission.jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;, &lt;a href=&quot;https://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;CC BY-SA 4.0&lt;/a&gt;. 오른쪽: U.S. Department of Energy, 출처: &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:U.S._Department_of_Energy_-_Science_-_395_009_003_(9563510165).jpg&quot;&gt;Wikimedia Commons&lt;/a&gt;, Public domain입니다. 같은 화면 비율로 잘라 사용했습니다.&lt;/span&gt;"><span class="fignum">Figure 1.</span> Representative optical materials in radiation detection: a scintillation crystal surrounded by packaged scintillation products (left), wavelength shifting in solution — Stokes emission in red and anti-Stokes emission in blue (centre), and scintillating glass optical fibres (right), where UV-induced fluorescence stands in for scintillation.<span class="credit">Left: <em>Scintillation crystal with packaged scintillation products</em> by Saint-Gobain Crystals, via <a href="https://commons.wikimedia.org/wiki/File:SGCat24454-scint-gris.noirEtBlanc.jpg">Wikimedia Commons</a>, public domain. Centre: <em>Stokes and anti-Stokes emission</em> by Victor Gray, via <a href="https://commons.wikimedia.org/wiki/File:Stokes_and_Anti-Stokes_emission.jpg">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Right: U.S. Department of Energy, via <a href="https://commons.wikimedia.org/wiki/File:U.S._Department_of_Energy_-_Science_-_395_009_003_(9563510165).jpg">Wikimedia Commons</a>, public domain. Cropped to a common aspect ratio.</span></figcaption>
             </div>
-            <p>The measurements span light yield, quenching factor, absorption and emission spectra, light attenuation length, pulse-shape-discrimination (PSD) capability, and how these vary with temperature and dopant concentration.</p>
-            <p>The aim is not a single material but a systematic, long-term survey: characterizing a broad library of candidates — hundreds of them over time — and reporting useful, reproducible benchmarks to the research community and to industry.</p>
-            <p>These benchmarks also benefit large rare-event search programs, whose veto detectors rely on well-understood light-collection materials. The characterization setup is compact — a light or radiation source, the material under test, and a DAQ system — and an excellent platform for training students across the full arc of an experiment, from hardware to analysis.</p>
+            <p data-ko="측정 항목은 light yield, quenching factor, absorption 및 emission spectrum, light attenuation length, pulse-shape discrimination(PSD) 성능입니다. 또한 온도와 dopant 농도에 따라 이러한 특성이 어떻게 달라지는지도 조사합니다.">The measurements span light yield, quenching factor, absorption and emission spectra, light attenuation length, pulse-shape-discrimination (PSD) capability, and how these vary with temperature and dopant concentration.</p>
+            <p data-ko="목표는 한 가지 소재에 대한 평가를 넘어 체계적인 장기 조사를 수행하는 것입니다. 장기적으로 수백 종의 후보 소재를 평가하고, 연구계와 산업계에 유용하고 재현 가능한 benchmark를 제공하고자 합니다.">The aim is not a single material but a systematic, long-term survey: characterizing a broad library of candidates — hundreds of them over time — and reporting useful, reproducible benchmarks to the research community and to industry.</p>
+            <p data-ko="이러한 benchmark는 빛 수집 소재의 특성이 중요한 대형 rare-event 탐색 실험의 veto detector에도 도움이 됩니다. 특성 평가 장치는 광원 또는 방사선원, 시험할 소재, DAQ system으로 구성되어 비교적 작게 구축할 수 있습니다. 따라서 학생들이 hardware부터 분석까지 실험의 전 과정을 배우기에도 좋은 환경을 제공합니다.">These benchmarks also benefit large rare-event search programs, whose veto detectors rely on well-understood light-collection materials. The characterization setup is compact — a light or radiation source, the material under test, and a DAQ system — and an excellent platform for training students across the full arc of an experiment, from hardware to analysis.</p>
 
-            <h2>Case study: scintillating and wavelength-shifting fibers</h2>
-            <p>Plastic scintillating and wavelength-shifting (WLS) fibers have been used since the 1980s — WLS fibers in MINOS, NOvA, GERDA, and LEGEND-200, scintillating fibers in DØ and the LHCb SciFi Tracker. Near ultra-low-background detectors, though, fiber choice is set by radiopurity as much as by optical performance, since radio-impurities in the fiber itself generate background radiation. Scintillating-wavelength-shifting (Sci-WLS) fibers, a recently developed class, are attractive because they add scintillation to wavelength shifting and light guiding — raising the possibility of self-tagging fiber-borne backgrounds in a veto, which is valuable for rare-event searches such as LEGEND-1000.</p>
-            <p>Two papers benchmark these fibers: their optical behaviour — emission and absorption spectra, attenuation length — in <a href="https://doi.org/10.1088/1748-0221/21/01/P01027">Bae et al., JINST 21, P01027 (2026)</a>, and their response to ionizing radiation, the signal that makes self-tagging possible, in <a href="https://doi.org/10.1088/1748-0221/21/03/P03053">Bae et al., JINST 21, P03053 (2026)</a>.</p>
+            <h2 data-ko="연구 사례: scintillating 및 wavelength-shifting fiber">Case study: scintillating and wavelength-shifting fibers</h2>
+            <p data-ko="Plastic scintillating fiber와 wavelength-shifting(WLS) fiber는 1980년대부터 사용되어 왔습니다. WLS fiber는 MINOS, NOvA, GERDA, LEGEND-200에, scintillating fiber는 DØ와 LHCb SciFi Tracker에 사용되었습니다. 하지만 ultra-low-background detector 근처에서는 광학 성능만큼 radiopurity도 중요합니다. Fiber 자체의 radioactive impurity가 background radiation을 만들기 때문입니다. 최근 개발된 scintillating-wavelength-shifting(Sci-WLS) fiber는 wavelength shifting과 light guiding에 scintillation 기능을 더합니다. 이를 통해 veto에서 fiber 자체가 만드는 background를 스스로 식별할 가능성이 열리며, LEGEND-1000 같은 rare-event 탐색에 유용할 수 있습니다.">Plastic scintillating and wavelength-shifting (WLS) fibers have been used since the 1980s — WLS fibers in MINOS, NOvA, GERDA, and LEGEND-200, scintillating fibers in DØ and the LHCb SciFi Tracker. Near ultra-low-background detectors, though, fiber choice is set by radiopurity as much as by optical performance, since radio-impurities in the fiber itself generate background radiation. Scintillating-wavelength-shifting (Sci-WLS) fibers, a recently developed class, are attractive because they add scintillation to wavelength shifting and light guiding — raising the possibility of self-tagging fiber-borne backgrounds in a veto, which is valuable for rare-event searches such as LEGEND-1000.</p>
+            <p data-ko="두 논문에서 이 fiber의 성능을 평가했습니다. Emission 및 absorption spectrum과 attenuation length를 포함한 광학 특성은 &lt;a href=&quot;https://doi.org/10.1088/1748-0221/21/01/P01027&quot;&gt;Bae et al., JINST 21, P01027 (2026)&lt;/a&gt;에서 다루었습니다. Self-tagging을 가능하게 하는 ionizing radiation에 대한 반응은 &lt;a href=&quot;https://doi.org/10.1088/1748-0221/21/03/P03053&quot;&gt;Bae et al., JINST 21, P03053 (2026)&lt;/a&gt;에서 다루었습니다.">Two papers benchmark these fibers: their optical behaviour — emission and absorption spectra, attenuation length — in <a href="https://doi.org/10.1088/1748-0221/21/01/P01027">Bae et al., JINST 21, P01027 (2026)</a>, and their response to ionizing radiation, the signal that makes self-tagging possible, in <a href="https://doi.org/10.1088/1748-0221/21/03/P03053">Bae et al., JINST 21, P03053 (2026)</a>.</p>
             <div class="related">
-              <h2>Related papers</h2>
+              <h2 data-ko="관련 논문">Related papers</h2>
               <ol class="pubs">
             <li class="pub">
-              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
             </li>
             <li class="pub">
-              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
             </li>
@@ -532,19 +555,19 @@
     <section class="page" id="page-publications">
       <div class="wrap">
         <div class="page-head">
-          <p class="eyebrow">Publications</p>
-          <h1 class="page-title">Selected publications</h1>
-          <p class="page-sub">Full list on <a href="https://inspirehep.net/authors/1732889">INSPIRE-HEP</a> and <a href="https://scholar.google.com/citations?hl=en&user=Hyh0YwgAAAAJ">Google Scholar</a>.</p>
+          <p class="eyebrow" data-ko="논문">Publications</p>
+          <h1 class="page-title" data-ko="주요 논문">Selected publications</h1>
+          <p class="page-sub" data-ko="전체 목록은 &lt;a href=&quot;https://inspirehep.net/authors/1732889&quot;&gt;INSPIRE-HEP&lt;/a&gt;와 &lt;a href=&quot;https://scholar.google.com/citations?hl=en&amp;amp;user=Hyh0YwgAAAAJ&quot;&gt;Google Scholar&lt;/a&gt;에서 확인하실 수 있습니다.">Full list on <a href="https://inspirehep.net/authors/1732889">INSPIRE-HEP</a> and <a href="https://scholar.google.com/citations?hl=en&user=Hyh0YwgAAAAJ">Google Scholar</a>.</p>
         </div>
         <div class="block">
           <ol class="pubs">
             <li class="pub">
-              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge">Lead author</span></span>
+              <span class="pub-title">Response of wavelength-shifting and scintillating-wavelength-shifting fibers to ionizing radiation<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P03053.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/03/P03053">DOI</a><a href="https://arxiv.org/abs/2510.15913">arXiv:2510.15913</a></div>
             </li>
             <li class="pub">
-              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge">Lead author</span></span>
+              <span class="pub-title">Optical characterization of wavelength-shifting and scintillating-wavelength-shifting fibers<span class="badge" data-ko="주저자">Lead author</span></span>
               <span class="pub-meta"><span class="me">W. Bae</span> et al., <em>Journal of Instrumentation</em> <strong>21</strong> (2026) P01027.</span>
               <div class="pub-links"><a href="https://doi.org/10.1088/1748-0221/21/01/P01027">DOI</a><a href="https://arxiv.org/abs/2509.20390">arXiv:2509.20390</a></div>
             </li>
@@ -573,30 +596,30 @@
     <section class="page" id="page-talks">
       <div class="wrap">
         <div class="page-head">
-          <p class="eyebrow">Talks</p>
-          <h1 class="page-title">Selected presentations</h1>
+          <p class="eyebrow" data-ko="발표">Talks</p>
+          <h1 class="page-title" data-ko="주요 발표">Selected presentations</h1>
         </div>
         <div class="block">
           <div class="talk-group">
-            <h3>Invited talks</h3>
+            <h3 data-ko="초청 발표">Invited talks</h3>
             <div class="talk">
-              <span class="t-title">LEGEND experiment and fiber studies</span>
-              <span class="t-where">Eljen Technology (scintillator manufacturer), Texas, USA · <span class="t-yr">2023, 2024, 2025</span></span>
+              <span class="t-title" data-ko="LEGEND 실험 및 fiber 연구">LEGEND experiment and fiber studies</span>
+              <span class="t-where" data-ko="Eljen Technology(scintillator 제조사), Texas, 미국 · &lt;span class=&quot;t-yr&quot;&gt;2023, 2024, 2025&lt;/span&gt;">Eljen Technology (scintillator manufacturer), Texas, USA · <span class="t-yr">2023, 2024, 2025</span></span>
             </div>
             <div class="talk">
-              <span class="t-title">Fiber studies for next-generation 0νββ searches in the LEGEND experiment</span>
-              <span class="t-where">HEAP seminar, University of California, Los Angeles, USA · <span class="t-yr">2025</span></span>
+              <span class="t-title" data-ko="LEGEND 실험의 차세대 0νββ 탐색을 위한 fiber 연구">Fiber studies for next-generation 0νββ searches in the LEGEND experiment</span>
+              <span class="t-where" data-ko="HEAP seminar, University of California, Los Angeles, 미국 · &lt;span class=&quot;t-yr&quot;&gt;2025&lt;/span&gt;">HEAP seminar, University of California, Los Angeles, USA · <span class="t-yr">2025</span></span>
             </div>
           </div>
           <div class="talk-group">
-            <h3>Conference talks</h3>
+            <h3 data-ko="학회 발표">Conference talks</h3>
             <div class="talk">
-              <span class="t-title">Fiber studies to improve the liquid-argon detector for LEGEND-1000</span>
-              <span class="t-where">APS Meeting (USA) &amp; KPS Meeting (South Korea), with Eljen Technology representatives · <span class="t-yr">2025</span></span>
+              <span class="t-title" data-ko="LEGEND-1000의 liquid-argon detector 개선을 위한 fiber 연구">Fiber studies to improve the liquid-argon detector for LEGEND-1000</span>
+              <span class="t-where" data-ko="APS Meeting(미국) 및 KPS Meeting(대한민국), Eljen Technology 관계자와 공동 참여 · &lt;span class=&quot;t-yr&quot;&gt;2025&lt;/span&gt;">APS Meeting (USA) &amp; KPS Meeting (South Korea), with Eljen Technology representatives · <span class="t-yr">2025</span></span>
             </div>
             <div class="talk">
-              <span class="t-title">Fiber studies for the LEGEND experiment</span>
-              <span class="t-where">LEGEND collaboration meetings · <span class="t-yr">2023, 2024, 2025, 2026</span></span>
+              <span class="t-title" data-ko="LEGEND 실험을 위한 fiber 연구">Fiber studies for the LEGEND experiment</span>
+              <span class="t-where" data-ko="LEGEND collaboration 회의 · &lt;span class=&quot;t-yr&quot;&gt;2023, 2024, 2025, 2026&lt;/span&gt;">LEGEND collaboration meetings · <span class="t-yr">2023, 2024, 2025, 2026</span></span>
             </div>
           </div>
         </div>
@@ -608,9 +631,9 @@
     <section class="page" id="page-notes">
       <div class="wrap">
         <div class="page-head">
-          <p class="eyebrow">Notes</p>
-          <h1 class="page-title">Notes</h1>
-          <p class="page-sub">Occasional writing and short videos on physics.</p>
+          <p class="eyebrow" data-ko="글과 영상">Notes</p>
+          <h1 class="page-title" data-ko="글과 영상">Notes</h1>
+          <p class="page-sub" data-ko="물리학에 관한 글과 짧은 영상을 소개합니다.">Occasional writing and short videos on physics.</p>
         </div>
         <div class="block">
           <!-- ENTRY TEMPLATE (copy, uncomment, and edit):
@@ -621,84 +644,84 @@
           -->
 
           <article class="note-post" id="why-basic-science">
-            <h2 class="n-title">Why We Invest in Basic Science?</h2>
-            <p class="n-meta">Essay · September 2026</p>
+            <h2 class="n-title" data-ko="우리는 왜 Basic science에 투자할까요?">Why We Invest in Basic Science?</h2>
+            <p class="n-meta" data-ko="에세이 · 2026년 9월">Essay · September 2026</p>
 
-            <p>Basic science is funded mainly by governments — in other words, by taxpayers. In the United States, the federal government spends tens of billions of dollars on basic research each year. The latest figure is more than $44 billion, or about $130 per person each year.</p>
+            <p data-ko="Basic science는 주로 정부의 지원을 받습니다. 다시 말해, 납세자가 내는 세금으로 이루어집니다. 미국 연방정부는 매년 basic research에 수백억 달러를 지출합니다. 최근 수치는 440억 달러 이상이며, 1인당 연간 약 130달러에 해당합니다.">Basic science is funded mainly by governments — in other words, by taxpayers. In the United States, the federal government spends tens of billions of dollars on basic research each year. The latest figure is more than $44 billion, or about $130 per person each year.</p>
             <figure class="science-scene" id="science-scene-1">
-              <a href="images/01-public-investment.png" target="_blank" rel="noopener" aria-label="Open illustration: A shared investment">
-                <img src="images/01-public-investment.png" width="1672" height="941" loading="lazy" decoding="async" alt="Public contributions support the search for new knowledge.">
+              <a href="images/01-public-investment.png" target="_blank" rel="noopener" aria-label="Open illustration: A shared investment" data-ko-aria-label="그림 원본 열기: 시민의 기여가 정부를 통해 새로운 지식을 찾는 연구를 지원합니다.">
+                <img src="images/01-public-investment.png" width="1672" height="941" loading="lazy" decoding="async" alt="Public contributions support the search for new knowledge." data-ko-alt="시민의 기여가 정부를 통해 새로운 지식을 찾는 연구를 지원합니다.">
               </a>
             </figure>
 
 
-            <p>That money could be used elsewhere. It could pay for more scholarships for students who cannot afford college, another care center for people with disabilities, or someone's hospital bill. There are many places where a dollar can ease suffering right now. So why do we use this money to try to answer questions that may not seem useful in everyday life? For example, how do stars die? How do subatomic particles decay? What is the faint light left from the universe's first moments?</p>
+            <p data-ko="이 돈은 다른 곳에도 쓸 수 있습니다. 학비를 감당하기 어려운 학생들에게 장학금을 더 제공하거나, 장애인을 위한 돌봄 시설을 하나 더 짓거나, 누군가의 병원비를 대신 낼 수도 있습니다. 지금 당장 작은 돈으로도 고통을 덜어 줄 수 있는 곳은 많습니다. 그렇다면 우리는 왜 일상생활에 별로 도움이 되지 않아 보이는 질문의 답을 찾는 데 이 돈을 쓸까요? 예를 들어, 별은 어떻게 생을 마칠까요? Subatomic particle은 어떻게 붕괴할까요? 우주가 시작될 무렵 남겨진 희미한 빛은 무엇일까요?">That money could be used elsewhere. It could pay for more scholarships for students who cannot afford college, another care center for people with disabilities, or someone's hospital bill. There are many places where a dollar can ease suffering right now. So why do we use this money to try to answer questions that may not seem useful in everyday life? For example, how do stars die? How do subatomic particles decay? What is the faint light left from the universe's first moments?</p>
             <figure class="science-scene" id="science-scene-2">
-              <a href="images/02-the-dilemma.png" target="_blank" rel="noopener" aria-label="Open illustration: The choice before us">
-                <img src="images/02-the-dilemma.png" width="1672" height="941" loading="lazy" decoding="async" alt="Immediate needs and open-ended discovery both ask for our care.">
+              <a href="images/02-the-dilemma.png" target="_blank" rel="noopener" aria-label="Open illustration: The choice before us" data-ko-aria-label="그림 원본 열기: 당장의 필요를 돕는 일과 새로운 지식을 찾는 연구 사이의 선택을 보여드립니다.">
+                <img src="images/02-the-dilemma.png" width="1672" height="941" loading="lazy" decoding="async" alt="Immediate needs and open-ended discovery both ask for our care." data-ko-alt="당장의 필요를 돕는 일과 새로운 지식을 찾는 연구 사이의 선택을 보여드립니다.">
               </a>
             </figure>
 
 
-            <p>I think there are two reasons.</p>
+            <p data-ko="저는 두 가지 이유가 있다고 생각합니다.">I think there are two reasons.</p>
 
-            <h3>We do not know where discovery will lead</h3>
-            <p>Investing in basic science is like exploration. We cannot know what lies beyond the horizon until a ship sets sail. Some ships find islands rich in spices. Others find only empty fields of ice. At first, the ice seems worthless. Centuries later, people may discover a huge oil field beneath it. Even a voyage that finds no valuable land can give us better compasses, better ships, and better maps. These tools help everyone who explores after us.</p>
+            <h3 data-ko="발견이 어디로 이어질지는 아직 모릅니다">We do not know where discovery will lead</h3>
+            <p data-ko="Basic science에 투자하는 일은 탐험과 비슷합니다. 배가 출항하기 전에는 수평선 너머에 무엇이 있는지 알 수 없습니다. 어떤 배는 향신료가 풍부한 섬을 발견하고, 다른 배는 텅 빈 얼음 벌판만 발견합니다. 처음에는 그 얼음이 아무 가치도 없어 보일 수 있습니다. 하지만 몇 세기 뒤, 그 아래에서 거대한 유전이 발견될 수도 있습니다. 가치 있는 땅을 찾지 못한 항해도 더 나은 나침반과 배, 지도를 남길 수 있습니다. 이러한 도구는 뒤이어 탐험에 나서는 모든 사람에게 도움이 됩니다.">Investing in basic science is like exploration. We cannot know what lies beyond the horizon until a ship sets sail. Some ships find islands rich in spices. Others find only empty fields of ice. At first, the ice seems worthless. Centuries later, people may discover a huge oil field beneath it. Even a voyage that finds no valuable land can give us better compasses, better ships, and better maps. These tools help everyone who explores after us.</p>
             <figure class="science-scene" id="science-scene-3">
-              <a href="images/03-uncharted-waters.png" target="_blank" rel="noopener" aria-label="Open illustration: Beyond the horizon">
-                <img src="images/03-uncharted-waters.png" width="1672" height="941" loading="lazy" decoding="async" alt="The value of a discovery may become clear long after the voyage.">
+              <a href="images/03-uncharted-waters.png" target="_blank" rel="noopener" aria-label="Open illustration: Beyond the horizon" data-ko-aria-label="그림 원본 열기: 탐험선이 향신료가 있는 섬과 얼음으로 덮인 섬을 향해 나아갑니다.">
+                <img src="images/03-uncharted-waters.png" width="1672" height="941" loading="lazy" decoding="async" alt="The value of a discovery may become clear long after the voyage." data-ko-alt="탐험선이 향신료가 있는 섬과 얼음으로 덮인 섬을 향해 나아갑니다.">
               </a>
             </figure>
 
 
-            <p>The history of basic science shows this pattern again and again. Quantum mechanics began with scientists asking what happens inside an atom. No one expected it to make money. But this curiosity led to the transistor. Transistors led to the semiconductor industry, and that industry gave us modern electronic devices.</p>
+            <p data-ko="Basic science의 역사에서는 이러한 일이 반복해서 나타납니다. Quantum mechanics는 원자 안에서 무슨 일이 일어나는지 궁금해하던 과학자들의 질문에서 시작되었습니다. 누구도 그것이 돈이 될 것이라고 예상하지 못했습니다. 하지만 그 호기심은 transistor로 이어졌고, transistor는 semiconductor 산업으로 이어졌습니다. 그리고 그 산업은 오늘날의 전자기기를 만들어 냈습니다.">The history of basic science shows this pattern again and again. Quantum mechanics began with scientists asking what happens inside an atom. No one expected it to make money. But this curiosity led to the transistor. Transistors led to the semiconductor industry, and that industry gave us modern electronic devices.</p>
             <figure class="science-scene" id="science-scene-4">
-              <a href="images/04-quantum-to-devices.png" target="_blank" rel="noopener" aria-label="Open illustration: From curiosity to technology">
-                <img src="images/04-quantum-to-devices.png" width="1672" height="941" loading="lazy" decoding="async" alt="Quantum physics → transistor → semiconductor chip → everyday electronics.">
+              <a href="images/04-quantum-to-devices.png" target="_blank" rel="noopener" aria-label="Open illustration: From curiosity to technology" data-ko-aria-label="그림 원본 열기: Quantum physics에서 transistor, semiconductor chip, 다양한 전자기기로 이어지는 흐름입니다.">
+                <img src="images/04-quantum-to-devices.png" width="1672" height="941" loading="lazy" decoding="async" alt="Quantum physics → transistor → semiconductor chip → everyday electronics." data-ko-alt="Quantum physics에서 transistor, semiconductor chip, 다양한 전자기기로 이어지는 흐름입니다.">
               </a>
             </figure>
 
 
-            <p>The World Wide Web began in the same way. Physicists at CERN built a simple tool to share experimental data. That small tool is now the nervous system of modern society.</p>
+            <p data-ko="World Wide Web도 비슷하게 시작되었습니다. CERN의 물리학자들은 실험 데이터를 나누기 위한 간단한 도구를 만들었습니다. 그 작은 도구는 이제 현대 사회의 신경망이 되었습니다.">The World Wide Web began in the same way. Physicists at CERN built a simple tool to share experimental data. That small tool is now the nervous system of modern society.</p>
             <figure class="science-scene" id="science-scene-5">
-              <a href="images/05-a-web-of-knowledge.png" target="_blank" rel="noopener" aria-label="Open illustration: Knowledge becomes a network">
-                <img src="images/05-a-web-of-knowledge.png" width="1672" height="941" loading="lazy" decoding="async" alt="Scientific collaboration grows into a way to connect the world.">
+              <a href="images/05-a-web-of-knowledge.png" target="_blank" rel="noopener" aria-label="Open illustration: Knowledge becomes a network" data-ko-aria-label="그림 원본 열기: 과학자들의 협력이 전 세계를 연결하는 network로 확장됩니다.">
+                <img src="images/05-a-web-of-knowledge.png" width="1672" height="941" loading="lazy" decoding="async" alt="Scientific collaboration grows into a way to connect the world." data-ko-alt="과학자들의 협력이 전 세계를 연결하는 network로 확장됩니다.">
               </a>
             </figure>
 
 
-            <p>Space exploration tells the same story. During the Cold War, plans to put a person on the Moon and explore space may have seemed mostly about national pride. But those efforts also gave us weather and communication satellites, water-purification technology, memory foam, and the image sensors used in smartphone cameras.</p>
+            <p data-ko="우주 탐사도 같은 이야기를 들려줍니다. 냉전 시기에 사람을 달에 보내고 우주를 탐사하려던 계획은 국가의 자존심을 세우려는 일처럼 보였을 수 있습니다. 하지만 그 노력은 기상·통신 위성, 정수 기술, memory foam, 그리고 스마트폰 카메라에 쓰이는 image sensor도 남겼습니다.">Space exploration tells the same story. During the Cold War, plans to put a person on the Moon and explore space may have seemed mostly about national pride. But those efforts also gave us weather and communication satellites, water-purification technology, memory foam, and the image sensors used in smartphone cameras.</p>
             <figure class="science-scene" id="science-scene-6">
-              <a href="images/06-space-spinoffs.png" target="_blank" rel="noopener" aria-label="Open illustration: Exploration reaches everyday life">
-                <img src="images/06-space-spinoffs.png" width="1672" height="941" loading="lazy" decoding="async" alt="Space research connects to satellites, filtration, cushioning and imaging.">
+              <a href="images/06-space-spinoffs.png" target="_blank" rel="noopener" aria-label="Open illustration: Exploration reaches everyday life" data-ko-aria-label="그림 원본 열기: 우주 연구에서 위성, 정수 기술, memory foam, image sensor로 이어지는 연결을 보여드립니다.">
+                <img src="images/06-space-spinoffs.png" width="1672" height="941" loading="lazy" decoding="async" alt="Space research connects to satellites, filtration, cushioning and imaging." data-ko-alt="우주 연구에서 위성, 정수 기술, memory foam, image sensor로 이어지는 연결을 보여드립니다.">
               </a>
             </figure>
 
 
-            <p>In each case, the people who began the research did not know where it would lead. That is the nature of basic science: we sail into waters that no one has mapped. Some voyages will find only ice. But we cannot know what lies beneath that ice until we go and look.</p>
+            <p data-ko="이 모든 경우에, 연구를 시작한 사람들은 그 끝에 무엇이 기다리고 있을지 알지 못했습니다. 이것이 basic science의 본질입니다. 우리는 아직 아무도 지도로 그리지 않은 바다로 나아갑니다. 어떤 항해에서는 얼음만 발견할 수도 있습니다. 하지만 직접 가서 살펴보기 전에는 그 아래에 무엇이 있는지 알 수 없습니다.">In each case, the people who began the research did not know where it would lead. That is the nature of basic science: we sail into waters that no one has mapped. Some voyages will find only ice. But we cannot know what lies beneath that ice until we go and look.</p>
 
-            <h3>It tells us what we are</h3>
-            <p>But I think there is a deeper reason, one that is not really about money. The chance that basic science may pay off someday is only part of the answer. Its deeper value is that it helps us understand what humanity is.</p>
+            <h3 data-ko="우리가 어떤 존재인지 알려줍니다">It tells us what we are</h3>
+            <p data-ko="하지만 저는 돈과는 크게 관계없는, 더 깊은 이유가 있다고 생각합니다. Basic science가 언젠가 경제적 보상을 가져올 수 있다는 점은 답의 일부일 뿐입니다. 더 깊은 가치는 인류가 어떤 존재인지 이해하도록 돕는 데 있습니다.">But I think there is a deeper reason, one that is not really about money. The chance that basic science may pay off someday is only part of the answer. Its deeper value is that it helps us understand what humanity is.</p>
 
-            <p>The universe is about 13.8 billion years old. The roots of human civilization go back around 12,000 years, to early farming communities. Compared with the universe, Earth is smaller than a speck of dust. Human life lasts only a moment in the history of the universe — we are here, then gone. Yet humans on this tiny planet have measured the age and size of the universe and learned just how small they are. As far as we know, no other beings in the universe have ever done this.</p>
+            <p data-ko="우주의 나이는 약 138억 년입니다. 인류 문명의 뿌리는 약 1만 2천 년 전의 초기 농경 공동체로 거슬러 올라갑니다. 우주에 비하면 지구는 먼지 한 알보다도 작습니다. 인간의 삶은 우주의 역사에서 찰나에 불과합니다. 잠시 존재하다가 사라집니다. 그런데도 이 작은 행성에 사는 인간은 우주의 나이와 크기를 측정하고, 자신들이 얼마나 작은 존재인지 알아냈습니다. 우리가 아는 한, 우주에서 이런 일을 해낸 다른 존재는 없습니다.">The universe is about 13.8 billion years old. The roots of human civilization go back around 12,000 years, to early farming communities. Compared with the universe, Earth is smaller than a speck of dust. Human life lasts only a moment in the history of the universe — we are here, then gone. Yet humans on this tiny planet have measured the age and size of the universe and learned just how small they are. As far as we know, no other beings in the universe have ever done this.</p>
 
-            <p>To see how remarkable this is, reverse the scale. Imagine a tiny, single-celled creature like a paramecium, curious about the world around it. It begins to explore and learn, passing what it learns to the next generation. Each generation adds to that knowledge, until eventually these creatures understand how the mantle moves and the core spins, well enough to predict their motion. It may sound impossible, but this is what humanity is doing as we try to understand the universe.</p>
+            <p data-ko="이것이 얼마나 놀라운 일인지 느껴 보시려면, 규모를 반대로 생각해 보시면 됩니다. 주변 세계를 궁금해하는 paramecium 같은 작은 단세포 생물을 상상해 보세요. 이 생물은 탐구하고 배우기 시작하며, 배운 것을 다음 세대에 전합니다. 세대마다 그 지식에 새로운 내용을 더하다 보면, 마침내 mantle이 어떻게 움직이고 core가 어떻게 회전하는지 이해하고 그 움직임을 예측할 수 있게 됩니다. 불가능하게 들릴 수도 있습니다. 하지만 이것이 바로 우주를 이해하려는 인류가 하고 있는 일입니다.">To see how remarkable this is, reverse the scale. Imagine a tiny, single-celled creature like a paramecium, curious about the world around it. It begins to explore and learn, passing what it learns to the next generation. Each generation adds to that knowledge, until eventually these creatures understand how the mantle moves and the core spins, well enough to predict their motion. It may sound impossible, but this is what humanity is doing as we try to understand the universe.</p>
             <figure class="science-scene" id="science-scene-7">
-              <a href="images/07-understanding-the-universe.png" target="_blank" rel="noopener" aria-label="Open illustration: Small beings, vast questions">
-                <img src="images/07-understanding-the-universe.png" width="1672" height="941" loading="lazy" decoding="async" alt="An imaginative comparison of scales; the Earth and its layers are not drawn to scale.">
+              <a href="images/07-understanding-the-universe.png" target="_blank" rel="noopener" aria-label="Open illustration: Small beings, vast questions" data-ko-aria-label="그림 원본 열기: 작은 지구 위의 사람과 paramecium 옆의 지구 내부 구조를 비교합니다. 실제 축척은 아닙니다.">
+                <img src="images/07-understanding-the-universe.png" width="1672" height="941" loading="lazy" decoding="async" alt="An imaginative comparison of scales; the Earth and its layers are not drawn to scale." data-ko-alt="작은 지구 위의 사람과 paramecium 옆의 지구 내부 구조를 비교합니다. 실제 축척은 아닙니다.">
               </a>
             </figure>
 
 
-            <h3>What we inherited, and what we will pass on</h3>
-            <p>Human life is only a spark in the 13.8-billion-year history of the universe. During our short lives, we make poor choices, argue, and take wrong turns. But we humans record what we learn, including what we learn from our mistakes, and pass it to the next generation.</p>
+            <h3 data-ko="우리가 물려받은 것, 그리고 다음 세대에 전할 것">What we inherited, and what we will pass on</h3>
+            <p data-ko="인간의 삶은 우주의 138억 년 역사 속에서 작은 불꽃에 불과합니다. 짧은 삶을 사는 동안 우리는 잘못된 선택을 하고, 다투고, 엉뚱한 길로 들어서기도 합니다. 하지만 우리는 실수에서 배운 것을 포함해 우리가 배운 내용을 기록하고 다음 세대에 전합니다.">Human life is only a spark in the 13.8-billion-year history of the universe. During our short lives, we make poor choices, argue, and take wrong turns. But we humans record what we learn, including what we learn from our mistakes, and pass it to the next generation.</p>
 
-            <p>Everything we take for granted — our institutions and every part of civilization — was inherited. We did not build it all from nothing. We stand on the work of people across centuries and thousands of years. They made mistakes, learned from them, recorded what they learned, and passed it on. Now it is our turn to add a little more and pass it forward.</p>
+            <p data-ko="우리가 당연하게 여기는 모든 것, 우리의 제도와 문명의 모든 부분은 앞선 세대로부터 물려받았습니다. 우리가 아무것도 없는 상태에서 전부 만들어 낸 것이 아닙니다. 우리는 수백 년, 수천 년에 걸친 사람들의 노력 위에 서 있습니다. 그들은 실수하고, 그 실수에서 배우고, 배운 것을 기록하여 다음 세대에 전했습니다. 이제는 우리가 조금 더 보태고 다음으로 전할 차례입니다.">Everything we take for granted — our institutions and every part of civilization — was inherited. We did not build it all from nothing. We stand on the work of people across centuries and thousands of years. They made mistakes, learned from them, recorded what they learned, and passed it on. Now it is our turn to add a little more and pass it forward.</p>
 
-            <p>Investing in basic science is one way we join this relay. We may not see an immediate reward. We do it because we want to keep trying to understand the universe, even though we are such a small part of it. We want to pass what we learn from one generation to the next. If we carry the baton a little farther today, someone will pick it up after us and keep running. That is why we keep sending ships out — toward the stars and into the heart of the atom.</p>
+            <p data-ko="Basic science에 투자하는 일은 이 릴레이에 참여하는 한 가지 방법입니다. 당장 보상을 보지 못할 수도 있습니다. 그래도 우리는 우주에서 아주 작은 부분에 불과한 존재로서, 우주를 이해하려는 노력을 계속하고 싶기 때문에 이 일을 합니다. 우리가 배운 것을 다음 세대에 전하고 싶기 때문입니다. 오늘 우리가 바통을 조금 더 멀리 옮겨 놓으면, 누군가가 이어받아 계속 달릴 것입니다. 그래서 우리는 계속 배를 띄웁니다. 별을 향해, 그리고 원자의 중심을 향해 나아갑니다.">Investing in basic science is one way we join this relay. We may not see an immediate reward. We do it because we want to keep trying to understand the universe, even though we are such a small part of it. We want to pass what we learn from one generation to the next. If we carry the baton a little farther today, someone will pick it up after us and keep running. That is why we keep sending ships out — toward the stars and into the heart of the atom.</p>
             <figure class="science-scene" id="science-scene-8">
-              <a href="images/08-the-relay-of-discovery.png" target="_blank" rel="noopener" aria-label="Open illustration: Carry it a little further">
-                <img src="images/08-the-relay-of-discovery.png" width="1672" height="941" loading="lazy" decoding="async" alt="Each generation receives knowledge and passes it forward.">
+              <a href="images/08-the-relay-of-discovery.png" target="_blank" rel="noopener" aria-label="Open illustration: Carry it a little further" data-ko-aria-label="그림 원본 열기: 여러 세대의 사람들이 지식의 바통을 다음 세대로 전달합니다.">
+                <img src="images/08-the-relay-of-discovery.png" width="1672" height="941" loading="lazy" decoding="async" alt="Each generation receives knowledge and passes it forward." data-ko-alt="여러 세대의 사람들이 지식의 바통을 다음 세대로 전달합니다.">
               </a>
             </figure>
 
@@ -710,10 +733,10 @@
     <!-- ==================== FOOTER (shows on every page) ==================== -->
     <footer>
       <div class="wrap">
-        <p class="eyebrow">Contact</p>
+        <p class="eyebrow" data-ko="연락처">Contact</p>
         <p style="color:var(--ink); margin:0 0 2px"><a href="mailto:wonseok.bae@northwestern.edu">wonseok.bae@northwestern.edu</a></p>
         <p style="margin:0">Department of Physics &amp; Astronomy, Northwestern University</p>
-        <p class="updated">Last updated: 2026-08-03</p>
+        <p class="updated" data-ko="최근 수정: 2026-08-03">Last updated: 2026-08-03</p>
       </div>
     </footer>
 
@@ -746,6 +769,32 @@
           subs.forEach(function(s){ s.classList.toggle('active', s.id === 'sub-' + id); });
         });
       });
+    })();
+  </script>
+
+  <script>
+    (function(){
+      'use strict';
+      // Preserve original English markup, including links and scientific notation.
+      var entries = Array.from(document.querySelectorAll('[data-ko]')).map(function(el){
+        return {el:el,en:el.innerHTML,ko:el.getAttribute('data-ko')};
+      });
+      var attributes = [];
+      ['alt','aria-label'].forEach(function(name){
+        document.querySelectorAll('[data-ko-'+name+']').forEach(function(el){
+          attributes.push({el:el,name:name,en:el.getAttribute(name),ko:el.getAttribute('data-ko-'+name)});
+        });
+      });
+      var buttons = Array.from(document.querySelectorAll('[data-language]'));
+      function setLanguage(lang){
+        if(lang !== 'en' && lang !== 'ko') return;
+        entries.forEach(function(item){item.el.innerHTML=item[lang];});
+        attributes.forEach(function(item){item.el.setAttribute(item.name,item[lang]);});
+        document.documentElement.lang=lang;
+        buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.dataset.language===lang));});
+      }
+      buttons.forEach(function(button){button.addEventListener('click',function(){setLanguage(button.dataset.language);});});
+      // Every new page load starts in English; navigation keeps the current language.
     })();
   </script>
 </body>
