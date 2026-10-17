@@ -262,6 +262,33 @@
       padding:16px 20px; margin-top:22px; border-radius:0 4px 4px 0; font-style:italic}
     .note-post .n-close p{margin:0; font-size:1rem}
 
+    /* table of contents (#notes) and single-note view (#notes/SLUG) */
+    .note-index:not([hidden]),.note-view:not([hidden]){animation:fade .3s ease}
+    @media (prefers-reduced-motion: reduce){ .note-index,.note-view{animation:none !important} }
+    .note-toc{list-style:none; margin:0; padding:0}
+    .note-toc li{border-bottom:1px solid var(--hairline)}
+    .note-toc li:last-child{border-bottom:0}
+    .note-link{display:flex; align-items:baseline; gap:20px; padding:11px 0; color:var(--ink)}
+    .note-link:hover{text-decoration:none}
+    .note-link:hover .nt-title{color:var(--accent)}
+    .nt-date{flex:none; font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--accent); white-space:nowrap}
+    .nt-title{min-width:0; font-weight:500; line-height:1.45; transition:color .15s}
+    @media (max-width:540px){ .note-link{gap:14px} }
+    .note-view{padding-top:36px}
+    .note-back{display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:.78rem; letter-spacing:.04em;
+      color:var(--muted); margin:0 0 22px}
+    .note-back:hover{color:var(--accent); text-decoration:none}
+    .note-post .n-sources{margin-top:30px; padding-top:18px; border-top:1px solid var(--hairline)}
+    .note-post .n-sources h3{font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:.12em;
+      font-size:.78rem; font-weight:500; color:var(--accent); margin:0 0 10px}
+    .n-sources ol{margin:0; padding-left:1.4em; font-size:.86rem; line-height:1.55; color:var(--muted)}
+    .n-sources li{margin:0 0 7px; padding-left:2px}
+    .n-sources a{overflow-wrap:anywhere}
+    .note-post .news-fig{margin:26px auto 30px}
+    .note-post .news-fig img{width:auto; max-width:100%; max-height:560px; margin:0 auto; background:var(--card)}
+    .note-post .news-grid-cells{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start}
+    .note-post .news-grid img{width:100%; max-height:none}
+
     /* ===================== SKILLS ===================== */
     dl.skills{margin:0}
     dl.skills > div{display:grid; grid-template-columns:1fr; gap:2px; padding:11px 0; border-bottom:1px solid var(--hairline)}
@@ -335,6 +362,7 @@
         <a href="#publications" data-page="publications" data-ko="논문" data-ja="論文" data-es="Publicaciones" data-de="Publikationen">Publications</a>
         <a href="#talks"        data-page="talks" data-ko="발표" data-ja="発表" data-es="Charlas" data-de="Vorträge">Talks</a>
         <a href="#notes"        data-page="notes" data-ko="글과 영상" data-ja="読み物" data-es="Notas" data-de="Notizen">Notes</a>
+        <a href="#news"         data-page="news" data-ko="과학 뉴스" data-ja="科学ニュース" data-es="Noticias científicas" data-de="Wissenschaftsnews">Science News</a>
       </div>
     </div>
 
@@ -488,8 +516,8 @@
             <h2 data-ko="Dark matter와 WIMP" data-ja="Dark matterとWIMP" data-es="Dark matter y WIMPs" data-de="Dark matter und WIMPs">Dark matter and WIMPs</h2>
             <p data-ko="우주에는 눈에 보이는 것보다 훨씬 많은 질량이 존재합니다. 그 중력은 은하의 회전과 은하단의 결합, 우주의 large-scale structure에 영향을 줍니다. 하지만 이 물질은 빛을 내지 않으며, 아직 직접 검출된 적도 없습니다. 이러한 dark matter는 우주 전체 에너지의 약 4분의 1을 차지합니다(그림 1). 그 정체를 밝히는 일은 현대 물리학의 핵심 목표 중 하나입니다." data-ja="宇宙には、目に見えるものよりはるかに多くの質量が存在します。その重力は銀河の回転を決め、銀河団を結び付け、宇宙のlarge-scale structureを形作ります。しかし、この物質は光を出さず、まだ直接検出されたこともありません。このdark matterは宇宙全体のエネルギーの約4分の1を占めており（図1）、その正体を明らかにすることは現代物理学の中心的な目標の一つです。" data-es="El universo contiene mucha más masa de la que podemos ver. Su gravedad determina cómo giran las galaxias, mantiene unidos los cúmulos y da forma a la large-scale structure del cosmos. Sin embargo, esa materia no emite luz y nunca se ha detectado directamente. Esta dark matter representa aproximadamente una cuarta parte de la energía total del universo (figura 1). Identificarla es uno de los objetivos centrales de la física moderna." data-de="Das Universum enthält weit mehr Masse, als wir sehen können. Ihre Schwerkraft beeinflusst die Rotation von Galaxien, hält Galaxienhaufen zusammen und formt die large-scale structure des Kosmos. Doch diese Materie sendet kein Licht aus und wurde noch nie direkt nachgewiesen. Diese dark matter macht etwa ein Viertel der gesamten Energie des Universums aus (Abbildung 1). Ihre Identität zu klären, ist eines der zentralen Ziele der modernen Physik.">The universe contains far more mass than we can see. Its gravity shapes how galaxies rotate, binds clusters together, and molds the large-scale structure of the cosmos — yet it emits no light and has never been detected directly. This dark matter accounts for about a quarter of the total energy budget of the universe (Figure 1), and identifying it is one of the central goals of modern physics.</p>
             <div class="rfig w585">
-              <img src="images/LZ-DM.jpg" alt="Pie chart of the energy budget of the universe" data-ko-alt="우주의 에너지 구성을 보여주는 원형 그래프입니다." data-ja-alt="宇宙のエネルギー構成を示す円グラフです。" data-es-alt="Gráfico circular de la composición energética del universo." data-de-alt="Kreisdiagramm der Energieverteilung im Universum.">
-              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 1.&lt;/span&gt; 우주의 에너지 구성입니다. Dark energy(Λ, 68%), dark matter(χ, 27%), 보통의 baryonic matter(B, 5%)가 대부분을 차지하며, neutrino와 photon이 작은 나머지 부분을 이룹니다.&lt;span class=&quot;credit&quot;&gt;출처: M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt; — SciPost Phys. Rev. &lt;strong&gt;1&lt;/strong&gt; (2026). 이용 허가: &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;" data-ja="&lt;span class=&quot;fignum&quot;&gt;図 1.&lt;/span&gt; 宇宙のエネルギー構成です。Dark energy（Λ、68%）、dark matter（χ、27%）、通常のbaryonic matter（B、5%）が大部分を占め、neutrinoとphotonが残りのわずかな部分を構成します。&lt;span class=&quot;credit&quot;&gt;出典：M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt; — SciPost Phys. Rev. &lt;strong&gt;1&lt;/strong&gt; (2026). ライセンス：&lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;" data-es="&lt;span class=&quot;fignum&quot;&gt;Figura 1.&lt;/span&gt; Composición energética del universo: dark energy (Λ, 68%), dark matter (χ, 27%) y materia bariónica ordinaria (B, 5%). Los neutrinos y los fotones constituyen la pequeña fracción restante.&lt;span class=&quot;credit&quot;&gt;Fuente: M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt; — SciPost Phys. Rev. &lt;strong&gt;1&lt;/strong&gt; (2026). Bajo licencia &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;" data-de="&lt;span class=&quot;fignum&quot;&gt;Abbildung 1.&lt;/span&gt; Die Energieverteilung des Universums: dark energy (Λ, 68%), dark matter (χ, 27%) und gewöhnliche baryonische Materie (B, 5%). Neutrinos und Photonen bilden den kleinen Rest.&lt;span class=&quot;credit&quot;&gt;Quelle: M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt; — SciPost Phys. Rev. &lt;strong&gt;1&lt;/strong&gt; (2026). Lizenziert unter &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;.&lt;/span&gt;"><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.<span class="credit">From M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a> — SciPost Phys. Rev. <strong>1</strong> (2026). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span></figcaption>
+              <img src="images/universe-composition.jpg" alt="Pie chart of the energy budget of the universe" data-ko-alt="우주의 에너지 구성을 보여주는 원형 그래프입니다." data-ja-alt="宇宙のエネルギー構成を示す円グラフです。" data-es-alt="Gráfico circular de la composición energética del universo." data-de-alt="Kreisdiagramm der Energieverteilung im Universum.">
+              <figcaption data-ko="&lt;span class=&quot;fignum&quot;&gt;그림 1.&lt;/span&gt; 우주의 에너지 구성입니다. Dark energy(Λ, 68%), dark matter(χ, 27%), 보통의 baryonic matter(B, 5%)가 대부분을 차지하며, neutrino와 photon이 작은 나머지 부분을 이룹니다.&lt;span class=&quot;credit&quot;&gt;이 사이트에서 만든 원형 그래프입니다. 수치 출처: M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt;. 조각 이미지: 암흑에너지 — NASA, ESA, CSA, and STScI (&lt;a href=&quot;https://esawebb.org/images/webb-first-deep-field/&quot;&gt;ESA/Webb&lt;/a&gt;); 암흑물질 — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (&lt;a href=&quot;https://esahubble.org/images/heic0709a/&quot;&gt;ESA/Hubble&lt;/a&gt;); 보통 물질 — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (&lt;a href=&quot;https://esawebb.org/images/weic2216a/&quot;&gt;ESA/Webb&lt;/a&gt;). 모두 &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt;이며 조각 모양으로 잘라 사용했습니다. 중성미자 — NASA/SDO (AIA), 빛 — NASA/WMAP Science Team (모두 퍼블릭 도메인). 가장 얇은 두 조각은 잘 보이도록 실제보다 크게 그렸습니다.&lt;/span&gt;" data-ja="&lt;span class=&quot;fignum&quot;&gt;図 1.&lt;/span&gt; 宇宙のエネルギー構成です。Dark energy（Λ、68%）、dark matter（χ、27%）、通常のbaryonic matter（B、5%）が大部分を占め、neutrinoとphotonが残りのわずかな部分を構成します。&lt;span class=&quot;credit&quot;&gt;Pie chart made for this site; values from M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt;. Slice images: dark energy — NASA, ESA, CSA, and STScI (&lt;a href=&quot;https://esawebb.org/images/webb-first-deep-field/&quot;&gt;ESA/Webb&lt;/a&gt;); dark matter — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (&lt;a href=&quot;https://esahubble.org/images/heic0709a/&quot;&gt;ESA/Hubble&lt;/a&gt;); baryonic matter — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (&lt;a href=&quot;https://esawebb.org/images/weic2216a/&quot;&gt;ESA/Webb&lt;/a&gt;); all licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt; and cropped to the slices. Neutrinos — NASA/SDO (AIA); light — NASA/WMAP Science Team (both public domain). The two thinnest slices are enlarged for visibility.&lt;/span&gt;" data-es="&lt;span class=&quot;fignum&quot;&gt;Figura 1.&lt;/span&gt; Composición energética del universo: dark energy (Λ, 68%), dark matter (χ, 27%) y materia bariónica ordinaria (B, 5%). Los neutrinos y los fotones constituyen la pequeña fracción restante.&lt;span class=&quot;credit&quot;&gt;Pie chart made for this site; values from M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt;. Slice images: dark energy — NASA, ESA, CSA, and STScI (&lt;a href=&quot;https://esawebb.org/images/webb-first-deep-field/&quot;&gt;ESA/Webb&lt;/a&gt;); dark matter — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (&lt;a href=&quot;https://esahubble.org/images/heic0709a/&quot;&gt;ESA/Hubble&lt;/a&gt;); baryonic matter — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (&lt;a href=&quot;https://esawebb.org/images/weic2216a/&quot;&gt;ESA/Webb&lt;/a&gt;); all licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt; and cropped to the slices. Neutrinos — NASA/SDO (AIA); light — NASA/WMAP Science Team (both public domain). The two thinnest slices are enlarged for visibility.&lt;/span&gt;" data-de="&lt;span class=&quot;fignum&quot;&gt;Abbildung 1.&lt;/span&gt; Die Energieverteilung des Universums: dark energy (Λ, 68%), dark matter (χ, 27%) und gewöhnliche baryonische Materie (B, 5%). Neutrinos und Photonen bilden den kleinen Rest.&lt;span class=&quot;credit&quot;&gt;Pie chart made for this site; values from M. Cirelli, A. Strumia and J. Zupan, &lt;em&gt;Dark Matter&lt;/em&gt;, &lt;a href=&quot;https://arxiv.org/abs/2406.01705&quot;&gt;arXiv:2406.01705&lt;/a&gt;. Slice images: dark energy — NASA, ESA, CSA, and STScI (&lt;a href=&quot;https://esawebb.org/images/webb-first-deep-field/&quot;&gt;ESA/Webb&lt;/a&gt;); dark matter — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (&lt;a href=&quot;https://esahubble.org/images/heic0709a/&quot;&gt;ESA/Hubble&lt;/a&gt;); baryonic matter — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (&lt;a href=&quot;https://esawebb.org/images/weic2216a/&quot;&gt;ESA/Webb&lt;/a&gt;); all licensed under &lt;a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot;&gt;CC BY 4.0&lt;/a&gt; and cropped to the slices. Neutrinos — NASA/SDO (AIA); light — NASA/WMAP Science Team (both public domain). The two thinnest slices are enlarged for visibility.&lt;/span&gt;"><span class="fignum">Figure 1.</span> The energy budget of the universe: dark energy (Λ, 68%), dark matter (χ, 27%), and ordinary baryonic matter (B, 5%); neutrinos and photons make up the small remainder.<span class="credit">Pie chart made for this site; values from M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a>. Slice images: dark energy — NASA, ESA, CSA, and STScI (<a href="https://esawebb.org/images/webb-first-deep-field/">ESA/Webb</a>); dark matter — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (<a href="https://esahubble.org/images/heic0709a/">ESA/Hubble</a>); baryonic matter — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (<a href="https://esawebb.org/images/weic2216a/">ESA/Webb</a>); all licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and cropped to the slices. Neutrinos — NASA/SDO (AIA); light — NASA/WMAP Science Team (both public domain). The two thinnest slices are enlarged for visibility.</span></figcaption>
             </div>
             <p data-ko="유력한 후보 중 하나는 weakly interacting massive particle(WIMP)입니다. 질량이 크고 전기적으로 중성이며, 보통의 물질과는 매우 약하게 상호작용하는 입자입니다. WIMP가 존재한다면, 드물게 atomic nucleus에 충돌하여 작은 에너지를 전달할 수 있습니다(그림 2). Direct-detection 실험은 깊은 지하의 차폐된 저잡음 detector 안에서 이러한 드문 recoil을 검출하고자 합니다." data-ja="有力な候補の一つがweakly interacting massive particle（WIMP）です。質量が大きく電気的に中性で、通常の物質とはごく弱くしか相互作用しない粒子です。WIMPが存在すれば、ときおりatomic nucleusに衝突し（図2）、わずかなエネルギーを与えるはずです。Direct-detection実験は、地下深くに設置した遮蔽された低雑音のdetectorで、このまれなrecoilを捉えようとしています。" data-es="Uno de los principales candidatos es la weakly interacting massive particle (WIMP): una partícula pesada, eléctricamente neutra y que apenas interactúa con la materia ordinaria. Si existen, las WIMPs deberían chocar ocasionalmente con un núcleo atómico (figura 2) y depositar una pequeña cantidad de energía. Los experimentos de direct detection intentan captar esos raros recoils en detectores protegidos y de muy bajo ruido, a gran profundidad bajo tierra." data-de="Ein führender Kandidat ist das weakly interacting massive particle (WIMP): ein schweres, elektrisch neutrales Teilchen, das kaum mit gewöhnlicher Materie wechselwirkt. Falls WIMPs existieren, sollten sie gelegentlich auf einen Atomkern treffen (Abbildung 2) und eine winzige Energiemenge abgeben. Direct-detection-Experimente versuchen, diese seltenen recoils in abgeschirmten, äußerst rauscharmen Detektoren tief unter der Erde zu erfassen.">A leading candidate is the weakly interacting massive particle (WIMP) — a heavy, electrically neutral particle that barely couples to ordinary matter. If WIMPs exist, they should occasionally strike an atomic nucleus (Figure 2) and deposit a tiny amount of energy. Direct-detection experiments try to catch those rare recoils inside a shielded, ultra-quiet detector deep underground.</p>
             <div class="rfig w56">
@@ -647,23 +675,34 @@
     </section>
 
     <!-- ==================== PAGE: NOTES ==================== -->
-    <!-- To add an entry: copy one <div class="talk">…</div> block below and edit it (title, date, one line, and a link to the post or video). -->
+    <!-- To add a note (newest first):
+         1. Copy one <li>…</li> in the table of contents and edit its link (#notes/SLUG), date, and title.
+         2. Copy one <article class="note-post" data-note="SLUG">…</article> under "note-view" and write the post.
+         SLUG is a short lowercase name with hyphens; it must match in both places. -->
     <section class="page" id="page-notes">
       <div class="wrap">
+        <div class="note-index" id="note-index">
         <div class="page-head">
           <p class="eyebrow" data-ko="글과 영상" data-ja="読み物" data-es="Notas" data-de="Notizen">Notes</p>
           <h1 class="page-title" data-ko="글과 영상" data-ja="読み物" data-es="Notas" data-de="Notizen">Notes</h1>
           <p class="page-sub" data-ko="물리학에 관한 글과 짧은 영상을 소개합니다." data-ja="物理学についての文章や短い動画をご紹介します。" data-es="Textos y vídeos breves sobre física, publicados de vez en cuando." data-de="Gelegentliche Texte und kurze Videos über Physik.">Occasional writing and short videos on physics.</p>
         </div>
         <div class="block">
-          <!-- ENTRY TEMPLATE (copy, uncomment, and edit):
-          <div class="talk">
-            <span class="t-title"><a href="LINK">Title of the note or video</a></span>
-            <span class="t-where">One line on what it's about · <span class="t-yr">2026</span></span>
-          </div>
-          -->
+          <ol class="note-toc">
+            <li>
+              <a class="note-link" href="#notes/why-basic-science">
+                <time class="nt-date" datetime="2026-09">2026-09</time>
+                <span class="nt-title" data-ko="우리는 왜 기초 과학에 투자할까요?" data-ja="なぜ基礎科学に投資するのでしょうか？" data-es="¿Por qué invertimos en ciencia básica?" data-de="Warum investieren wir in Grundlagenforschung?">Why We Invest in Basic Science?</span>
+              </a>
+            </li>
+          </ol>
+        </div>
+        </div>
 
-          <article class="note-post" id="why-basic-science">
+        <div class="note-view" id="note-view" hidden>
+          <a class="note-back" href="#notes" data-ko="← 글 목록" data-ja="← 一覧へ戻る" data-es="← Todas las notas" data-de="← Alle Notizen">← All notes</a>
+
+          <article class="note-post" id="why-basic-science" data-note="why-basic-science">
             <h2 class="n-title" data-ko="우리는 왜 기초 과학에 투자할까요?" data-ja="なぜ基礎科学に投資するのでしょうか？" data-es="¿Por qué invertimos en ciencia básica?" data-de="Warum investieren wir in Grundlagenforschung?">Why We Invest in Basic Science?</h2>
             <p class="n-meta" data-ko="에세이 · 2026년 9월" data-ja="エッセイ · 2026年9月" data-es="Ensayo · Septiembre de 2026" data-de="Essay · September 2026">Essay · September 2026</p>
 
@@ -753,13 +792,256 @@
       </div>
     </section>
 
+    <!-- ==================== PAGE: SCIENCE NEWS ==================== -->
+    <!-- To add a news item (newest first):
+         1. Copy one <li>…</li> in the table of contents and edit its link (#news/SLUG), date, and title.
+         2. Copy one <article class="note-post" data-note="SLUG">…</article> under "note-view" and write the item.
+         SLUG is a short lowercase name with hyphens; it must match in both places. -->
+    <section class="page" id="page-news">
+      <div class="wrap">
+        <div class="note-index">
+        <div class="page-head">
+          <p class="eyebrow" data-ko="과학 뉴스" data-ja="科学ニュース" data-es="Noticias científicas" data-de="Wissenschaftsnews">Science News</p>
+          <h1 class="page-title" data-ko="과학 뉴스" data-ja="科学ニュース" data-es="Noticias científicas" data-de="Wissenschaftsnews">Science News</h1>
+          <p class="page-sub" data-ko="최근 과학 뉴스 속 큰 질문들, 그리고 정직한 답.">Big questions from recent science news — and honest answers.</p>
+        </div>
+        <div class="block">
+          <ol class="note-toc">
+            <li>
+              <a class="note-link" href="#news/backup-humanity">
+                <time class="nt-date" datetime="2026-10-15">2026-10-15</time>
+                <span class="nt-title" data-ko="인간을 컴퓨터 안에 백업할 수 있는가?">Can we back up a human inside a computer?</span>
+              </a>
+            </li>
+            <li>
+              <a class="note-link" href="#news/ai-navier-stokes">
+                <time class="nt-date" datetime="2026-09-08">2026-09-08</time>
+                <span class="nt-title" data-ko="AI가 밀레니엄 난제를 풀었는가?">Did AI solve a Millennium Prize Problem?</span>
+              </a>
+            </li>
+            <li>
+              <a class="note-link" href="#news/lz-dark-matter">
+                <time class="nt-date" datetime="2026-09-01">2026-09-01</time>
+                <span class="nt-title" data-ko="우리는 암흑물질을 발견했는가?">Have we discovered dark matter?</span>
+              </a>
+            </li>
+            <li>
+              <a class="note-link" href="#news/brain-cell-computers">
+                <time class="nt-date" datetime="2026-04-30">2026-04-30</time>
+                <span class="nt-title" data-ko="배양된 뇌세포로 컴퓨터를 만들 수 있는가?">Can we build a computer from cultured brain cells?</span>
+              </a>
+            </li>
+            <li>
+              <a class="note-link" href="#news/simulation">
+                <time class="nt-date" datetime="2025-04-17">2025-04-17</time>
+                <span class="nt-title" data-ko="이 세계는 시뮬레이션인가?">Is the world a simulation?</span>
+              </a>
+            </li>
+            <li>
+              <a class="note-link" href="#news/butterfly-memory">
+                <time class="nt-date" datetime="2024-08-28">2024-08-28</time>
+                <span class="nt-title" data-ko="부모의 기억은 자식에게 유전될 수 있는가?">Can a parent’s memories be passed on to their children?</span>
+              </a>
+            </li>
+          </ol>
+        </div>
+        </div>
+
+        <div class="note-view" hidden>
+          <a class="note-back" href="#news" data-ko="← 뉴스 목록" data-ja="← 一覧へ戻る" data-es="← Todas las noticias" data-de="← Alle Meldungen">← All news</a>
+
+          <article class="note-post" id="news-backup-humanity" data-note="backup-humanity" hidden>
+            <h2 class="n-title" data-ko="인간을 컴퓨터 안에 백업할 수 있는가?">Can we back up a human inside a computer?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2026-10-15">Science News · 2026-10-15</p>
+            <p data-ko="게임에서 보스전 직전에 저장해 두면, 져도 다시 불러올 수 있죠. 일부 미래학자들은 묻습니다. 인류도 그렇게 할 수 있을까? 모든 사람의 뇌를 컴퓨터에 복사해 두면, 우리가 사라져도 마음은 남지 않을까? 이 아이디어에는 이름이 있어요. 전뇌 에뮬레이션(whole-brain emulation), 흔히 ‘마음 업로드’라고 불러요.">Save your game before the boss fight, and you can always reload. Some futurists ask: could we do the same for humanity — copy every brain into a computer, so our minds survive even if we don’t? The idea has a name: whole-brain emulation, or “mind uploading.”</p>
+            <p data-ko="새로운 생각은 아니에요. 옥스퍼드의 앤더스 샌드버그(Anders Sandberg)와 닉 보스트롬(Nick Bostrom)이 2008년에 이미 로드맵을 그렸어요. 하지만 업로드를 인류 절멸에 대비한 백업으로 쓰자는 건 아직 미래학 아이디어일 뿐, 실제 프로젝트가 아니에요. 그 목표로 진행 중인 연구 계획은 알려진 게 없어요.">It isn’t new. Oxford’s Anders Sandberg and Nick Bostrom drew up a roadmap back in 2008. But using uploads as a backup against extinction is still a futurist idea, not a project — we know of no research program actually working toward it.</p>
+            <figure class="rfig news-fig ">
+              <a href="images/news/illus-backup-humanity.svg" target="_blank" rel="noopener"><img src="images/news/illus-backup-humanity.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: a brain, a stack of thin brain slices, a wiring network and a computer with a question mark; below, bars comparing 139,255 fly neurons with 86 billion human neurons" data-ko-alt="그림: 뇌, 얇게 썬 뇌 조각 더미, 배선 네트워크, 물음표가 붙은 컴퓨터. 아래에는 초파리 신경세포 139,255개와 사람 신경세포 860억 개를 비교한 막대"></a>
+              <figcaption><span data-ko="뇌에서 사본까지. 뇌를 얇게 썰어 스캔하고, 배선을 따라 그린 뒤, 그 배선을 컴퓨터에서 돌려 보는 거예요. 그 사본은 나일까요? 아래는 초파리 뇌와 사람 뇌의 신경세포 수 비교예요.">From brain to copy: slice and scan the brain, trace its wiring, then try to run that wiring on a computer — would the copy be you? Below: neurons in a fruit-fly brain versus a human brain.</span><span class="credit">Illustration made for this site. Not to scale.</span></figcaption>
+            </figure>
+            <h3 data-ko="지금 어디까지 왔을까?">How close are we?</h3>
+            <p data-ko="초파리라면 생각보다 가까워요. 2024년 FlyWire 연구팀이 다 자란 초파리 뇌의 연결 지도를 완성했어요. 신경세포 139,255개가 시냅스 5,450만 개로 이어져 있었죠. 생쥐와 사람의 대뇌피질도 약 1세제곱밀리미터, 모래알만 한 조각을 재구성했어요.">Closer than you’d think — for a fly. In 2024 the FlyWire team finished the complete wiring diagram of an adult fruit-fly brain: 139,255 neurons joined by 54.5 million synapses. Scientists have also reconstructed about a cubic millimetre of mouse cortex and of human cortex — specks the size of a grain of sand.</p>
+            <p data-ko="이제 규모를 키워 볼까요. 사람의 뇌에는 신경세포가 약 860억 개, 초파리의 60만 배쯤 돼요. 게다가 배선도가 곧 마음은 아니에요. 화학 신호, 연결마다 다른 세기, 배울 때마다 바뀌는 연결이 빠져 있죠. 신경세포 302개짜리 예쁜꼬마선충(&lt;em&gt;C. elegans&lt;/em&gt;)은 1986년에 지도가 나왔어요.">Now scale up. A human brain has about 86 billion neurons — some 600,000 times a fly’s. And a wiring diagram isn’t a mind: it leaves out the chemistry, how strong each connection is, and how connections change as we learn. The wiring of the worm <em>C. elegans</em>, with just 302 neurons, was mapped back in 1986.</p>
+            <p data-ko="그럼 언제쯤? 2025년 신경과학자 312명에게 물었더니, 응답자들의 중간값은 ‘2125년쯤이면 반반’, ‘2075년까지는 10%’였어요. 그다음엔 더 어려운 질문이 기다려요. 사본은 나일까요, 내 기억을 가진 낯선 사람일까요? 무언가를 느낄 수는 있을까요? 올해 9월 MIT 맥거번 연구소(McGovern Institute)가 연구자 여섯 명에게 물었더니, 가능한지, 사본에 의식이 있을지, 애초에 시도해야 하는지를 두고 의견이 갈렸어요.">So when? In a 2025 survey of 312 neuroscientists, the typical respondent gave even odds of emulating a human brain by about 2125 — and only a 10% chance by 2075. Then come the harder questions: would the copy be you, or a stranger with your memories? Could it feel anything? When MIT’s McGovern Institute asked six of its researchers this September, they split on whether it could work, whether a copy could be conscious, and whether we should try at all.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; 뇌 지도 연구는 진짜이고, 빠르게 발전하고 있어요. 하지만 사람의 마음을 백업하는 일, 하물며 인류를 백업하는 일은 아직 추측이에요. 수십 년, 어쩌면 100년은 걸릴 수 있고, 그 사본이 정말 ‘우리’일지는 아무도 몰라요."><strong>Bottom line.</strong> Brain mapping is real and moving fast. Backing up a human mind — let alone humanity — is still speculation, probably many decades away, perhaps a century, and nobody knows whether the copy would really be us.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>A. Regalado, “Six wild ideas for perpetuating your mind,” <em>MIT Technology Review</em>, 15 Oct 2026. <a href="https://www.technologyreview.com/2026/10/15/1145819/six-wild-ideas-perpetuating-your-mind-cognitive-immortality/" target="_blank" rel="noopener">www.technologyreview.com/2026/10/15/1145819/six-wild-ideas-perpetuating-your-mind-cognitive-immortality</a></li>
+                <li>J. Pryor, “Can (and should) consciousness be uploaded to a machine?” MIT McGovern Institute, 2 Sep 2026. <a href="https://mcgovern.mit.edu/2026/09/02/can-and-should-consciousness-be-uploaded-to-a-machine/" target="_blank" rel="noopener">mcgovern.mit.edu/2026/09/02/can-and-should-consciousness-be-uploaded-to-a-machine</a></li>
+                <li>A. Zeleznikow-Johnston, E. F. Kendziorra and A. T. McKenzie, “What are memories made of? A survey of neuroscientists on the structural basis of long-term memory,” <em>PLOS One</em> <strong>20</strong>, e0326920 (2025). <a href="https://doi.org/10.1371/journal.pone.0326920" target="_blank" rel="noopener">doi.org/10.1371/journal.pone.0326920</a></li>
+                <li>S. Dorkenwald <em>et al.</em> (FlyWire Consortium), “Neuronal wiring diagram of an adult brain,” <em>Nature</em> <strong>634</strong>, 124–138 (2024). <a href="https://doi.org/10.1038/s41586-024-07558-y" target="_blank" rel="noopener">doi.org/10.1038/s41586-024-07558-y</a></li>
+                <li>MICrONS Consortium, “Functional connectomics spanning multiple areas of mouse visual cortex,” <em>Nature</em> <strong>640</strong>, 435–447 (2025). <a href="https://doi.org/10.1038/s41586-025-08790-w" target="_blank" rel="noopener">doi.org/10.1038/s41586-025-08790-w</a></li>
+                <li>A. Shapson-Coe <em>et al.</em>, “A petavoxel fragment of human cerebral cortex reconstructed at nanoscale resolution,” <em>Science</em> <strong>384</strong>, eadk4858 (2024). <a href="https://doi.org/10.1126/science.adk4858" target="_blank" rel="noopener">doi.org/10.1126/science.adk4858</a></li>
+                <li>J. G. White <em>et al.</em>, “The structure of the nervous system of the nematode <em>Caenorhabditis elegans</em>,” <em>Phil. Trans. R. Soc. B</em> <strong>314</strong>, 1–340 (1986). <a href="https://doi.org/10.1098/rstb.1986.0056" target="_blank" rel="noopener">doi.org/10.1098/rstb.1986.0056</a></li>
+                <li>F. A. C. Azevedo <em>et al.</em>, “Equal numbers of neuronal and nonneuronal cells make the human brain an isometrically scaled-up primate brain,” <em>J. Comp. Neurol.</em> <strong>513</strong>, 532–541 (2009). <a href="https://doi.org/10.1002/cne.21974" target="_blank" rel="noopener">doi.org/10.1002/cne.21974</a></li>
+                <li>N. Zanichelli, M. Schons, I. Freeman, P. Shiu and A. Arkhipov, “State of Brain Emulation Report 2025,” arXiv:2510.15745 (2025). <a href="https://arxiv.org/abs/2510.15745" target="_blank" rel="noopener">arxiv.org/abs/2510.15745</a></li>
+                <li>A. Sandberg and N. Bostrom, “Whole Brain Emulation: A Roadmap,” Future of Humanity Institute, University of Oxford, Technical Report #2008-3 (archived copy). <a href="https://web.archive.org/web/20201118223119/https://www.fhi.ox.ac.uk/brain-emulation-roadmap-report.pdf" target="_blank" rel="noopener">web.archive.org/web/20201118223119/https://www.fhi.ox.ac.uk/brain-emulation-roadmap-report.pdf</a></li>
+              </ol>
+            </div>
+          </article>
+          <article class="note-post" id="news-ai-navier-stokes" data-note="ai-navier-stokes" hidden>
+            <h2 class="n-title" data-ko="AI가 밀레니엄 난제를 풀었는가?">Did AI solve a Millennium Prize Problem?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2026-09-08">Science News · 2026-09-08</p>
+            <p data-ko="커피에 크림을 저으면, 수학에서 가장 어려운 문제 중 하나를 눈앞에서 보는 셈이에요. 그 소용돌이는 200년쯤 된 나비에-스토크스(Navier–Stokes) 방정식을 따르거든요. 풀리지 않은 질문은 이거예요. 3차원에서 완벽하게 매끄러운 흐름이 유한한 시간 안에 속도가 무한대로 치솟는 ‘폭발(blow-up)’을 일으킬 수 있을까? 클레이 수학연구소(Clay Mathematics Institute)가 각각 100만 달러를 건 7대 밀레니엄 난제 중 하나예요.">Stir cream into your coffee and you’re watching one of the hardest problems in mathematics. Those swirls obey the Navier–Stokes equations, about two centuries old. The open question: in three dimensions, can a perfectly smooth flow suddenly “blow up,” reaching infinite speed in a finite time? It’s one of the Clay Mathematics Institute’s seven Millennium Prize Problems — $1 million each.</p>
+            <figure class="rfig news-fig ">
+              <a href="images/news/illus-navier-stokes.svg" target="_blank" rel="noopener"><img src="images/news/illus-navier-stokes.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: top, about 10,000 AI agents, a clock showing 88 hours and a proof document checked in Lean in 17 hours; below, three snapshots of a vortex spiralling inward and stretching while a gentle force acts, with speed rising to infinity while the force stays flat" data-ko-alt="그림: 위는 AI 에이전트 약 1만 개, 88시간을 가리키는 시계, 17시간 만에 Lean으로 검증한 증명 문서. 아래는 부드러운 힘이 작용하는 동안 소용돌이가 안쪽으로 감기고 늘어나는 세 장면과, 힘은 평탄한데 속도는 무한대로 치솟는 그래프"></a>
+              <figcaption><span data-ko="위: AI 에이전트 약 1만 개가 88시간 만에 증명을 찾았고, Lean 검증에 17시간이 더 걸렸어요. 아래: 부드럽고 매끄러운 힘(F)이 작용하는 동안, 소용돌이가 스파게티처럼 안쪽으로 감기며 늘어나요. 중심은 점점 좁아지고 빨라지다가 t* 순간 속도(v)가 무한대로 치솟아요.">Top: about 10,000 AI agents found the proof in 88 hours; checking it in Lean took 17 more. Below: under a gentle, smooth force (F), a vortex spirals inward and stretches like spaghetti; its core shrinks and spins faster until the speed (v) blows up at time t*.</span><span class="credit">Illustration made for this site, based on the description in OpenAI’s announcement. Not to scale.</span></figcaption>
+            </figure>
+            <p data-ko="2026년 9월 8일, OpenAI가 답을 내놨어요. 폭발할 수 있다고요. 증명은 일반에 공개되지 않은 내부 AI 모델이 찾았어요. AI 에이전트 약 1만 개가 88시간 동안 매달렸죠. 그 결과를 증명 검증 프로그램 Lean으로 한 단계씩 확인하는 데 17시간이 더 걸렸어요.">On 8 September 2026, OpenAI announced an answer: yes, it can blow up. The proof came from an internal AI model that isn’t available to the public — about 10,000 AI agents working for 88 hours. The result was then checked step by step in Lean, a program that verifies proofs — which took another 17 hours.</p>
+            <h3 data-ko="그럼 끝난 걸까?">Case closed?</h3>
+            <p data-ko="아직은 아니에요. 이 증명은 유체를 계속 휘젓는 외부 힘을 넣어요. OpenAI는 힘 자체는 끝까지 매끄럽고, 폭발은 유체 스스로의 소용돌이에서 생긴다고 설명해요. 그래도 비판하는 쪽은 이 설정이 인위적이라고 말해요. 공식 문제 규정은 이런 힘도 허용해요.">Not quite. The proof works by adding an external force that keeps stirring the fluid. OpenAI says the force itself stays smooth and the blow-up comes from the fluid’s own swirling; critics still call the setup artificial. The official problem statement allows such a force.</p>
+            <p data-ko="증명은 아직 동료 심사를 거치지 않았어요. 클레이 연구소는 문제가 ‘해결된 것으로 보인다’면서도, 검토는 ‘의도적으로 서두르지 않겠다’고 했어요. 상금은 수여되지 않았고, OpenAI도 받지 않겠다고 했어요. 10월에는 Lean 증명이 글로 쓴 증명과 사실 일치하지 않는다는 논문(동료 심사 전)도 나왔어요. 공로 다툼도 있어요. OpenAI 발표 몇 시간 전, 뉴욕대의 트리스탄 버크매스터(Tristan Buckmaster)와 레번트 알푀게(Levent Alpöge)가 아주 비슷한 방정식들에 대해 Lean으로 검증한 결과를 먼저 공개했거든요. 난제 자체를 증명한 건 아니지만, 난제를 푸는 데 중요한 실마리가 되는 결과예요.">The proof hasn’t been peer-reviewed. The Clay Institute says the problem “has apparently been settled,” but its review is “deliberately unhurried.” No prize has been awarded, and OpenAI says it won’t claim one. In October, a preprint argued that the Lean proof doesn’t actually match the written one. And there’s a credit fight: hours before OpenAI’s announcement, Tristan Buckmaster of NYU and Levent Alpöge posted their own Lean-checked results on closely related equations — not a proof of the Millennium Problem itself, but an important clue on the way to one.</p>
+            <p data-ko="자기 연구에도 AI를 쓰는 브라운대 수학자 하비에르 고메스-세라노(Javier Gómez-Serrano)는 NPR에 Lean 코드가 문제없이 돌아갔고 학계도 결과를 받아들이는 분위기라고 말했어요.">Brown University mathematician Javier Gómez-Serrano, who uses AI in his own research, told NPR the Lean code compiled and the community seems to accept the result.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; AI가 외부 힘을 넣은 나비에-스토크스 방정식이 폭발할 수 있다는 증명을 만들고, 컴퓨터로 검증까지 했어요. 진짜 이정표예요. 하지만 아직 동료 심사 전이고, 상금도 수여되지 않았어요."><strong>Bottom line.</strong> An AI produced a machine-checked proof that a forced version of the Navier–Stokes equations can blow up — a real milestone. But it isn’t peer-reviewed yet, and no prize has been awarded.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>OpenAI, “On the Navier–Stokes Millennium Prize Problem,” 8 Sep 2026. <a href="https://openai.com/index/navier-stokes-solution/" target="_blank" rel="noopener">openai.com/index/navier-stokes-solution</a></li>
+                <li>Clay Mathematics Institute, “Navier-Stokes Announcement,” 11 Sep 2026. <a href="https://www.claymath.org/news/navier-stokes-announcement" target="_blank" rel="noopener">www.claymath.org/news/navier-stokes-announcement</a></li>
+                <li>Clay Mathematics Institute, “Navier–Stokes Equation” (official problem statement). <a href="https://www.claymath.org/millennium/navier-stokes-equation/" target="_blank" rel="noopener">www.claymath.org/millennium/navier-stokes-equation</a></li>
+                <li>K. Kakaes, “AI Has Solved One of Math’s $1 Million Millennium Prize Problems,” <em>Quanta Magazine</em>, 8 Sep 2026. <a href="https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/" target="_blank" rel="noopener">www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908</a></li>
+                <li>G. Brumfiel, “AI solved one of math’s hardest problems. Humanity learned nothing (so far),” NPR, 22 Sep 2026. <a href="https://www.npr.org/2026/09/22/nx-s1-5968588/openai-navier-stokes-problem-mathematicians-learn-little" target="_blank" rel="noopener">www.npr.org/2026/09/22/nx-s1-5968588/openai-navier-stokes-problem-mathematicians-learn-little</a></li>
+                <li>J. Howlett, “OpenAI’s blockbuster math proof isn’t what you think it is,” <em>Scientific American</em>, 13 Oct 2026. <a href="https://www.scientificamerican.com/article/openais-blockbuster-navier-stokes-proof-isnt-what-we-thought-it-was/" target="_blank" rel="noopener">www.scientificamerican.com/article/openais-blockbuster-navier-stokes-proof-isnt-what-we-thought-it-was</a></li>
+                <li>A. Bastounis, F. Circelli and A. C. Hansen, “Navier-Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs,” arXiv:2610.08144 (2026). <a href="https://arxiv.org/abs/2610.08144" target="_blank" rel="noopener">arxiv.org/abs/2610.08144</a></li>
+                <li>T. Buckmaster, statement (PDF), 7 Sep 2026. <a href="https://cims.nyu.edu/~tristanb/statement.pdf" target="_blank" rel="noopener">cims.nyu.edu/~tristanb/statement.pdf</a></li>
+                <li>A. M. Constantin, “OpenAI publishes its Navier-Stokes proof and says it will not claim the Millennium Prize,” <em>The Next Web</em>, 9 Sep 2026. <a href="https://thenextweb.com/news/openai-navier-stokes-proof-published-millennium-prize" target="_blank" rel="noopener">thenextweb.com/news/openai-navier-stokes-proof-published-millennium-prize</a></li>
+              </ol>
+            </div>
+          </article>
+          <article class="note-post" id="news-lz-dark-matter" data-note="lz-dark-matter" hidden>
+            <h2 class="n-title" data-ko="우리는 암흑물질을 발견했는가?">Have we discovered dark matter?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2026-09-01">Science News · 2026-09-01</p>
+            <p data-ko="별, 행성, 사람까지, 우리가 지금까지 본 모든 것은 우주 물질의 약 15%에 불과해요. 나머지는 눈에 보이지 않는 ‘암흑물질’이에요. 중력으로 그 존재를 알 뿐, 그 입자를 하나라도 잡은 사람은 아직 없어요.">Everything you’ve ever seen — stars, planets, people — makes up only about 15% of the matter in the universe. The rest is invisible “dark matter.” We know it’s there from its gravity, but no one has ever caught a single particle of it.</p>
+            <figure class="rfig news-fig w585">
+              <a href="images/universe-composition.jpg" target="_blank" rel="noopener"><img src="images/universe-composition.jpg" width="1800" height="1125" loading="lazy" decoding="async" alt="Pie chart of the energy budget of the universe" data-ko-alt="우주의 에너지 구성을 보여 주는 원형 그래프"></a>
+              <figcaption><span data-ko="우주의 구성. 암흑에너지(Λ) 68%, 암흑물질(χ) 27%, 그리고 우리가 지금까지 본 모든 것인 보통 물질(B)은 겨우 5%예요.">What the universe is made of: dark energy (Λ, 68%), dark matter (χ, 27%) and ordinary matter (B, just 5%) — everything we have ever seen.</span><span class="credit">Pie chart made for this site; values from M. Cirelli, A. Strumia and J. Zupan, <em>Dark Matter</em>, <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2406.01705">arXiv:2406.01705</a>. Slice images: dark energy — NASA, ESA, CSA, and STScI (<a target="_blank" rel="noopener" href="https://esawebb.org/images/webb-first-deep-field/">ESA/Webb</a>); dark matter — NASA, ESA, M.J. Jee and H. Ford (Johns Hopkins University) (<a target="_blank" rel="noopener" href="https://esahubble.org/images/heic0709a/">ESA/Hubble</a>); baryonic matter — NASA, ESA, CSA, STScI; J. DePasquale, A. Koekemoer, A. Pagan (STScI) (<a target="_blank" rel="noopener" href="https://esawebb.org/images/weic2216a/">ESA/Webb</a>); all licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> and cropped to the slices. Neutrinos — NASA/SDO (AIA); light — NASA/WMAP Science Team (both public domain). The two thinnest slices are enlarged for visibility.</span></figcaption>
+            </figure>
+            <p data-ko="LZ는 그 입자를 잡으려고 만든 실험이에요. 미국 사우스다코타 지하 약 1.5km에서, 검출 영역에 담긴 액체 제논 7톤을 지켜보며 암흑물질 입자가 원자핵에 부딪힐 때 나는 희미한 빛을 기다리죠.">LZ is built to change that. Nearly a mile under South Dakota, it watches seven tonnes of liquid xenon for the faint flash of a dark-matter particle bumping into an atomic nucleus.</p>
+            <figure class="rfig news-fig news-grid sm">
+              <div class="news-grid-cells" style="grid-template-columns:0.553fr 1.149fr"><a href="images/LZ-detector.png" target="_blank" rel="noopener"><img src="images/LZ-detector.png" width="712" height="1288" loading="lazy" decoding="async" alt="The assembled LZ xenon detector" data-ko-alt="조립된 LZ 제논 검출기"></a><a href="images/LZ-detector_top.png" target="_blank" rel="noopener"><img src="images/LZ-detector_top.png" width="1372" height="1194" loading="lazy" decoding="async" alt="The LZ top PMT array viewed from above" data-ko-alt="위에서 본 LZ 상단 광센서(PMT) 배열"></a></div>
+              <figcaption><span data-ko="실제 LZ. 조립된 제논 검출기(왼쪽)와 위에서 내려다본 상단 광센서 배열(오른쪽)이에요.">The real thing: LZ’s assembled xenon detector (left) and its top array of light sensors seen from above (right).</span><span class="credit">Photos by Matthew Kapust, Sanford Underground Research Facility, used with permission. From D.S. Akerib et al., <a href="https://doi.org/10.1016/j.nima.2019.163047" target="_blank" rel="noopener">Nucl. Instrum. Methods A</a> <strong>953</strong>, 163047 (2020), Figs. 2–3.</span></figcaption>
+            </figure>
+            <p data-ko="2026년 9월 1일, LZ가 뜻밖의 결과를 발표했어요. 에너지가 약 248 keV인 이벤트 하나. 대부분의 암흑물질 탐색이 보는 범위보다 훨씬 높고, 알려진 배경 신호가 아주 적을 것으로 예상되는 영역이에요.">On 1 September 2026, LZ reported a surprise: one event, at an energy of about 248 keV — well above where most dark-matter searches look, in a region where known backgrounds are expected to be very low.</p>
+            <figure class="rfig news-fig sm">
+              <a href="images/LZ-detector_logic.png" target="_blank" rel="noopener"><img src="images/LZ-detector_logic.png" width="1286" height="1344" loading="lazy" decoding="async" alt="Dual-phase xenon TPC working principle: S1 and S2 signals" data-ko-alt="S1과 S2 신호를 이용하는 이중상 제논 검출기의 동작 원리"></a>
+              <figcaption><span data-ko="충돌이 보이는 방법. 입자가 액체 제논에서 짧은 빛(S1)을 내고, 튀어나온 전자가 위쪽 기체층으로 올라가 더 큰 두 번째 빛(S2)을 만들어요.">How a hit shows up: a particle makes a quick flash in the liquid xenon (S1); the electrons it knocks loose drift up into the gas and make a second, bigger flash (S2).</span><span class="credit">Adapted from LZ Collaboration, <em>The Data Acquisition System of the LZ Dark Matter Detector: FADR</em>, <a href="https://arxiv.org/abs/2405.14732" target="_blank" rel="noopener">arXiv:2405.14732</a> — Nucl. Instrum. Meth. A <strong>1068</strong>, 169712 (2024). Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Relabelled by the author.</span></figcaption>
+            </figure>
+            <h3 data-ko="그래서… 암흑물질일까?">So… is it dark matter?</h3>
+            <p data-ko="연구진의 답은 ‘아직 아니다’예요. LZ 대변인 릭 게이츠켈(Rick Gaitskell)은 ‘암흑물질을 봤다고 주장하지 않는다’고 말했어요. 여러 곳을 동시에 살펴본 효과까지 고려하면, 이 이벤트의 유의성은 2.6σ예요(모형 하나만 보면 최대 3.4σ). 물리학에서는 관례상 3σ를 ‘증거’, 5σ를 ‘발견’의 기준으로 써요. 쉽게 말하면, 알려진 배경만 있을 때 이만큼 두드러진 결과가 우연히 나올 확률이 약 0.5%라는 뜻이에요.">The scientists’ own answer: not yet. “We are not claiming to have seen dark matter,” said LZ spokesperson Rick Gaitskell. After accounting for having searched in many places at once, the event’s significance is 2.6σ (3.4σ at most for a single model). By convention, physicists call 3σ “evidence” and need 5σ to claim a discovery. Put simply: if only known backgrounds were present, a result at least this striking would turn up by chance about 0.5% of the time.</p>
+            <p data-ko="조심해야 할 이유는 더 있어요. 이벤트 하나로는 패턴이라고 할 수 없어요. 연구진 스스로 이 분석을 ‘맹검이 아닌 분석’으로 분류했고, 논문도 아직 동료 심사 전이에요. 만약 암흑물질이라면 양성자 질량의 약 200배보다 무거운 입자일 가능성이 높고, 가장 단순한 모형보다 복잡한 방식으로 상호작용하는 입자일 거예요.">More reasons for caution: one event is not a pattern. The collaboration itself classifies the analysis as non-blind, and the paper hasn’t been peer-reviewed yet. If it were dark matter, the particle would be heavy — likely more than about 200 times the mass of a proton — and would interact in a more complex way than the simplest models predict.</p>
+            <p data-ko="다음 단계는 간단해요. 계속 지켜보는 거예요. LZ는 지금도 데이터를 모으고 있어요. 신호가 진짜라면 비슷한 이벤트가 더 나올 거고, 아니라면 이 이벤트는 조용히 배경 속으로 묻힐 거예요.">The next step is simple: keep watching. LZ is still taking data. If the signal is real, more events like it should appear. If not, this one will quietly fade into the background.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; 아니요, 아직 암흑물질을 발견하지 못했어요. LZ는 알려진 배경으로 설명하기 어려운 이벤트 하나를 봤을 뿐이에요. 지켜볼 가치는 있지만, 축하하기엔 일러요."><strong>Bottom line.</strong> No, we haven’t discovered dark matter. LZ saw one surprising event that known backgrounds struggle to explain — worth watching, not yet worth celebrating.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>D. S. Akerib <em>et al.</em> (LZ Collaboration), “Search for dark matter particle interactions in an extended nuclear recoil energy window with the LUX-ZEPLIN (LZ) experiment,” arXiv:2609.02823 [hep-ex] (2026), submitted to <em>Phys. Rev. Lett.</em> <a href="https://arxiv.org/abs/2609.02823" target="_blank" rel="noopener">arxiv.org/abs/2609.02823</a></li>
+                <li>Berkeley Lab News Center, “LZ Sees Surprising Result in Search for Dark Matter,” 1 Sep 2026. <a href="https://newscenter.lbl.gov/2026/09/01/lz-sees-surprising-result-in-search-for-dark-matter/" target="_blank" rel="noopener">newscenter.lbl.gov/2026/09/01/lz-sees-surprising-result-in-search-for-dark-matter</a></li>
+                <li>U.S. Department of Energy, Office of Science, “LZ Sees Surprising Result in Search for Dark Matter,” 1 Sep 2026. <a href="https://www.energy.gov/science/articles/lz-sees-surprising-result-search-dark-matter" target="_blank" rel="noopener">www.energy.gov/science/articles/lz-sees-surprising-result-search-dark-matter</a></li>
+                <li>J. Aalbers <em>et al.</em> (LZ Collaboration), “Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment,” <em>Phys. Rev. Lett.</em> <strong>135</strong>, 011802 (2025). <a href="https://doi.org/10.1103/4dyc-z8zf" target="_blank" rel="noopener">doi.org/10.1103/4dyc-z8zf</a></li>
+              </ol>
+            </div>
+          </article>
+          <article class="note-post" id="news-brain-cell-computers" data-note="brain-cell-computers" hidden>
+            <h2 class="n-title" data-ko="배양된 뇌세포로 컴퓨터를 만들 수 있는가?">Can we build a computer from cultured brain cells?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2026-04-30">Science News · 2026-04-30</p>
+            <p data-ko="우리 뇌는 약 20와트로 돌아가요. 옛날 백열전구 하나보다 적은 전력이죠. 반면 가장 큰 AI 모델을 학습시키려면 수 메가와트를 쓰는 데이터센터가 필요해요. 그래서 나온 엉뚱한 생각. 살아 있는 진짜 신경세포로 계산하면 어떨까요?">Your brain runs on about 20 watts — less than an old incandescent light bulb. Training the biggest AI models takes data centres drawing megawatts. So here’s a wild idea: what if we computed with real, living neurons?</p>
+            <figure class="rfig news-fig ">
+              <a href="images/news/illus-brain-cell-computer.svg" target="_blank" rel="noopener"><img src="images/news/illus-brain-cell-computer.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: a light bulb with a brain labelled 20 W and server racks labelled MW; a chip with neurons on it connected in a loop to a screen playing Pong" data-ko-alt="그림: 뇌가 든 전구(20 W)와 서버 랙(MW). 신경세포가 올라간 칩이 퐁 게임 화면과 고리 모양 화살표로 이어져 있음"></a>
+              <figcaption><span data-ko="왼쪽: 뇌는 약 20W로 돌아가지만, AI 데이터센터는 수 메가와트를 써요. 오른쪽: 전극 칩 위에서 키운 신경세포가 퐁 게임을 해요. 세포의 활동이 막대를 움직이고, 전기 자극이 결과를 다시 알려 주죠.">Left: a brain runs on about 20 W, while AI data centres draw megawatts. Right: neurons grown on an electrode chip play Pong — their activity moves the paddle, and electrical pulses feed back what happened.</span><span class="credit">Illustration made for this site. Not to scale.</span></figcaption>
+            </figure>
+            <p data-ko="작은 규모로는 이미 시작됐어요. 2022년 호주 멜버른의 Cortical Labs는 칩 위에 뇌세포 약 80만 개를 키웠는데, 이 세포들이 몇 분 만에 간단한 퐁(Pong) 게임을 배우는 듯한 모습을 보였어요. 2023년 미국 인디애나대 연구팀은 뇌 오가노이드를 이용해, 일본어 모음을 발음하는 사람 8명 중 누구인지 컴퓨터가 맞히도록 도왔어요. 정답률은 약 78%였죠.">It’s already happening, on a small scale. In 2022, Cortical Labs in Melbourne grew about 800,000 brain cells on a chip, and they showed signs of learning a simplified game of Pong within minutes. In 2023, an Indiana University team used a brain organoid to help a computer tell which of eight people was saying Japanese vowels — right about 78% of the time.</p>
+            <figure class="rfig news-fig w78">
+              <a href="images/news/dishbrain-sem.jpg" target="_blank" rel="noopener"><img src="images/news/dishbrain-sem.jpg" width="746" height="249" loading="lazy" decoding="async" alt="Electron-microscope images of brain cells and their fibres covering a grid of chip electrodes; on the right the electrodes are tinted red" data-ko-alt="칩 전극 격자를 뒤덮은 뇌세포와 신경섬유의 전자현미경 사진. 오른쪽에는 전극이 붉게 칠해져 있음"></a>
+              <figcaption><span data-ko="전자현미경으로 본 DishBrain 칩 위의 뇌세포. 세포와 신경섬유가 칩의 전극 격자를 빽빽하게 덮고 있어요(오른쪽에서 붉게 칠한 부분이 전극).">Brain cells growing on the DishBrain chip, seen through an electron microscope: a dense web of cells and fibres covers the chip’s grid of electrodes (tinted red on the right).</span><span class="credit">Cropped from Fig. 2G–H of B. J. Kagan <em>et al.</em>, <a href="https://doi.org/10.1016/j.neuron.2022.09.001" target="_blank" rel="noopener">Neuron <strong>110</strong>, 3952 (2022)</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Red tint on the electrodes as in the original.</span></figcaption>
+            </figure>
+            <p data-ko="이제는 빌려 쓸 수도 있어요. Cortical Labs는 ‘생물학적 컴퓨터’ CL1을 팔고 있는데, 회사 말로는 신경세포를 최대 6개월까지 살려 둔대요. 2026년 4월 무렵에는 클라우드 서비스가 전 세계에 열려 있었고, 멜버른의 시범 데이터센터에는 CL1 120대가 들어가 있었어요. 스위스 스타트업 FinalSpark도 연구자들에게 뇌 오가노이드 원격 접속을 제공해요.">Now you can even rent one. Cortical Labs sells the CL1, a “biological computer” that, the company says, keeps neurons alive for up to six months. By April 2026 its Cortical Cloud was open to users worldwide, and a prototype data centre in Melbourne housed 120 units. Swiss start-up FinalSpark also offers researchers remote access to brain organoids.</p>
+            <h3 data-ko="그런데 정말 저전력일까?">But is it really low-power?</h3>
+            <p data-ko="그건 기대이지, 아직 증명된 건 아니에요. 회사는 CL1 20대를 담은 랙 하나가 약 0.6킬로와트를 쓴다고 해요. 하지만 세포를 살려 두는 장비까지 포함해서, 쓸모 있는 작업을 일반 칩보다 적은 에너지로 해낸 사례는 아직 없어요. 규모도 갈 길이 멀어요. 지금 칩에는 세포가 많아야 100만 개쯤인데, 사람 뇌에는 신경세포가 약 860억 개 있거든요.">That’s the promise, not yet the proof. The company says a rack of 20 CL1 units draws about 0.6 kW. But nobody has shown a useful task done with less energy than ordinary chips once you count the life support that keeps the cells alive. And scale is a long way off: today’s chips hold up to about a million cells, while a human brain has about 86 billion neurons.</p>
+            <p data-ko="다른 걸림돌도 있어요. 세포는 몇 년이 아니라 몇 달밖에 못 살고, 원하는 일을 시키기도 어려워요. 윤리적 질문도 있어요. 오가노이드가 충분히 커지면 무언가를 느낄 수 있을까요? 연구자들 사이에서 활발히 논의되고 있어요.">Other hurdles remain: the cells live for months, not years, and getting them to do what you want is hard. There’s an ethical question too — could a big enough organoid ever feel anything? Researchers are actively debating it.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; 살아 있는 신경세포는 이미 간단한 일을 배울 수 있고, 클라우드로 빌려 쓸 수도 있어요. 하지만 에너지 효율에서 실리콘 칩을 이길지는 아직 아무도 몰라요."><strong>Bottom line.</strong> Living neurons can already learn simple tasks, and you can rent them in the cloud. Whether they’ll ever beat silicon on energy is still an open bet.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>B. J. Kagan <em>et al.</em>, “In vitro neurons learn and exhibit sentience when embodied in a simulated game-world,” <em>Neuron</em> <strong>110</strong>, 3952–3969.e8 (2022). <a href="https://doi.org/10.1016/j.neuron.2022.09.001" target="_blank" rel="noopener">doi.org/10.1016/j.neuron.2022.09.001</a></li>
+                <li>H. Cai <em>et al.</em>, “Brain organoid reservoir computing for artificial intelligence,” <em>Nature Electronics</em> <strong>6</strong>, 1032–1039 (2023). <a href="https://doi.org/10.1038/s41928-023-01069-w" target="_blank" rel="noopener">doi.org/10.1038/s41928-023-01069-w</a></li>
+                <li>Cortical Labs, “CL1” (product page). <a href="https://corticallabs.com/cl1" target="_blank" rel="noopener">corticallabs.com/cl1</a></li>
+                <li>M. Tarre, “Cortical Labs CL1 commercial milestone after AUD $245k grant,” <em>IT Brief Australia</em>, 30 Apr 2026. <a href="https://itbrief.com.au/story/cortical-labs-cl1-commercial-milestone-after-aud-245k-grant" target="_blank" rel="noopener">itbrief.com.au/story/cortical-labs-cl1-commercial-milestone-after-aud-245k-grant</a></li>
+                <li>F. D. Jordan <em>et al.</em>, “Open and remotely accessible Neuroplatform for research in wetware computing,” <em>Frontiers in Artificial Intelligence</em> <strong>7</strong>, 1376042 (2024). <a href="https://doi.org/10.3389/frai.2024.1376042" target="_blank" rel="noopener">doi.org/10.3389/frai.2024.1376042</a></li>
+                <li>L. Smirnova <em>et al.</em>, “Organoid intelligence (OI): the new frontier in biocomputing and intelligence-in-a-dish,” <em>Frontiers in Science</em> <strong>1</strong>, 1017235 (2023). <a href="https://doi.org/10.3389/fsci.2023.1017235" target="_blank" rel="noopener">doi.org/10.3389/fsci.2023.1017235</a></li>
+                <li>C. Wood, H. Wang, W.-J. Yang and Y. Xi, “Facing the possibility of consciousness in human brain organoids,” <em>Patterns</em> <strong>6</strong>, 101365 (2025). <a href="https://doi.org/10.1016/j.patter.2025.101365" target="_blank" rel="noopener">doi.org/10.1016/j.patter.2025.101365</a></li>
+              </ol>
+            </div>
+          </article>
+          <article class="note-post" id="news-simulation" data-note="simulation" hidden>
+            <h2 class="n-title" data-ko="이 세계는 시뮬레이션인가?">Is the world a simulation?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2025-04-17">Science News · 2025-04-17</p>
+            <p data-ko="몬스터가 가득한 게임 맵을 떠올려 볼까요. 잘 만든 게임은 플레이어가 없는 동안 몬스터 위치를 미리 정해 두고 계속 움직이게 하지 않아요. 그러면 컴퓨팅 자원이 엄청나게 낭비되거든요. 대신 플레이어가 맵에 들어서는 순간, 난수를 굴려 몬스터가 어디 있을지 정해요. 이제 양자역학을 떠올려 볼까요. 측정하기 전까지 양자역학은 입자가 어디서 발견될지 확률만 알려 주고, 측정하는 순간 한 곳이 무작위로 정해지는 것처럼 보여요. 우연일까요? 이걸 우리 우주가 시뮬레이션이라는 힌트로 보는 사람들도 있어요.">Picture a game map full of monsters. A well-made game doesn’t keep every monster placed and moving while no player is around — that would waste enormous computing power. Instead, the moment you step into the map, it rolls random numbers and decides where the monsters are. Now think about quantum mechanics: before a measurement, the theory gives only the probabilities of where a particle will be found; the measurement then turns up one definite place, seemingly at random. Coincidence? Some people see it as a hint that our universe is a simulation.</p>
+            <figure class="rfig news-fig ">
+              <a href="images/news/illus-simulation.svg" target="_blank" rel="noopener"><img src="images/news/illus-simulation.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: left, a game map where monsters keep moving with no player and an overheating chip (crossed out), versus a map where monsters appear only after the player enters and dice are rolled (checked); right, a probability curve that becomes one definite position after measurement" data-ko-alt="그림: 왼쪽은 플레이어가 없는데도 몬스터가 계속 움직이고 칩이 과열되는 맵(X 표시)과, 플레이어가 들어온 뒤 주사위를 굴려야 몬스터가 나타나는 맵(체크 표시). 오른쪽은 측정 전의 확률 곡선이 측정 후 한 위치로 정해지는 모습"></a>
+              <figcaption><span data-ko="왼쪽: 아무도 없는데 몬스터를 계속 움직이게 하면 컴퓨팅 자원이 낭비돼요(✗). 플레이어가 들어오는 순간 난수로 위치를 정하면 자원을 아낄 수 있죠(✓). 오른쪽: 측정 전 양자역학은 퍼져 있는 확률만 알려 주고, 측정하면 입자가 한 곳에서 무작위로 발견돼요. 둘은 닮았을까요? 그게 질문이에요.">Left: keeping every monster moving while no one is there wastes computing power (✗); deciding their positions with a roll of random numbers only when the player walks in saves it (✓). Right: before a measurement, quantum theory gives only a spread of probabilities; the measurement finds the particle in one place, at random. Alike? That’s the question.</span><span class="credit">Illustration made for this site. Not to scale.</span></figcaption>
+            </figure>
+            <p data-ko="‘관측할 때만 정한다’는 생각은 2017년 톰 캠벨(Tom Campbell) 등의 논문에서 구체적으로 나왔어요. 계산 자원이 한정된 시뮬레이터라면, 기계가 기록할 때가 아니라 플레이어가 실제로 관측할 때만 세부를 만들어 자원을 아낄 거라는 추론이에요.">This “decide only when observed” idea was spelled out in a 2017 paper by Tom Campbell and colleagues. A simulator with limited computing power, they reasoned, would save effort by generating details only when a player actually observes them — not when a machine merely records them.</p>
+            <h3 data-ko="그래서, 우리는 시뮬레이션 속에 있을까?">So, are we in one?</h3>
+            <p data-ko="2025년 천체물리학자 프랑코 바차(Franco Vazza)는 지구 하나만 대충 시뮬레이션해도, 쓸모 있는 속도로 돌리려면 관측 가능한 우주의 모든 별보다 많은 에너지가 필요하다고 계산했어요. 적어도 시뮬레이터가 우리와 같은 물리 법칙을 따른다면요.">In 2025, astrophysicist Franco Vazza calculated that even a crude simulation of Earth alone, run at a useful speed, would need more energy than all the stars in the visible universe — at least for a simulator bound by our laws of physics.</p>
+            <figure class="rfig news-fig w56">
+              <a href="images/news/webb-deep-field.jpg" target="_blank" rel="noopener"><img src="images/news/webb-deep-field.jpg" width="1568" height="1600" loading="lazy" decoding="async" alt="Thousands of galaxies of many colours and shapes, some stretched into arcs, against black space" data-ko-alt="검은 우주를 배경으로 색과 모양이 제각각인 은하 수천 개가 보이고, 일부는 활처럼 휘어 있는 모습"></a>
+              <figcaption><span data-ko="웹 망원경의 첫 딥필드. 팔을 뻗어 든 모래알 하나만 한 하늘에 은하 수천 개가 담겨 있어요. 이게 시뮬레이션이라면, 정말 놀랍도록 정교한 시뮬레이션이에요.">Webb’s First Deep Field: thousands of galaxies in a patch of sky about the size of a grain of sand held at arm’s length. If this is a simulation, it’s a remarkably detailed one.</span><span class="credit">Image: NASA, ESA, CSA, and STScI, via <a href="https://esawebb.org/images/webb-first-deep-field/" target="_blank" rel="noopener">ESA/Webb</a>, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Resized.</span></figcaption>
+            </figure>
+            <p data-ko="그럼 양자역학 힌트는요? ‘게임 엔진 같다’는 건 비유이지 증거가 아니에요. 어느 쪽이든 증거를 찾은 실험은 없어요.">And the quantum clue? “It looks like a game engine” is an analogy, not evidence. No experiment has found evidence either way.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; 아무도 몰라요. ‘관측할 때만 정한다’는 비유는 인상적이지만 증거는 아니에요. 최근 나온 반론도 이론적 계산이지, 실험 결과가 아니에요."><strong>Bottom line.</strong> Nobody knows. The “decide only when observed” idea is a striking analogy, but it isn’t evidence, and the recent counter-argument is a theoretical calculation, not an experiment.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>T. Campbell, H. Owhadi, J. Sauvageau and D. Watkinson, “On testing the simulation theory,” <em>International Journal of Quantum Foundations</em> <strong>3</strong>(3), 78–99 (2017); arXiv:1703.00058. <a href="https://arxiv.org/abs/1703.00058" target="_blank" rel="noopener">arxiv.org/abs/1703.00058</a></li>
+                <li>F. Vazza, “Astrophysical constraints on the simulation hypothesis for this Universe: why it is (nearly) impossible that we live in a simulation,” <em>Frontiers in Physics</em> <strong>13</strong>, 1561873 (2025). <a href="https://doi.org/10.3389/fphy.2025.1561873" target="_blank" rel="noopener">doi.org/10.3389/fphy.2025.1561873</a></li>
+                <li>ESA/Webb, “Webb Delivers Deepest Infrared Image of Universe Yet,” 12 Jul 2022. <a href="https://esawebb.org/images/webb-first-deep-field/" target="_blank" rel="noopener">esawebb.org/images/webb-first-deep-field</a></li>
+              </ol>
+            </div>
+          </article>
+          <article class="note-post" id="news-butterfly-memory" data-note="butterfly-memory" hidden>
+            <h2 class="n-title" data-ko="부모의 기억은 자식에게 유전될 수 있는가?">Can a parent’s memories be passed on to their children?</h2>
+            <p class="n-meta" data-ko="과학 뉴스 · 2024-08-28">Science News · 2024-08-28</p>
+            <p data-ko="나비는 애벌레 시절에 배운 걸 기억할 수 있을까요? 번데기 안에서 몸이 거의 통째로 다시 만들어지는데도요? 그리고 그 기억을 자식에게 물려줄 수 있을까요? 일본의 열 살 소년이 직접 알아보기로 했어요.">Can a butterfly remember something it learned as a caterpillar — even though its body is almost completely rebuilt inside the chrysalis? And could it pass that memory on to its children? A 10-year-old in Japan decided to find out.</p>
+            <figure class="rfig news-fig w62">
+              <a href="images/news/papilio-adult.jpg" target="_blank" rel="noopener"><img src="images/news/papilio-adult.jpg" width="1600" height="1066" loading="lazy" decoding="async" alt="An adult swallowtail butterfly with black-and-cream wings feeding on pink flowers" data-ko-alt="검은색과 크림색 날개를 가진 호랑나비 성충이 분홍 꽃에서 꿀을 빠는 모습"></a>
+              <figcaption><span data-ko="호랑나비(&lt;em&gt;Papilio xuthus&lt;/em&gt;) 성충. 조가 2025년 실험에 쓴 종이에요.">An adult swallowtail (<em>Papilio xuthus</em>), the species Jo used in his 2025 trials.</span><span class="credit">Photo: pcs34560, via <a href="https://commons.wikimedia.org/wiki/File:Papilio_xuthus_photo_by_Pcs34560_20161016_1208.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>. Public domain. Resized.</span></figcaption>
+            </figure>
+            <p data-ko="고베의 초등학생 나가이 조(長井丈)는 2024년 8월 28일 교토에서 열린 국제곤충학회(ICE2024)에서 포스터를 발표했어요. 방법은 이랬어요. 호랑나비 애벌레에게 라벤더 냄새를 맡게 하면서, 저주파 치료기로 약한 전기 자극을 줬어요. 애벌레가 나비가 되자, 투명 파일로 직접 만든 Y자 미로에서 라벤더 향 설탕물과 그냥 설탕물 중 하나를 고르게 했죠.">Jo Nagai, a schoolboy from Kobe, presented his poster on 28 August 2024 at the International Congress of Entomology in Kyoto. His method: let swallowtail caterpillars smell lavender while giving them a mild shock from a low-frequency therapy device. Once they became butterflies, he offered a choice — sugar water with lavender, or plain sugar water — in a Y-shaped maze he built from clear plastic folders.</p>
+            <p data-ko="결과는 놀라웠어요. 자극을 받지 않은 나비는 거의 반반으로 골랐는데, 자극을 받은 나비는 약 80%가 라벤더를 피했어요. 그리고 그 자식, 심지어 손자 세대도 라벤더를 피하는 경향이 있었다고 보고했어요. 2025년까지 나비 397마리로 770번 실험했대요. 그의 이야기는 2025년 팟캐스트 &lt;em&gt;Signal Hill&lt;/em&gt;(나중에 &lt;em&gt;Radiolab&lt;/em&gt;에서도 방송)으로 알려졌고, 2026년 7월 온라인에서 크게 퍼졌어요.">The results were striking. Butterflies that hadn’t been shocked split about 50/50. About 80% of the shocked ones avoided lavender. And he reported that their children, and even grandchildren, tended to avoid it too. By 2025 he had run 770 trials with 397 butterflies. His story reached a wide audience in 2025 through the podcast <em>Signal Hill</em>, later rebroadcast by <em>Radiolab</em>, then spread widely online in July 2026.</p>
+            <figure class="rfig news-fig ">
+              <a href="images/news/illus-butterfly-experiment.svg" target="_blank" rel="noopener"><img src="images/news/illus-butterfly-experiment.svg" width="1600" height="900" loading="lazy" decoding="async" alt="Illustration: a caterpillar with lavender and a lightning bolt, a chrysalis and a butterfly; a Y-shaped maze with 20% toward lavender and 80% toward plain sugar water; a family tree of butterflies with a question mark" data-ko-alt="그림: 라벤더와 번개 표시 옆의 애벌레, 번데기, 나비. 라벤더 쪽 20%, 그냥 설탕물 쪽 80%로 갈린 Y자 미로. 물음표가 붙은 나비 가계도"></a>
+              <figcaption><span data-ko="조의 실험. 애벌레에게 라벤더 냄새와 약한 자극을 함께 줬더니, 나비가 된 뒤 약 80%가 Y자 미로에서 라벤더 쪽을 피했어요. 자식과 손자 세대도 그 기억을 물려받았을까요? 그 부분은 아직 입증되지 않았어요.">Jo’s experiment: caterpillars smelled lavender with a mild shock; as butterflies, about 80% avoided the lavender arm of a Y-maze. Did their children and grandchildren inherit the memory? That part isn’t shown yet.</span><span class="credit">Illustration made for this site. Not to scale.</span></figcaption>
+            </figure>
+            <h3 data-ko="그래서, 기억은 유전될까?">So, is memory inherited?</h3>
+            <p data-ko="앞부분은 근거가 탄탄해요. 2008년 미국 조지타운대 연구진은 나방이 애벌레 때 배운 회피 행동을 번데기를 거쳐서도 간직한다는 걸 보였어요. 그 연구자 중 한 명인 곤충학자 마사 와이스(Martha Weiss)는 나중에 조와 편지와 이메일을 주고받았어요.">The first half is well supported. In 2008, Georgetown University researchers showed that moths keep an aversion they learned as caterpillars right through metamorphosis. One of them, entomologist Martha Weiss, later exchanged letters and emails with Jo.</p>
+            <p data-ko="뒷부분이 진짜 놀라운 부분이에요. 배운 행동이 자손에게 전해진다는 보고는 예쁜꼬마선충(&lt;em&gt;C. elegans&lt;/em&gt;) 같은 몇몇 경우뿐이고, 그마저도 논란이 있어요. 2014년의 유명한 생쥐 연구도 마찬가지고요. 조의 연구는 아직 동료 심사를 거치지 않았고, 통계 분석이나 맹검, 독립적인 반복 실험 같은 세부 내용도 공개되지 않았어요. 어미를 통해 전해진 영향이나 알에 남은 냄새 같은 다른 설명도 아직 배제되지 않았고요.">The second half is the extraordinary part. Learned behaviour passing to offspring has been reported only in a few cases, such as the worm <em>C. elegans</em> — and even those are debated, as is a famous 2014 mouse study. Jo’s work hasn’t been peer-reviewed yet, and details such as statistics, blinding and independent replication haven’t been published. Other explanations, like effects passed through the mother or traces of scent on the eggs, haven’t been ruled out.</p>
+            <div class="n-close"><p data-ko="&lt;strong&gt;한 줄 정리.&lt;/strong&gt; 한 아이의 호기심이 만든 멋진 과학이에요. 기억이 번데기를 거쳐 살아남는 건 그럴듯하지만, 기억이 유전된다는 건 아직 입증되지 않았어요. 그래서 더 실험해 볼 가치가 있는 질문이에요."><strong>Bottom line.</strong> A wonderful piece of curiosity-driven science by a child. A memory surviving metamorphosis is plausible; a memory being inherited is not yet shown — which is exactly what makes it worth testing further.</p></div>
+            <div class="n-sources">
+              <h3 data-ko="출처">Sources</h3>
+              <ol>
+                <li>J. Nagai, “Swallowtail butterflies remember what they learned as caterpillars, and the sex-linked memories persist for three generations,” ICE2024 Kyoto, student poster SP-06, 28 Aug 2024. <a href="https://pub.confit.atlas.jp/en/event/ice2024/presentation/SP-06" target="_blank" rel="noopener">pub.confit.atlas.jp/en/event/ice2024/presentation/SP-06</a></li>
+                <li>HugKum (Shogakukan), 「孫正義育英財団も支援、11歳の昆虫学者に世界が注目…【長井丈くん親子インタビュー】」 (in Japanese), 23 Dec 2025. <a href="https://hugkum.sho.jp/747736" target="_blank" rel="noopener">hugkum.sho.jp/747736</a></li>
+                <li>Georgetown University Department of Biology, “New podcast features Georgetown entomologist’s collaboration with precocious Japanese butterfly researcher,” 26 Feb 2025. <a href="https://biology.georgetown.edu/news-story/new-podcast-features-georgetown-entomologists-collaboration-with-precociousjapanese-butterfly-researcher/" target="_blank" rel="noopener">biology.georgetown.edu/news-story/new-podcast-features-georgetown-entomologists-collaboration-with-precociousjapanese-butterfly-researcher</a></li>
+                <li>M. Cook, “A second grader wanted to know if his pet caterpillar would remember him. His experiment shocked scientists,” <em>GoodGoodGood</em>, 16 Jul 2026. <a href="https://www.goodgoodgood.co/articles/butterfly-catepillar-memory-boy-prodigy" target="_blank" rel="noopener">www.goodgoodgood.co/articles/butterfly-catepillar-memory-boy-prodigy</a></li>
+                <li>D. J. Blackiston, E. Silva Casey and M. R. Weiss, “Retention of Memory through Metamorphosis: Can a Moth Remember What It Learned As a Caterpillar?” <em>PLoS ONE</em> <strong>3</strong>, e1736 (2008). <a href="https://doi.org/10.1371/journal.pone.0001736" target="_blank" rel="noopener">doi.org/10.1371/journal.pone.0001736</a></li>
+                <li>R. S. Moore, R. Kaletsky and C. T. Murphy, “Piwi/PRG-1 Argonaute and TGF-β Mediate Transgenerational Learned Pathogenic Avoidance,” <em>Cell</em> <strong>177</strong>, 1827–1841.e12 (2019). <a href="https://doi.org/10.1016/j.cell.2019.05.024" target="_blank" rel="noopener">doi.org/10.1016/j.cell.2019.05.024</a></li>
+                <li>D. P. Gainey, A. V. Shubin and C. P. Hunter, “Reported transgenerational responses to <em>Pseudomonas aeruginosa</em> in <em>Caenorhabditis elegans</em> are not robust,” <em>eLife</em> <strong>13</strong>, RP100254 (2025). <a href="https://doi.org/10.7554/eLife.100254" target="_blank" rel="noopener">doi.org/10.7554/eLife.100254</a></li>
+                <li>B. G. Dias and K. J. Ressler, “Parental olfactory experience influences behavior and neural structure in subsequent generations,” <em>Nature Neuroscience</em> <strong>17</strong>, 89–96 (2014). <a href="https://doi.org/10.1038/nn.3594" target="_blank" rel="noopener">doi.org/10.1038/nn.3594</a></li>
+              </ol>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ==================== FOOTER (shows on every page) ==================== -->
     <footer>
       <div class="wrap">
         <p class="eyebrow" data-ko="연락처" data-ja="連絡先" data-es="Contacto" data-de="Kontakt">Contact</p>
         <p style="color:var(--ink); margin:0 0 2px"><a href="mailto:wonseok.bae@northwestern.edu">wonseok.bae@northwestern.edu</a></p>
         <p style="margin:0">Department of Physics &amp; Astronomy, Northwestern University</p>
-        <p class="updated" data-ko="최근 수정: 2026-08-03" data-ja="最終更新：2026-08-03" data-es="Última actualización: 2026-08-03" data-de="Zuletzt aktualisiert: 2026-08-03">Last updated: 2026-08-03</p>
+        <p class="updated" data-ko="최근 수정: 2026-10-16" data-ja="最終更新：2026-10-16" data-es="Última actualización: 2026-10-16" data-de="Zuletzt aktualisiert: 2026-10-16">Last updated: 2026-10-16</p>
       </div>
     </footer>
 
@@ -769,10 +1051,26 @@
     (function(){
       var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
       var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
-      function show(id){
-        if(!document.getElementById('page-'+id)) id = 'home';
+      // Pages with a table of contents (Notes, Science News): #PAGE shows the list; #PAGE/SLUG shows one post.
+      var listPages = pages.filter(function(p){ return p.querySelector('.note-index'); });
+      function showPost(page, slug){
+        var found = false;
+        page.querySelectorAll('.note-post[data-note]').forEach(function(n){
+          var on = n.getAttribute('data-note') === slug;
+          n.hidden = !on;
+          if(on) found = true;
+          else n.querySelectorAll('video').forEach(function(v){ v.pause(); });
+        });
+        page.querySelector('.note-index').hidden = found;
+        page.querySelector('.note-view').hidden = !found;
+      }
+      function show(hash){
+        var parts = hash.split('/');
+        var id = parts[0], sub = parts[1] || '';
+        if(!document.getElementById('page-'+id)){ id = 'home'; sub = ''; }
         pages.forEach(function(p){ p.classList.toggle('active', p.id === 'page-'+id); });
         links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-page') === id); });
+        listPages.forEach(function(p){ showPost(p, p.id === 'page-'+id ? sub : ''); });
         window.scrollTo(0, 0);
       }
       function current(){ return (location.hash || '#home').replace('#',''); }
